@@ -15,6 +15,12 @@ import static extension io.github.abelgomez.asyncapi.generator.utils.StringUtils
 import static extension java.text.MessageFormat.*
 import io.github.abelgomez.asyncapi.generator.utils.Assertions
 import io.github.abelgomez.asyncapi.generator.infra.IType
+import io.github.abelgomez.asyncapi.asyncApi.GuaranteeTerm
+import io.github.abelgomez.asyncapi.asyncApi.Scope
+import io.github.abelgomez.asyncapi.asyncApi.QoSMetric
+import io.github.abelgomez.asyncapi.asyncApi.AbstractQoSMetric
+import io.github.abelgomez.asyncapi.asyncApi.QoSMetricReference
+import io.github.abelgomez.asyncapi.asyncApi.DerivedQoSMetric
 
 abstract class OperationClass extends AbstractType implements IClass, ISerializable {
 	
@@ -95,6 +101,8 @@ abstract class OperationClass extends AbstractType implements IClass, ISerializa
 	protected def messageInterface() {
 		return operation.api.transform.messageInterface
 	}
+	
+
 
 	override imports() {
 		val result = new TreeSet		
@@ -109,7 +117,44 @@ abstract class OperationClass extends AbstractType implements IClass, ISerializa
 		if (parametersClass !== null) {
 			result.add(parametersClass.fqn)
 		}
+		if(requiresMonitoring){
+			result.add("monitoring.Monitor")
+			result.add("monitoring.MetricsDescriptor")
+		}
+
 		return Collections.unmodifiableNavigableSet(result)
+	}
+
+	//////////////////////////////////////////////////////////////
+	// Methods to support Monitoring generation. 
+	//////////////////////////////////////////////////////////////
+	protected def requiresMonitoring(){
+		operation.api.sla.eAllContents.toIterable.filter(Scope).exists[it.reference.name.equals(operation.channel.name)]
+	}
+	
+	protected def getMetricNames(){
+		val metricsList = new TreeSet();
+		
+		//for all Guarantee terms in the SLA.
+		for (GuaranteeTerm gt :  operation.api.sla.guaranteeTerm) {
+			//if the scope of the Guarantee term is the channel of this Operation.			
+			if ( gt.scopes.exists[it.reference.name.equals(operation.channel.name)]){
+				//for all the QoSmetrics that are included in the Guarantee Term 				
+				for (abstractQoSMetric : gt.eAllContents.toIterable.filter(AbstractQoSMetric)){
+					//we add the metric name to the returning Set (for either QoSmetric or QoSMetricReference).
+					if ((abstractQoSMetric instanceof  QoSMetric)){
+						val qosMetric =  abstractQoSMetric as QoSMetric;
+						if (!(qosMetric instanceof DerivedQoSMetric)) metricsList.add(qosMetric.name);	
+					}else if (abstractQoSMetric instanceof QoSMetricReference ){
+						val qosMetric =  abstractQoSMetric as QoSMetricReference;
+						if (!(qosMetric instanceof DerivedQoSMetric)) metricsList.add(qosMetric.metric.name);	
+					}
+				}
+			}
+		}
+		
+								
+		return  Collections.unmodifiableNavigableSet(metricsList);
 	}
 
 	abstract protected def CharSequence configMethods();
@@ -134,6 +179,10 @@ abstract class OperationClass extends AbstractType implements IClass, ISerializa
 			«IF nestedMessage !== null»
 			
 			«nestedMessage.serialize»
+			«ENDIF»
+			
+			«IF (requiresMonitoring)»
+			     private static Monitor monitor; 	 
 			«ENDIF»
 			
 			/**
@@ -201,6 +250,20 @@ class PublishOperationClass extends OperationClass {
 		    if (!server.isConnected()) {
 				server.connect();
 			}
+			«IF (requiresMonitoring)»
+			String[] metricNames = { « getMetricNames.join (',')» };
+			MetricsDescriptor metricsDescriptor = new MetricsDescriptor(metricNames);
+			try {
+				monitor = new Monitor(metricsDescriptor.getMeasureIntruments());
+				
+				//TODO: Do we have a PublisherID somewhere?
+				//TODO: LightMeasured is hard-coded.
+				monitor.notifyMessageSent("PublisherID", config.getChannelName(),((LightMeasured) message).getPayload().getMessageId(), System.currentTimeMillis());
+				
+			} catch (Exception e) {
+				e.printStackTrace(); //TODO: Arreglar gestió d'excepcions.
+			}
+		    «ENDIF»		 
 			server.publish(config, message.toJson().getBytes());
 		}
 		
@@ -305,9 +368,25 @@ class SubscribeOperationClass extends OperationClass {
 		public static void subscribe(IServer server, «channelSubscribeConfigurationInterface.name» config, «callbackInterface.name» callback) throws «serverExceptionClass.name» {
 		    if (!server.isConnected()) {
 				server.connect();
-		    }
+		    }		    
+   			«IF (requiresMonitoring)»
+			String[] metricNames = { « getMetricNames.join (',')» };
+			
+			MetricsDescriptor metricsDescriptor = new MetricsDescriptor(metricNames);
+			try {
+				monitor = new Monitor(metricsDescriptor.getMeasureIntruments());
+			} catch (Exception e) {
+				e.printStackTrace(); //TODO: Arreglar gestió d'excepcions.
+			}
+		    «ENDIF»		    
 		    server.subscribe(config, (received) -> {
 		    	«messageClass.name» message = «messageClass.name».fromJson(new String(received.getData())); 
+
+   			    «IF (requiresMonitoring)»
+   			    //TODO: Do we have a client ID defined somewhere?.		    	
+	    	    monitor.notifyMessageReceived("Client ID", config.getChannelName(), message.getPayload().getMessageId(), System.currentTimeMillis());
+		    	«ENDIF»		    	
+		    	
 		    	«IF parametersClass === null»
 		    	callback.messageArrived(message);
 		    	«ELSE»

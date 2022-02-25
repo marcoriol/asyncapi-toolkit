@@ -183,7 +183,7 @@ Components:
 		& ( '"parameters"' ':' '{' parameters+=NamedParameter (',' parameters+=NamedParameter)* '}' ','? )?
 		& ( '"operationTraits"' ':' '{' operationTraits+=NamedOperationTrait (',' operationTraits+=NamedOperationTrait)* '}' ','? )?
 		& ( '"messageTraits"' ':' '{' messageTraits+=NamedMessageTrait (',' messageTraits+=NamedMessageTrait)* '}' ','? )?
-		& ( '"x-qosMetrics"' ':' '{' qosMetrics+=NamedQoSMetric (',' qosMetrics+=NamedQoSMetric)* '}' ','? )?
+		& ( '"x-qosMetrics"' ':' '[' qosMetrics+=QoSMetric (',' qosMetrics+=QoSMetric)* ']' ','? )?
 //		& ( GenericJsonTupleButRef ','? )*
 	) '}';
 
@@ -195,14 +195,14 @@ Sla:
 	
 GuaranteeTerm:
 	{GuaranteeTerm} '{' (
-		  ( '"scopes"' ':' '{' scopes+=Scope (',' scope+=Scope)* '}' ',' )
-		  ( '"qualifyingConditions"' ':' '{' qualifyingConditions+=QualifyingCondition (',' qualifyingCondition+=QualifyingCondition)* '}'',')?
-		  ( '"slos"' ':' '{' slos+=Slo (',' slo+=Slo)* '}')	  
+		  ( '"scopes"' ':' '{' scopes+=Scope (',' scopes+=Scope)* '}' ',' )
+		  ( '"qualifyingConditions"' ':' '{' qualifyingConditions+=QualifyingCondition (',' qualifyingConditions+=QualifyingCondition)* '}'',')?
+		  ( '"slos"' ':' '{' slos+=Slo (',' slos+=Slo)* '}')	  
 	) '}';
 
 Scope:
 	{Scope}(
-	   name=AnyString ':' '{' '"$ref"' ':' ( reference= [Channel|AnyString] |  reference= [Operation])'}' 
+	   name=AnyString ':' reference= [Channel|AnyString]  
 	);
  
 QualifyingCondition:
@@ -214,34 +214,30 @@ Slo:
 ;		
 	
 AbstractQoSMetric:
-	Reference | QoSMetric;
+  QoSMetricReference | QoSMetric;
+
+QoSMetricReference:
+  metric= [QoSMetric|QoSMetricName]	
+;
 	
 QoSMetric:
 	('{' 
-		(AtomicQoSMetric | DerivedQoSMetric) ','
 		(
-		  ( '"description"' ':' description=AnyString ','? )?
+		  ( '"name"' ':' name=QoSMetricName ','? )?			
+		& ( '"description"' ':' description=AnyString ','? )?
 		& ( '"unit"' ':' unit=QoSMetricUnit ','? )
-		& ( '"dataType"' ':' dataType=QoSMetricType ','? )			
-		)
+		& ( '"dataType"' ':' dataType=QoSMetricType ','? )
+		) (DerivedQoSMetric)?			
 	'}');
 
  DerivedQoSMetric:
 	{DerivedQoSMetric}(
-	      ('"metricType"' ':'  '"derived"' ',' )	
-		& ('"window"' ':'  window = AnyString ','? )
+		'"derivedQoSMetricDefinition"' ':' '{' (
+		  ('"window"' ':'  window = AnyString ','? )
 		& ('"windowUnit"' ':'  windowUnit = WindowUnit ','? )
 		& ('"aggregationFunction"' ':'  aggregationFunction = AnyString ','? )
-		& ('"atomicMetric"' ':'  atomicMetric = AbstractQoSMetric  ','? )
-	)
+	) '}' )
 ;
-
-AtomicQoSMetric:	
-	{AtomicQoSMetric} ('"metricType"' ':' '"atomic"' )   
-; 
-
-NamedQoSMetric:
-	{NamedQoSMetric} name=AnyString ':' qosMetric=AbstractQoSMetric;
 
 BooleanCondition:
 	ANDCondition | ORCondition | AtomicBooleanCondition;
@@ -288,6 +284,11 @@ enum WindowUnit:
 	| messages = '"messages"'
 ;
 
+QoSMetricName:
+	'"latency"'	
+	| 	'"metric2"'
+	| 	'"metric3"'
+;
 enum QoSMetricUnit:
 	milliseconds = '"milliseconds"'
 	| seconds = '"seconds"'
