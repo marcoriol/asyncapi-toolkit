@@ -251,18 +251,14 @@ class PublishOperationClass extends OperationClass {
 				server.connect();
 			}
 			«IF (requiresMonitoring)»
-			String[] metricNames = { « getMetricNames.join (',')» };
-			MetricsDescriptor metricsDescriptor = new MetricsDescriptor(metricNames);
-			try {
-				monitor = new Monitor(metricsDescriptor.getMeasureIntruments());
-				
-				//TODO: Do we have a PublisherID somewhere?
-				//TODO: LightMeasured is hard-coded.
-				monitor.notifyMessageSent("PublisherID", config.getChannelName(),((LightMeasured) message).getPayload().getMessageId(), System.currentTimeMillis());
-				
-			} catch (Exception e) {
-				e.printStackTrace(); //TODO: Arreglar gestió d'excepcions.
-			}
+				String[] metricNames = { « getMetricNames.join (',')» };
+				MetricsDescriptor metricsDescriptor = new MetricsDescriptor(metricNames);
+				try {
+					monitor = new Monitor(metricsDescriptor.getMeasureIntruments());
+					monitor.notifyMessageSent(server.getID(), config.getChannelName(),((«message.transform.name») message).getPayload().getMessageId(), System.currentTimeMillis());	
+				} catch (Exception e) {
+					e.printStackTrace(); //TODO: Arreglar gestió d'excepcions.
+				}
 		    «ENDIF»		 
 			server.publish(config, message.toJson().getBytes());
 		}
@@ -383,8 +379,7 @@ class SubscribeOperationClass extends OperationClass {
 		    	«messageClass.name» message = «messageClass.name».fromJson(new String(received.getData())); 
 
    			    «IF (requiresMonitoring)»
-   			    //TODO: Do we have a client ID defined somewhere?.		    	
-	    	    monitor.notifyMessageReceived("Client ID", config.getChannelName(), message.getPayload().getMessageId(), System.currentTimeMillis());
+	    	    monitor.notifyMessageReceived(server.getID(), config.getChannelName(), message.getPayload().getMessageId(), System.currentTimeMillis());
 		    	«ENDIF»		    	
 		    	
 		    	«IF parametersClass === null»

@@ -238,6 +238,11 @@ class MqttServerClass extends ServerClass implements IClass {
 					throw new ServerException(e);
 				}
 			}
+			
+			@Override
+			public String getID(){
+				return this.client.getClientId();
+			}
 
 			
 

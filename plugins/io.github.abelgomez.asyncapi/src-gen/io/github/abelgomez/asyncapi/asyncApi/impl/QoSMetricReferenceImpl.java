@@ -4,55 +4,47 @@
 package io.github.abelgomez.asyncapi.asyncApi.impl;
 
 import io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage;
-import io.github.abelgomez.asyncapi.asyncApi.Reference;
+import io.github.abelgomez.asyncapi.asyncApi.QoSMetric;
+import io.github.abelgomez.asyncapi.asyncApi.QoSMetricReference;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Reference</b></em>'.
+ * An implementation of the model object '<em><b>Qo SMetric Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.ReferenceImpl#getUri <em>Uri</em>}</li>
+ *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricReferenceImpl#getMetric <em>Metric</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ReferenceImpl extends AbstractMessageImpl implements Reference
+public class QoSMetricReferenceImpl extends AbstractQoSMetricImpl implements QoSMetricReference
 {
   /**
-   * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
+   * The cached value of the '{@link #getMetric() <em>Metric</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUri()
+   * @see #getMetric()
    * @generated
    * @ordered
    */
-  protected static final String URI_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUri()
-   * @generated
-   * @ordered
-   */
-  protected String uri = URI_EDEFAULT;
+  protected QoSMetric metric;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ReferenceImpl()
+  protected QoSMetricReferenceImpl()
   {
     super();
   }
@@ -65,7 +57,7 @@ public class ReferenceImpl extends AbstractMessageImpl implements Reference
   @Override
   protected EClass eStaticClass()
   {
-    return AsyncApiPackage.Literals.REFERENCE;
+    return AsyncApiPackage.Literals.QO_SMETRIC_REFERENCE;
   }
 
   /**
@@ -74,9 +66,29 @@ public class ReferenceImpl extends AbstractMessageImpl implements Reference
    * @generated
    */
   @Override
-  public String getUri()
+  public QoSMetric getMetric()
   {
-    return uri;
+    if (metric != null && metric.eIsProxy())
+    {
+      InternalEObject oldMetric = (InternalEObject)metric;
+      metric = (QoSMetric)eResolveProxy(oldMetric);
+      if (metric != oldMetric)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AsyncApiPackage.QO_SMETRIC_REFERENCE__METRIC, oldMetric, metric));
+      }
+    }
+    return metric;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QoSMetric basicGetMetric()
+  {
+    return metric;
   }
 
   /**
@@ -85,12 +97,12 @@ public class ReferenceImpl extends AbstractMessageImpl implements Reference
    * @generated
    */
   @Override
-  public void setUri(String newUri)
+  public void setMetric(QoSMetric newMetric)
   {
-    String oldUri = uri;
-    uri = newUri;
+    QoSMetric oldMetric = metric;
+    metric = newMetric;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AsyncApiPackage.REFERENCE__URI, oldUri, uri));
+      eNotify(new ENotificationImpl(this, Notification.SET, AsyncApiPackage.QO_SMETRIC_REFERENCE__METRIC, oldMetric, metric));
   }
 
   /**
@@ -103,8 +115,9 @@ public class ReferenceImpl extends AbstractMessageImpl implements Reference
   {
     switch (featureID)
     {
-      case AsyncApiPackage.REFERENCE__URI:
-        return getUri();
+      case AsyncApiPackage.QO_SMETRIC_REFERENCE__METRIC:
+        if (resolve) return getMetric();
+        return basicGetMetric();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +132,8 @@ public class ReferenceImpl extends AbstractMessageImpl implements Reference
   {
     switch (featureID)
     {
-      case AsyncApiPackage.REFERENCE__URI:
-        setUri((String)newValue);
+      case AsyncApiPackage.QO_SMETRIC_REFERENCE__METRIC:
+        setMetric((QoSMetric)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +149,8 @@ public class ReferenceImpl extends AbstractMessageImpl implements Reference
   {
     switch (featureID)
     {
-      case AsyncApiPackage.REFERENCE__URI:
-        setUri(URI_EDEFAULT);
+      case AsyncApiPackage.QO_SMETRIC_REFERENCE__METRIC:
+        setMetric((QoSMetric)null);
         return;
     }
     super.eUnset(featureID);
@@ -153,27 +166,10 @@ public class ReferenceImpl extends AbstractMessageImpl implements Reference
   {
     switch (featureID)
     {
-      case AsyncApiPackage.REFERENCE__URI:
-        return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+      case AsyncApiPackage.QO_SMETRIC_REFERENCE__METRIC:
+        return metric != null;
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (uri: ");
-    result.append(uri);
-    result.append(')');
-    return result.toString();
-  }
-
-} //ReferenceImpl
+} //QoSMetricReferenceImpl

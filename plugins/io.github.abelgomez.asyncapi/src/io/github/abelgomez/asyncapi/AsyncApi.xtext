@@ -286,7 +286,7 @@ enum WindowUnit:
 
 QoSMetricName:
 	'"latency"'	
-	| 	'"metric2"'
+	| 	'"availability"'
 	| 	'"metric3"'
 ;
 enum QoSMetricUnit:

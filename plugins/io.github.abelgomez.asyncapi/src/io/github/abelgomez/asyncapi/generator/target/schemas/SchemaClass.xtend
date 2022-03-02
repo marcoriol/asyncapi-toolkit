@@ -24,6 +24,7 @@ class SchemaClass extends SchemaAbstractType {
 		val result = new TreeSet		
 		result.add("com.google.gson.Gson")
 		result.add("com.google.gson.annotations.SerializedName")
+		result.add("java.util.UUID")
 		result.add(schema.api.transform.jsonSerializableInterface.fqn)
 		referencedClasses.forEach[nc | result.addAll(nc.imports)]
 		return Collections.unmodifiableNavigableSet(result)
@@ -40,11 +41,22 @@ class SchemaClass extends SchemaAbstractType {
 		«classModifiers» class «name» implements «schema.api.transform.jsonSerializableInterface.name» {
 			«nestedClasses.join(System.lineSeparator, System.lineSeparator, "", [c | c.serialize])»
 			«referencedClasses.join(System.lineSeparator, System.lineSeparator, System.lineSeparator, [rc | rc.asProperty.declare])»
+			
+			
+			// TODO: Move the messageId to header instead of payload.
+			/**
+			 *  Identifier of the message
+			 */
+			@SerializedName("messageId")
+			private String messageId;
+			
 			/**
 			 * Private constructor. Instances of «name» should be created using 
 			 * {@link «asBuilder.name»} instead.
 			 */ 
 			private «name»() {
+				//TODO: Move the messageId to header instead of payload.
+				this.messageId = "msg-" + UUID.randomUUID().toString();
 			}
 			
 			/**
@@ -67,6 +79,16 @@ class SchemaClass extends SchemaAbstractType {
 			public static «name» fromJson(String json) {
 				Gson gson = new Gson();
 				return gson.fromJson(json, «name».class);
+			}
+			
+			//TODO: Move MessageId to header instead of payload.
+			/**
+			 * Returns the <code>messageId</code> property
+			 * 
+			 * @return A {@link String}
+			 */
+			public String getMessageId() {
+				return this.messageId;
 			}
 			
 			«referencedClasses.join(System.lineSeparator, [rc | rc.asProperty.getter])»

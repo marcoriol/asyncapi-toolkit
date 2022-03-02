@@ -238,6 +238,13 @@ class ServerInterface extends AbstractType implements IClass {
 			 */
 			void unsubscribe(«channelSubscribeConfigurationInterface.name» config) throws «serverExceptionClass.name»;
 			
+			/**
+			* Returns the identifier of the server with respect to the brokering system.
+			* @return Identifier of the server.
+			*/
+			String getID();	
+			
+			
 			«receivedClass.serialize»
 			
 			«serverExceptionClass.serialize»
