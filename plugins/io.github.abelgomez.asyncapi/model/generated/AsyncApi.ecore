@@ -202,6 +202,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QoSMetric" eSuperTypes="#//AbstractQoSMetric">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metricType" eType="#//QoSMetricName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="#//QoSMetricUnit"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="#//QoSMetricType"/>
@@ -209,7 +210,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DerivedQoSMetric" eSuperTypes="#//QoSMetric">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="window" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="windowUnit" eType="#//WindowUnit"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationFunction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationFunction" eType="#//AggregationFunction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanCondition"/>
   <eClassifiers xsi:type="ecore:EClass" name="ANDCondition" eSuperTypes="#//BooleanCondition #//ORCondition">
@@ -232,6 +233,16 @@
     <eLiterals name="hours" value="2" literal="&quot;hours&quot;"/>
     <eLiterals name="days" value="3" literal="&quot;days&quot;"/>
     <eLiterals name="messages" value="4" literal="&quot;messages&quot;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AggregationFunction">
+    <eLiterals name="AVG" literal="&quot;AVG&quot;"/>
+    <eLiterals name="MEDIAN" value="1" literal="&quot;MEDIAN&quot;"/>
+    <eLiterals name="MAX" value="2" literal="&quot;MAX&quot;"/>
+    <eLiterals name="MIN" value="3" literal="&quot;MIN&quot;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="QoSMetricName">
+    <eLiterals name="latency" literal="&quot;latency&quot;"/>
+    <eLiterals name="availability" value="1" literal="&quot;availability&quot;"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="QoSMetricUnit">
     <eLiterals name="milliseconds" literal="&quot;milliseconds&quot;"/>

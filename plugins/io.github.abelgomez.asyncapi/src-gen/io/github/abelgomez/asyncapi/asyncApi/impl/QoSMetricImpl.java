@@ -5,6 +5,7 @@ package io.github.abelgomez.asyncapi.asyncApi.impl;
 
 import io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetric;
+import io.github.abelgomez.asyncapi.asyncApi.QoSMetricName;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricType;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricUnit;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getName <em>Name</em>}</li>
+ *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getMetricType <em>Metric Type</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getDataType <em>Data Type</em>}</li>
@@ -51,6 +53,26 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getMetricType() <em>Metric Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMetricType()
+   * @generated
+   * @ordered
+   */
+  protected static final QoSMetricName METRIC_TYPE_EDEFAULT = QoSMetricName.LATENCY;
+
+  /**
+   * The cached value of the '{@link #getMetricType() <em>Metric Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMetricType()
+   * @generated
+   * @ordered
+   */
+  protected QoSMetricName metricType = METRIC_TYPE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -164,6 +186,31 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
    * @generated
    */
   @Override
+  public QoSMetricName getMetricType()
+  {
+    return metricType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setMetricType(QoSMetricName newMetricType)
+  {
+    QoSMetricName oldMetricType = metricType;
+    metricType = newMetricType == null ? METRIC_TYPE_EDEFAULT : newMetricType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AsyncApiPackage.QO_SMETRIC__METRIC_TYPE, oldMetricType, metricType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String getDescription()
   {
     return description;
@@ -245,6 +292,8 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
     {
       case AsyncApiPackage.QO_SMETRIC__NAME:
         return getName();
+      case AsyncApiPackage.QO_SMETRIC__METRIC_TYPE:
+        return getMetricType();
       case AsyncApiPackage.QO_SMETRIC__DESCRIPTION:
         return getDescription();
       case AsyncApiPackage.QO_SMETRIC__UNIT:
@@ -267,6 +316,9 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
     {
       case AsyncApiPackage.QO_SMETRIC__NAME:
         setName((String)newValue);
+        return;
+      case AsyncApiPackage.QO_SMETRIC__METRIC_TYPE:
+        setMetricType((QoSMetricName)newValue);
         return;
       case AsyncApiPackage.QO_SMETRIC__DESCRIPTION:
         setDescription((String)newValue);
@@ -294,6 +346,9 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
       case AsyncApiPackage.QO_SMETRIC__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case AsyncApiPackage.QO_SMETRIC__METRIC_TYPE:
+        setMetricType(METRIC_TYPE_EDEFAULT);
+        return;
       case AsyncApiPackage.QO_SMETRIC__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
@@ -319,6 +374,8 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
     {
       case AsyncApiPackage.QO_SMETRIC__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case AsyncApiPackage.QO_SMETRIC__METRIC_TYPE:
+        return metricType != METRIC_TYPE_EDEFAULT;
       case AsyncApiPackage.QO_SMETRIC__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case AsyncApiPackage.QO_SMETRIC__UNIT:
@@ -342,6 +399,8 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", metricType: ");
+    result.append(metricType);
     result.append(", description: ");
     result.append(description);
     result.append(", unit: ");

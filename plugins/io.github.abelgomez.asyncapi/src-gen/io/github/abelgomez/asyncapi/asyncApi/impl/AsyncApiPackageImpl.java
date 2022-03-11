@@ -10,6 +10,7 @@ import io.github.abelgomez.asyncapi.asyncApi.AbstractOperationTrait;
 import io.github.abelgomez.asyncapi.asyncApi.AbstractParameter;
 import io.github.abelgomez.asyncapi.asyncApi.AbstractQoSMetric;
 import io.github.abelgomez.asyncapi.asyncApi.AbstractSchema;
+import io.github.abelgomez.asyncapi.asyncApi.AggregationFunction;
 import io.github.abelgomez.asyncapi.asyncApi.AsyncAPI;
 import io.github.abelgomez.asyncapi.asyncApi.AsyncApiFactory;
 import io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage;
@@ -37,6 +38,7 @@ import io.github.abelgomez.asyncapi.asyncApi.Operator;
 import io.github.abelgomez.asyncapi.asyncApi.Parameter;
 import io.github.abelgomez.asyncapi.asyncApi.Protocol;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetric;
+import io.github.abelgomez.asyncapi.asyncApi.QoSMetricName;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricReference;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricType;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricUnit;
@@ -347,6 +349,20 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
    * @generated
    */
   private EEnum windowUnitEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum aggregationFunctionEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum qoSMetricNameEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1940,7 +1956,7 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
    * @generated
    */
   @Override
-  public EAttribute getQoSMetric_Description()
+  public EAttribute getQoSMetric_MetricType()
   {
     return (EAttribute)qoSMetricEClass.getEStructuralFeatures().get(1);
   }
@@ -1951,7 +1967,7 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
    * @generated
    */
   @Override
-  public EAttribute getQoSMetric_Unit()
+  public EAttribute getQoSMetric_Description()
   {
     return (EAttribute)qoSMetricEClass.getEStructuralFeatures().get(2);
   }
@@ -1962,9 +1978,20 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
    * @generated
    */
   @Override
-  public EAttribute getQoSMetric_DataType()
+  public EAttribute getQoSMetric_Unit()
   {
     return (EAttribute)qoSMetricEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getQoSMetric_DataType()
+  {
+    return (EAttribute)qoSMetricEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2130,6 +2157,28 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
   public EEnum getWindowUnit()
   {
     return windowUnitEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EEnum getAggregationFunction()
+  {
+    return aggregationFunctionEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EEnum getQoSMetricName()
+  {
+    return qoSMetricNameEEnum;
   }
 
   /**
@@ -2406,6 +2455,7 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
 
     qoSMetricEClass = createEClass(QO_SMETRIC);
     createEAttribute(qoSMetricEClass, QO_SMETRIC__NAME);
+    createEAttribute(qoSMetricEClass, QO_SMETRIC__METRIC_TYPE);
     createEAttribute(qoSMetricEClass, QO_SMETRIC__DESCRIPTION);
     createEAttribute(qoSMetricEClass, QO_SMETRIC__UNIT);
     createEAttribute(qoSMetricEClass, QO_SMETRIC__DATA_TYPE);
@@ -2432,6 +2482,8 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
 
     // Create enums
     windowUnitEEnum = createEEnum(WINDOW_UNIT);
+    aggregationFunctionEEnum = createEEnum(AGGREGATION_FUNCTION);
+    qoSMetricNameEEnum = createEEnum(QO_SMETRIC_NAME);
     qoSMetricUnitEEnum = createEEnum(QO_SMETRIC_UNIT);
     qoSMetricTypeEEnum = createEEnum(QO_SMETRIC_TYPE);
     operatorEEnum = createEEnum(OPERATOR);
@@ -2655,6 +2707,7 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
 
     initEClass(qoSMetricEClass, QoSMetric.class, "QoSMetric", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQoSMetric_Name(), ecorePackage.getEString(), "name", null, 0, 1, QoSMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getQoSMetric_MetricType(), this.getQoSMetricName(), "metricType", null, 0, 1, QoSMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getQoSMetric_Description(), ecorePackage.getEString(), "description", null, 0, 1, QoSMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getQoSMetric_Unit(), this.getQoSMetricUnit(), "unit", null, 0, 1, QoSMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getQoSMetric_DataType(), this.getQoSMetricType(), "dataType", null, 0, 1, QoSMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2662,7 +2715,7 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
     initEClass(derivedQoSMetricEClass, DerivedQoSMetric.class, "DerivedQoSMetric", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDerivedQoSMetric_Window(), ecorePackage.getEString(), "window", null, 0, 1, DerivedQoSMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDerivedQoSMetric_WindowUnit(), this.getWindowUnit(), "windowUnit", null, 0, 1, DerivedQoSMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDerivedQoSMetric_AggregationFunction(), ecorePackage.getEString(), "aggregationFunction", null, 0, 1, DerivedQoSMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDerivedQoSMetric_AggregationFunction(), this.getAggregationFunction(), "aggregationFunction", null, 0, 1, DerivedQoSMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(booleanConditionEClass, BooleanCondition.class, "BooleanCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2686,6 +2739,16 @@ public class AsyncApiPackageImpl extends EPackageImpl implements AsyncApiPackage
     addEEnumLiteral(windowUnitEEnum, WindowUnit.HOURS);
     addEEnumLiteral(windowUnitEEnum, WindowUnit.DAYS);
     addEEnumLiteral(windowUnitEEnum, WindowUnit.MESSAGES);
+
+    initEEnum(aggregationFunctionEEnum, AggregationFunction.class, "AggregationFunction");
+    addEEnumLiteral(aggregationFunctionEEnum, AggregationFunction.AVG);
+    addEEnumLiteral(aggregationFunctionEEnum, AggregationFunction.MEDIAN);
+    addEEnumLiteral(aggregationFunctionEEnum, AggregationFunction.MAX);
+    addEEnumLiteral(aggregationFunctionEEnum, AggregationFunction.MIN);
+
+    initEEnum(qoSMetricNameEEnum, QoSMetricName.class, "QoSMetricName");
+    addEEnumLiteral(qoSMetricNameEEnum, QoSMetricName.LATENCY);
+    addEEnumLiteral(qoSMetricNameEEnum, QoSMetricName.AVAILABILITY);
 
     initEEnum(qoSMetricUnitEEnum, QoSMetricUnit.class, "QoSMetricUnit");
     addEEnumLiteral(qoSMetricUnitEEnum, QoSMetricUnit.MILLISECONDS);

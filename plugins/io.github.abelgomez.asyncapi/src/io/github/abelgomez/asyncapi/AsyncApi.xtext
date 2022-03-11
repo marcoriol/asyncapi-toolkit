@@ -217,17 +217,18 @@ AbstractQoSMetric:
   QoSMetricReference | QoSMetric;
 
 QoSMetricReference:
-  metric= [QoSMetric|QoSMetricName]	
+  metric= [QoSMetric|AnyString]	
 ;
 	
 QoSMetric:
 	('{' 
 		(
-		  ( '"name"' ':' name=QoSMetricName ','? )?			
+		  ( '"name"' ':' name=AnyString ','? )						
+		& ( '"metricType"' ':' metricType=QoSMetricName ','? )			
 		& ( '"description"' ':' description=AnyString ','? )?
 		& ( '"unit"' ':' unit=QoSMetricUnit ','? )
 		& ( '"dataType"' ':' dataType=QoSMetricType ','? )
-		) (DerivedQoSMetric)?			
+		) (DerivedQoSMetric)?	// Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
 	'}');
 
  DerivedQoSMetric:
@@ -235,7 +236,7 @@ QoSMetric:
 		'"derivedQoSMetricDefinition"' ':' '{' (
 		  ('"window"' ':'  window = AnyString ','? )
 		& ('"windowUnit"' ':'  windowUnit = WindowUnit ','? )
-		& ('"aggregationFunction"' ':'  aggregationFunction = AnyString ','? )
+		& ('"aggregationFunction"' ':'  aggregationFunction = AggregationFunction ','? )
 	) '}' )
 ;
 
@@ -284,10 +285,16 @@ enum WindowUnit:
 	| messages = '"messages"'
 ;
 
-QoSMetricName:
-	'"latency"'	
-	| 	'"availability"'
-	| 	'"metric3"'
+enum AggregationFunction:
+	AVG = '"AVG"'
+	| MEDIAN = '"MEDIAN"'
+	| MAX = '"MAX"'
+    | MIN = '"MIN"'
+;
+
+enum QoSMetricName:
+	latency = '"latency"'	
+	| availability = '"availability"'
 ;
 enum QoSMetricUnit:
 	milliseconds = '"milliseconds"'

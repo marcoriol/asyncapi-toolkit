@@ -5889,7 +5889,7 @@ ruleQoSMetricReference returns [EObject current=null]
 			{
 				newCompositeNode(grammarAccess.getQoSMetricReferenceAccess().getMetricQoSMetricCrossReference_0());
 			}
-			ruleQoSMetricName
+			ruleAnyString
 			{
 				afterParserOrEnumRuleCall();
 			}
@@ -5940,9 +5940,9 @@ ruleQoSMetric returns [EObject current=null]
 								(
 									(
 										{
-											newCompositeNode(grammarAccess.getQoSMetricAccess().getNameQoSMetricNameParserRuleCall_1_0_2_0());
+											newCompositeNode(grammarAccess.getQoSMetricAccess().getNameAnyStringParserRuleCall_1_0_2_0());
 										}
-										lv_name_4_0=ruleQoSMetricName
+										lv_name_4_0=ruleAnyString
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getQoSMetricRule());
@@ -5951,7 +5951,7 @@ ruleQoSMetric returns [EObject current=null]
 												$current,
 												"name",
 												lv_name_4_0,
-												"io.github.abelgomez.asyncapi.AsyncApi.QoSMetricName");
+												"io.github.abelgomez.asyncapi.AsyncApi.AnyString");
 											afterParserOrEnumRuleCall();
 										}
 									)
@@ -5973,9 +5973,9 @@ ruleQoSMetric returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1(), 1);
 					}
-								({true}?=>(otherlv_6='"description"'
+								({true}?=>(otherlv_6='"metricType"'
 								{
-									newLeafNode(otherlv_6, grammarAccess.getQoSMetricAccess().getDescriptionKeyword_1_1_0());
+									newLeafNode(otherlv_6, grammarAccess.getQoSMetricAccess().getMetricTypeKeyword_1_1_0());
 								}
 								otherlv_7=':'
 								{
@@ -5984,18 +5984,18 @@ ruleQoSMetric returns [EObject current=null]
 								(
 									(
 										{
-											newCompositeNode(grammarAccess.getQoSMetricAccess().getDescriptionAnyStringParserRuleCall_1_1_2_0());
+											newCompositeNode(grammarAccess.getQoSMetricAccess().getMetricTypeQoSMetricNameEnumRuleCall_1_1_2_0());
 										}
-										lv_description_8_0=ruleAnyString
+										lv_metricType_8_0=ruleQoSMetricName
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getQoSMetricRule());
 											}
 											set(
 												$current,
-												"description",
-												lv_description_8_0,
-												"io.github.abelgomez.asyncapi.AsyncApi.AnyString");
+												"metricType",
+												lv_metricType_8_0,
+												"io.github.abelgomez.asyncapi.AsyncApi.QoSMetricName");
 											afterParserOrEnumRuleCall();
 										}
 									)
@@ -6017,9 +6017,9 @@ ruleQoSMetric returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1(), 2);
 					}
-								({true}?=>(otherlv_10='"unit"'
+								({true}?=>(otherlv_10='"description"'
 								{
-									newLeafNode(otherlv_10, grammarAccess.getQoSMetricAccess().getUnitKeyword_1_2_0());
+									newLeafNode(otherlv_10, grammarAccess.getQoSMetricAccess().getDescriptionKeyword_1_2_0());
 								}
 								otherlv_11=':'
 								{
@@ -6028,18 +6028,18 @@ ruleQoSMetric returns [EObject current=null]
 								(
 									(
 										{
-											newCompositeNode(grammarAccess.getQoSMetricAccess().getUnitQoSMetricUnitEnumRuleCall_1_2_2_0());
+											newCompositeNode(grammarAccess.getQoSMetricAccess().getDescriptionAnyStringParserRuleCall_1_2_2_0());
 										}
-										lv_unit_12_0=ruleQoSMetricUnit
+										lv_description_12_0=ruleAnyString
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getQoSMetricRule());
 											}
 											set(
 												$current,
-												"unit",
-												lv_unit_12_0,
-												"io.github.abelgomez.asyncapi.AsyncApi.QoSMetricUnit");
+												"description",
+												lv_description_12_0,
+												"io.github.abelgomez.asyncapi.AsyncApi.AnyString");
 											afterParserOrEnumRuleCall();
 										}
 									)
@@ -6061,9 +6061,9 @@ ruleQoSMetric returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1(), 3);
 					}
-								({true}?=>(otherlv_14='"dataType"'
+								({true}?=>(otherlv_14='"unit"'
 								{
-									newLeafNode(otherlv_14, grammarAccess.getQoSMetricAccess().getDataTypeKeyword_1_3_0());
+									newLeafNode(otherlv_14, grammarAccess.getQoSMetricAccess().getUnitKeyword_1_3_0());
 								}
 								otherlv_15=':'
 								{
@@ -6072,18 +6072,18 @@ ruleQoSMetric returns [EObject current=null]
 								(
 									(
 										{
-											newCompositeNode(grammarAccess.getQoSMetricAccess().getDataTypeQoSMetricTypeEnumRuleCall_1_3_2_0());
+											newCompositeNode(grammarAccess.getQoSMetricAccess().getUnitQoSMetricUnitEnumRuleCall_1_3_2_0());
 										}
-										lv_dataType_16_0=ruleQoSMetricType
+										lv_unit_16_0=ruleQoSMetricUnit
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getQoSMetricRule());
 											}
 											set(
 												$current,
-												"dataType",
-												lv_dataType_16_0,
-												"io.github.abelgomez.asyncapi.AsyncApi.QoSMetricType");
+												"unit",
+												lv_unit_16_0,
+												"io.github.abelgomez.asyncapi.AsyncApi.QoSMetricUnit");
 											afterParserOrEnumRuleCall();
 										}
 									)
@@ -6092,6 +6092,50 @@ ruleQoSMetric returns [EObject current=null]
 									otherlv_17=','
 									{
 										newLeafNode(otherlv_17, grammarAccess.getQoSMetricAccess().getCommaKeyword_1_3_3());
+									}
+								)?
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1());
+					}
+				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1(), 4)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1(), 4);
+					}
+								({true}?=>(otherlv_18='"dataType"'
+								{
+									newLeafNode(otherlv_18, grammarAccess.getQoSMetricAccess().getDataTypeKeyword_1_4_0());
+								}
+								otherlv_19=':'
+								{
+									newLeafNode(otherlv_19, grammarAccess.getQoSMetricAccess().getColonKeyword_1_4_1());
+								}
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getQoSMetricAccess().getDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0());
+										}
+										lv_dataType_20_0=ruleQoSMetricType
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getQoSMetricRule());
+											}
+											set(
+												$current,
+												"dataType",
+												lv_dataType_20_0,
+												"io.github.abelgomez.asyncapi.AsyncApi.QoSMetricType");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)
+								(
+									otherlv_21=','
+									{
+										newLeafNode(otherlv_21, grammarAccess.getQoSMetricAccess().getCommaKeyword_1_4_3());
 									}
 								)?
 								))
@@ -6112,15 +6156,15 @@ ruleQoSMetric returns [EObject current=null]
 			{
 				newCompositeNode(grammarAccess.getQoSMetricAccess().getDerivedQoSMetricParserRuleCall_2());
 			}
-			this_DerivedQoSMetric_18=ruleDerivedQoSMetric
+			this_DerivedQoSMetric_22=ruleDerivedQoSMetric
 			{
-				$current = $this_DerivedQoSMetric_18.current;
+				$current = $this_DerivedQoSMetric_22.current;
 				afterParserOrEnumRuleCall();
 			}
 		)?
-		otherlv_19='}'
+		otherlv_23='}'
 		{
-			newLeafNode(otherlv_19, grammarAccess.getQoSMetricAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(otherlv_23, grammarAccess.getQoSMetricAccess().getRightCurlyBracketKeyword_3());
 		}
 	)
 ;
@@ -6272,9 +6316,9 @@ ruleDerivedQoSMetric returns [EObject current=null]
 									(
 										(
 											{
-												newCompositeNode(grammarAccess.getDerivedQoSMetricAccess().getAggregationFunctionAnyStringParserRuleCall_1_3_2_2_0());
+												newCompositeNode(grammarAccess.getDerivedQoSMetricAccess().getAggregationFunctionAggregationFunctionEnumRuleCall_1_3_2_2_0());
 											}
-											lv_aggregationFunction_15_0=ruleAnyString
+											lv_aggregationFunction_15_0=ruleAggregationFunction
 											{
 												if ($current==null) {
 													$current = createModelElementForParent(grammarAccess.getDerivedQoSMetricRule());
@@ -6283,7 +6327,7 @@ ruleDerivedQoSMetric returns [EObject current=null]
 													$current,
 													"aggregationFunction",
 													lv_aggregationFunction_15_0,
-													"io.github.abelgomez.asyncapi.AsyncApi.AnyString");
+													"io.github.abelgomez.asyncapi.AsyncApi.AggregationFunction");
 												afterParserOrEnumRuleCall();
 											}
 										)
@@ -6729,42 +6773,6 @@ ruleReference returns [EObject current=null]
 		otherlv_5='}'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getReferenceAccess().getRightCurlyBracketKeyword_5());
-		}
-	)
-;
-
-// Entry rule entryRuleQoSMetricName
-entryRuleQoSMetricName returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getQoSMetricNameRule()); }
-	iv_ruleQoSMetricName=ruleQoSMetricName
-	{ $current=$iv_ruleQoSMetricName.current.getText(); }
-	EOF;
-
-// Rule QoSMetricName
-ruleQoSMetricName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		kw='"latency"'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getQoSMetricNameAccess().getLatencyKeyword_0());
-		}
-		    |
-		kw='"metric2"'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getQoSMetricNameAccess().getMetric2Keyword_1());
-		}
-		    |
-		kw='"metric3"'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getQoSMetricNameAccess().getMetric3Keyword_2());
 		}
 	)
 ;
@@ -7285,6 +7293,76 @@ ruleWindowUnit returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getWindowUnitAccess().getMessagesEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_4, grammarAccess.getWindowUnitAccess().getMessagesEnumLiteralDeclaration_4());
+			}
+		)
+	)
+;
+
+// Rule AggregationFunction
+ruleAggregationFunction returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='"AVG"'
+			{
+				$current = grammarAccess.getAggregationFunctionAccess().getAVGEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getAggregationFunctionAccess().getAVGEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='"MEDIAN"'
+			{
+				$current = grammarAccess.getAggregationFunctionAccess().getMEDIANEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getAggregationFunctionAccess().getMEDIANEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='"MAX"'
+			{
+				$current = grammarAccess.getAggregationFunctionAccess().getMAXEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getAggregationFunctionAccess().getMAXEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='"MIN"'
+			{
+				$current = grammarAccess.getAggregationFunctionAccess().getMINEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getAggregationFunctionAccess().getMINEnumLiteralDeclaration_3());
+			}
+		)
+	)
+;
+
+// Rule QoSMetricName
+ruleQoSMetricName returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='"latency"'
+			{
+				$current = grammarAccess.getQoSMetricNameAccess().getLatencyEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getQoSMetricNameAccess().getLatencyEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='"availability"'
+			{
+				$current = grammarAccess.getQoSMetricNameAccess().getAvailabilityEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getQoSMetricNameAccess().getAvailabilityEnumLiteralDeclaration_1());
 			}
 		)
 	)

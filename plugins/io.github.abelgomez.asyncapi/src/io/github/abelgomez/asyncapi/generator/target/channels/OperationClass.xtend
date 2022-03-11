@@ -144,10 +144,10 @@ abstract class OperationClass extends AbstractType implements IClass, ISerializa
 					//we add the metric name to the returning Set (for either QoSmetric or QoSMetricReference).
 					if ((abstractQoSMetric instanceof  QoSMetric)){
 						val qosMetric =  abstractQoSMetric as QoSMetric;
-						if (!(qosMetric instanceof DerivedQoSMetric)) metricsList.add(qosMetric.name);	
+						if (!(qosMetric instanceof DerivedQoSMetric)) metricsList.add(qosMetric.metricType);	
 					}else if (abstractQoSMetric instanceof QoSMetricReference ){
 						val qosMetric =  abstractQoSMetric as QoSMetricReference;
-						if (!(qosMetric instanceof DerivedQoSMetric)) metricsList.add(qosMetric.metric.name);	
+						if (!(qosMetric instanceof DerivedQoSMetric)) metricsList.add(qosMetric.metric.metricType);	
 					}
 				}
 			}

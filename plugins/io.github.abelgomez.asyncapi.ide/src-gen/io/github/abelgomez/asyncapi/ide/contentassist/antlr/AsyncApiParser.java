@@ -38,12 +38,13 @@ public class AsyncApiParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAbstractMessageTraitAccess().getAlternatives(), "rule__AbstractMessageTrait__Alternatives");
 			builder.put(grammarAccess.getAbstractQoSMetricAccess().getAlternatives(), "rule__AbstractQoSMetric__Alternatives");
 			builder.put(grammarAccess.getBooleanConditionAccess().getAlternatives(), "rule__BooleanCondition__Alternatives");
-			builder.put(grammarAccess.getQoSMetricNameAccess().getAlternatives(), "rule__QoSMetricName__Alternatives");
 			builder.put(grammarAccess.getPrimitiveValueAccess().getAlternatives(), "rule__PrimitiveValue__Alternatives");
 			builder.put(grammarAccess.getAnyStringButRefAccess().getAlternatives(), "rule__AnyStringButRef__Alternatives");
 			builder.put(grammarAccess.getAnyStringAccess().getAlternatives(), "rule__AnyString__Alternatives");
 			builder.put(grammarAccess.getKeywordAccess().getAlternatives(), "rule__Keyword__Alternatives");
 			builder.put(grammarAccess.getWindowUnitAccess().getAlternatives(), "rule__WindowUnit__Alternatives");
+			builder.put(grammarAccess.getAggregationFunctionAccess().getAlternatives(), "rule__AggregationFunction__Alternatives");
+			builder.put(grammarAccess.getQoSMetricNameAccess().getAlternatives(), "rule__QoSMetricName__Alternatives");
 			builder.put(grammarAccess.getQoSMetricUnitAccess().getAlternatives(), "rule__QoSMetricUnit__Alternatives");
 			builder.put(grammarAccess.getQoSMetricTypeAccess().getAlternatives(), "rule__QoSMetricType__Alternatives");
 			builder.put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
@@ -184,6 +185,7 @@ public class AsyncApiParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getQoSMetricAccess().getGroup_1_1(), "rule__QoSMetric__Group_1_1__0");
 			builder.put(grammarAccess.getQoSMetricAccess().getGroup_1_2(), "rule__QoSMetric__Group_1_2__0");
 			builder.put(grammarAccess.getQoSMetricAccess().getGroup_1_3(), "rule__QoSMetric__Group_1_3__0");
+			builder.put(grammarAccess.getQoSMetricAccess().getGroup_1_4(), "rule__QoSMetric__Group_1_4__0");
 			builder.put(grammarAccess.getDerivedQoSMetricAccess().getGroup(), "rule__DerivedQoSMetric__Group__0");
 			builder.put(grammarAccess.getDerivedQoSMetricAccess().getGroup_1(), "rule__DerivedQoSMetric__Group_1__0");
 			builder.put(grammarAccess.getDerivedQoSMetricAccess().getGroup_1_3_0(), "rule__DerivedQoSMetric__Group_1_3_0__0");
@@ -318,9 +320,10 @@ public class AsyncApiParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSloAccess().getConditionAssignment_3(), "rule__Slo__ConditionAssignment_3");
 			builder.put(grammarAccess.getQoSMetricReferenceAccess().getMetricAssignment(), "rule__QoSMetricReference__MetricAssignment");
 			builder.put(grammarAccess.getQoSMetricAccess().getNameAssignment_1_0_2(), "rule__QoSMetric__NameAssignment_1_0_2");
-			builder.put(grammarAccess.getQoSMetricAccess().getDescriptionAssignment_1_1_2(), "rule__QoSMetric__DescriptionAssignment_1_1_2");
-			builder.put(grammarAccess.getQoSMetricAccess().getUnitAssignment_1_2_2(), "rule__QoSMetric__UnitAssignment_1_2_2");
-			builder.put(grammarAccess.getQoSMetricAccess().getDataTypeAssignment_1_3_2(), "rule__QoSMetric__DataTypeAssignment_1_3_2");
+			builder.put(grammarAccess.getQoSMetricAccess().getMetricTypeAssignment_1_1_2(), "rule__QoSMetric__MetricTypeAssignment_1_1_2");
+			builder.put(grammarAccess.getQoSMetricAccess().getDescriptionAssignment_1_2_2(), "rule__QoSMetric__DescriptionAssignment_1_2_2");
+			builder.put(grammarAccess.getQoSMetricAccess().getUnitAssignment_1_3_2(), "rule__QoSMetric__UnitAssignment_1_3_2");
+			builder.put(grammarAccess.getQoSMetricAccess().getDataTypeAssignment_1_4_2(), "rule__QoSMetric__DataTypeAssignment_1_4_2");
 			builder.put(grammarAccess.getDerivedQoSMetricAccess().getWindowAssignment_1_3_0_2(), "rule__DerivedQoSMetric__WindowAssignment_1_3_0_2");
 			builder.put(grammarAccess.getDerivedQoSMetricAccess().getWindowUnitAssignment_1_3_1_2(), "rule__DerivedQoSMetric__WindowUnitAssignment_1_3_1_2");
 			builder.put(grammarAccess.getDerivedQoSMetricAccess().getAggregationFunctionAssignment_1_3_2_2(), "rule__DerivedQoSMetric__AggregationFunctionAssignment_1_3_2_2");

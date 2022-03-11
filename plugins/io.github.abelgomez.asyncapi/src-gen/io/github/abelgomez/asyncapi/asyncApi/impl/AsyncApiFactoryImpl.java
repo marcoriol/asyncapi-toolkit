@@ -10,6 +10,7 @@ import io.github.abelgomez.asyncapi.asyncApi.AbstractOperationTrait;
 import io.github.abelgomez.asyncapi.asyncApi.AbstractParameter;
 import io.github.abelgomez.asyncapi.asyncApi.AbstractQoSMetric;
 import io.github.abelgomez.asyncapi.asyncApi.AbstractSchema;
+import io.github.abelgomez.asyncapi.asyncApi.AggregationFunction;
 import io.github.abelgomez.asyncapi.asyncApi.AsyncAPI;
 import io.github.abelgomez.asyncapi.asyncApi.AsyncApiFactory;
 import io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage;
@@ -37,6 +38,7 @@ import io.github.abelgomez.asyncapi.asyncApi.Operator;
 import io.github.abelgomez.asyncapi.asyncApi.Parameter;
 import io.github.abelgomez.asyncapi.asyncApi.Protocol;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetric;
+import io.github.abelgomez.asyncapi.asyncApi.QoSMetricName;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricReference;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricType;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricUnit;
@@ -169,6 +171,10 @@ public class AsyncApiFactoryImpl extends EFactoryImpl implements AsyncApiFactory
     {
       case AsyncApiPackage.WINDOW_UNIT:
         return createWindowUnitFromString(eDataType, initialValue);
+      case AsyncApiPackage.AGGREGATION_FUNCTION:
+        return createAggregationFunctionFromString(eDataType, initialValue);
+      case AsyncApiPackage.QO_SMETRIC_NAME:
+        return createQoSMetricNameFromString(eDataType, initialValue);
       case AsyncApiPackage.QO_SMETRIC_UNIT:
         return createQoSMetricUnitFromString(eDataType, initialValue);
       case AsyncApiPackage.QO_SMETRIC_TYPE:
@@ -200,6 +206,10 @@ public class AsyncApiFactoryImpl extends EFactoryImpl implements AsyncApiFactory
     {
       case AsyncApiPackage.WINDOW_UNIT:
         return convertWindowUnitToString(eDataType, instanceValue);
+      case AsyncApiPackage.AGGREGATION_FUNCTION:
+        return convertAggregationFunctionToString(eDataType, instanceValue);
+      case AsyncApiPackage.QO_SMETRIC_NAME:
+        return convertQoSMetricNameToString(eDataType, instanceValue);
       case AsyncApiPackage.QO_SMETRIC_UNIT:
         return convertQoSMetricUnitToString(eDataType, instanceValue);
       case AsyncApiPackage.QO_SMETRIC_TYPE:
@@ -705,6 +715,50 @@ public class AsyncApiFactoryImpl extends EFactoryImpl implements AsyncApiFactory
    * @generated
    */
   public String convertWindowUnitToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AggregationFunction createAggregationFunctionFromString(EDataType eDataType, String initialValue)
+  {
+    AggregationFunction result = AggregationFunction.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertAggregationFunctionToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QoSMetricName createQoSMetricNameFromString(EDataType eDataType, String initialValue)
+  {
+    QoSMetricName result = QoSMetricName.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertQoSMetricNameToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

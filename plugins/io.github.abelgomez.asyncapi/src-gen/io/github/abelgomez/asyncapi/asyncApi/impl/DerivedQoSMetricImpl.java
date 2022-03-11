@@ -3,6 +3,7 @@
  */
 package io.github.abelgomez.asyncapi.asyncApi.impl;
 
+import io.github.abelgomez.asyncapi.asyncApi.AggregationFunction;
 import io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage;
 import io.github.abelgomez.asyncapi.asyncApi.DerivedQoSMetric;
 import io.github.abelgomez.asyncapi.asyncApi.WindowUnit;
@@ -78,7 +79,7 @@ public class DerivedQoSMetricImpl extends QoSMetricImpl implements DerivedQoSMet
    * @generated
    * @ordered
    */
-  protected static final String AGGREGATION_FUNCTION_EDEFAULT = null;
+  protected static final AggregationFunction AGGREGATION_FUNCTION_EDEFAULT = AggregationFunction.AVG;
 
   /**
    * The cached value of the '{@link #getAggregationFunction() <em>Aggregation Function</em>}' attribute.
@@ -88,7 +89,7 @@ public class DerivedQoSMetricImpl extends QoSMetricImpl implements DerivedQoSMet
    * @generated
    * @ordered
    */
-  protected String aggregationFunction = AGGREGATION_FUNCTION_EDEFAULT;
+  protected AggregationFunction aggregationFunction = AGGREGATION_FUNCTION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -167,7 +168,7 @@ public class DerivedQoSMetricImpl extends QoSMetricImpl implements DerivedQoSMet
    * @generated
    */
   @Override
-  public String getAggregationFunction()
+  public AggregationFunction getAggregationFunction()
   {
     return aggregationFunction;
   }
@@ -178,10 +179,10 @@ public class DerivedQoSMetricImpl extends QoSMetricImpl implements DerivedQoSMet
    * @generated
    */
   @Override
-  public void setAggregationFunction(String newAggregationFunction)
+  public void setAggregationFunction(AggregationFunction newAggregationFunction)
   {
-    String oldAggregationFunction = aggregationFunction;
-    aggregationFunction = newAggregationFunction;
+    AggregationFunction oldAggregationFunction = aggregationFunction;
+    aggregationFunction = newAggregationFunction == null ? AGGREGATION_FUNCTION_EDEFAULT : newAggregationFunction;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AsyncApiPackage.DERIVED_QO_SMETRIC__AGGREGATION_FUNCTION, oldAggregationFunction, aggregationFunction));
   }
@@ -223,7 +224,7 @@ public class DerivedQoSMetricImpl extends QoSMetricImpl implements DerivedQoSMet
         setWindowUnit((WindowUnit)newValue);
         return;
       case AsyncApiPackage.DERIVED_QO_SMETRIC__AGGREGATION_FUNCTION:
-        setAggregationFunction((String)newValue);
+        setAggregationFunction((AggregationFunction)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -267,7 +268,7 @@ public class DerivedQoSMetricImpl extends QoSMetricImpl implements DerivedQoSMet
       case AsyncApiPackage.DERIVED_QO_SMETRIC__WINDOW_UNIT:
         return windowUnit != WINDOW_UNIT_EDEFAULT;
       case AsyncApiPackage.DERIVED_QO_SMETRIC__AGGREGATION_FUNCTION:
-        return AGGREGATION_FUNCTION_EDEFAULT == null ? aggregationFunction != null : !AGGREGATION_FUNCTION_EDEFAULT.equals(aggregationFunction);
+        return aggregationFunction != AGGREGATION_FUNCTION_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

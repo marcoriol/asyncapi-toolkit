@@ -291,7 +291,7 @@ public class AsyncApiSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     DerivedQoSMetric returns DerivedQoSMetric
 	 *
 	 * Constraint:
-	 *     (window=AnyString | windowUnit=WindowUnit | aggregationFunction=AnyString)+
+	 *     (window=AnyString | windowUnit=WindowUnit | aggregationFunction=AggregationFunction)+
 	 */
 	protected void sequence_DerivedQoSMetric(ISerializationContext context, DerivedQoSMetric semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -371,8 +371,8 @@ public class AsyncApiSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *             headers=AbstractSchema | 
 	 *             payload=AbstractSchema
 	 *         )? 
-	 *         (traits+=AbstractMessageTrait traits+=AbstractMessageTrait*)? 
-	 *         (tags+=Tag tags+=Tag*)?
+	 *         (tags+=Tag tags+=Tag*)? 
+	 *         (traits+=AbstractMessageTrait traits+=AbstractMessageTrait*)?
 	 *     )+
 	 */
 	protected void sequence_Message(ISerializationContext context, Message semanticObject) {
@@ -544,7 +544,7 @@ public class AsyncApiSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     QoSMetricReference returns QoSMetricReference
 	 *
 	 * Constraint:
-	 *     metric=[QoSMetric|QoSMetricName]
+	 *     metric=[QoSMetric|AnyString]
 	 */
 	protected void sequence_QoSMetricReference(ISerializationContext context, QoSMetricReference semanticObject) {
 		if (errorAcceptor != null) {
@@ -552,7 +552,7 @@ public class AsyncApiSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AsyncApiPackage.Literals.QO_SMETRIC_REFERENCE__METRIC));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getQoSMetricReferenceAccess().getMetricQoSMetricQoSMetricNameParserRuleCall_0_1(), semanticObject.eGet(AsyncApiPackage.Literals.QO_SMETRIC_REFERENCE__METRIC, false));
+		feeder.accept(grammarAccess.getQoSMetricReferenceAccess().getMetricQoSMetricAnyStringParserRuleCall_0_1(), semanticObject.eGet(AsyncApiPackage.Literals.QO_SMETRIC_REFERENCE__METRIC, false));
 		feeder.finish();
 	}
 	
@@ -563,7 +563,7 @@ public class AsyncApiSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     QoSMetric returns QoSMetric
 	 *
 	 * Constraint:
-	 *     (name=QoSMetricName | description=AnyString | unit=QoSMetricUnit | dataType=QoSMetricType)+
+	 *     (name=AnyString | metricType=QoSMetricName | description=AnyString | unit=QoSMetricUnit | dataType=QoSMetricType)+
 	 */
 	protected void sequence_QoSMetric(ISerializationContext context, QoSMetric semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -633,8 +633,8 @@ public class AsyncApiSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *             default=PrimitiveValue | 
 	 *             items=AbstractSchema
 	 *         )? 
-	 *         (enum+=PrimitiveValue enum+=PrimitiveValue*)? 
 	 *         (properties+=NamedSchema properties+=NamedSchema*)? 
+	 *         (enum+=PrimitiveValue enum+=PrimitiveValue*)? 
 	 *         (required+=AnyString required+=AnyString*)?
 	 *     )+
 	 */

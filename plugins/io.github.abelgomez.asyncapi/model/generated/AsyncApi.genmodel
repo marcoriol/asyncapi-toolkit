@@ -13,6 +13,16 @@
       <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//WindowUnit/days"/>
       <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//WindowUnit/messages"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AsyncApi.ecore#//AggregationFunction">
+      <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//AggregationFunction/AVG"/>
+      <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//AggregationFunction/MEDIAN"/>
+      <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//AggregationFunction/MAX"/>
+      <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//AggregationFunction/MIN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AsyncApi.ecore#//QoSMetricName">
+      <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//QoSMetricName/latency"/>
+      <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//QoSMetricName/availability"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="AsyncApi.ecore#//QoSMetricUnit">
       <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//QoSMetricUnit/milliseconds"/>
       <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//QoSMetricUnit/seconds"/>
@@ -219,6 +229,7 @@
     </genClasses>
     <genClasses ecoreClass="AsyncApi.ecore#//QoSMetric">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/metricType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/unit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/dataType"/>

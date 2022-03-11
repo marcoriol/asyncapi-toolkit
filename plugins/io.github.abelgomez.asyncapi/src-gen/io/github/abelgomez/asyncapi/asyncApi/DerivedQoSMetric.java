@@ -73,24 +73,27 @@ public interface DerivedQoSMetric extends QoSMetric
 
   /**
    * Returns the value of the '<em><b>Aggregation Function</b></em>' attribute.
+   * The literals are from the enumeration {@link io.github.abelgomez.asyncapi.asyncApi.AggregationFunction}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Aggregation Function</em>' attribute.
-   * @see #setAggregationFunction(String)
+   * @see io.github.abelgomez.asyncapi.asyncApi.AggregationFunction
+   * @see #setAggregationFunction(AggregationFunction)
    * @see io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage#getDerivedQoSMetric_AggregationFunction()
    * @model
    * @generated
    */
-  String getAggregationFunction();
+  AggregationFunction getAggregationFunction();
 
   /**
    * Sets the value of the '{@link io.github.abelgomez.asyncapi.asyncApi.DerivedQoSMetric#getAggregationFunction <em>Aggregation Function</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Aggregation Function</em>' attribute.
+   * @see io.github.abelgomez.asyncapi.asyncApi.AggregationFunction
    * @see #getAggregationFunction()
    * @generated
    */
-  void setAggregationFunction(String value);
+  void setAggregationFunction(AggregationFunction value);
 
 } // DerivedQoSMetric

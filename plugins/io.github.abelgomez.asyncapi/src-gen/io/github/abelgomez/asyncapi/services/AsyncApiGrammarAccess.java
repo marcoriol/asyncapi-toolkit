@@ -3526,20 +3526,20 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.QoSMetricReference");
 		private final Assignment cMetricAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cMetricQoSMetricCrossReference_0 = (CrossReference)cMetricAssignment.eContents().get(0);
-		private final RuleCall cMetricQoSMetricQoSMetricNameParserRuleCall_0_1 = (RuleCall)cMetricQoSMetricCrossReference_0.eContents().get(1);
+		private final RuleCall cMetricQoSMetricAnyStringParserRuleCall_0_1 = (RuleCall)cMetricQoSMetricCrossReference_0.eContents().get(1);
 		
 		//QoSMetricReference:
-		//	metric=[QoSMetric|QoSMetricName];
+		//	metric=[QoSMetric|AnyString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//metric=[QoSMetric|QoSMetricName]
+		//metric=[QoSMetric|AnyString]
 		public Assignment getMetricAssignment() { return cMetricAssignment; }
 		
-		//[QoSMetric|QoSMetricName]
+		//[QoSMetric|AnyString]
 		public CrossReference getMetricQoSMetricCrossReference_0() { return cMetricQoSMetricCrossReference_0; }
 		
-		//QoSMetricName
-		public RuleCall getMetricQoSMetricQoSMetricNameParserRuleCall_0_1() { return cMetricQoSMetricQoSMetricNameParserRuleCall_0_1; }
+		//AnyString
+		public RuleCall getMetricQoSMetricAnyStringParserRuleCall_0_1() { return cMetricQoSMetricAnyStringParserRuleCall_0_1; }
 	}
 	public class QoSMetricElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.QoSMetric");
@@ -3550,48 +3550,56 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
 		private final Assignment cNameAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cNameQoSMetricNameParserRuleCall_1_0_2_0 = (RuleCall)cNameAssignment_1_0_2.eContents().get(0);
+		private final RuleCall cNameAnyStringParserRuleCall_1_0_2_0 = (RuleCall)cNameAssignment_1_0_2.eContents().get(0);
 		private final Keyword cCommaKeyword_1_0_3 = (Keyword)cGroup_1_0.eContents().get(3);
 		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
-		private final Keyword cDescriptionKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cMetricTypeKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Assignment cDescriptionAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cDescriptionAnyStringParserRuleCall_1_1_2_0 = (RuleCall)cDescriptionAssignment_1_1_2.eContents().get(0);
+		private final Assignment cMetricTypeAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cMetricTypeQoSMetricNameEnumRuleCall_1_1_2_0 = (RuleCall)cMetricTypeAssignment_1_1_2.eContents().get(0);
 		private final Keyword cCommaKeyword_1_1_3 = (Keyword)cGroup_1_1.eContents().get(3);
 		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
-		private final Keyword cUnitKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cDescriptionKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Keyword cColonKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
-		private final Assignment cUnitAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cUnitQoSMetricUnitEnumRuleCall_1_2_2_0 = (RuleCall)cUnitAssignment_1_2_2.eContents().get(0);
+		private final Assignment cDescriptionAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cDescriptionAnyStringParserRuleCall_1_2_2_0 = (RuleCall)cDescriptionAssignment_1_2_2.eContents().get(0);
 		private final Keyword cCommaKeyword_1_2_3 = (Keyword)cGroup_1_2.eContents().get(3);
 		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
-		private final Keyword cDataTypeKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Keyword cUnitKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
 		private final Keyword cColonKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
-		private final Assignment cDataTypeAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
-		private final RuleCall cDataTypeQoSMetricTypeEnumRuleCall_1_3_2_0 = (RuleCall)cDataTypeAssignment_1_3_2.eContents().get(0);
+		private final Assignment cUnitAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final RuleCall cUnitQoSMetricUnitEnumRuleCall_1_3_2_0 = (RuleCall)cUnitAssignment_1_3_2.eContents().get(0);
 		private final Keyword cCommaKeyword_1_3_3 = (Keyword)cGroup_1_3.eContents().get(3);
+		private final Group cGroup_1_4 = (Group)cUnorderedGroup_1.eContents().get(4);
+		private final Keyword cDataTypeKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Keyword cColonKeyword_1_4_1 = (Keyword)cGroup_1_4.eContents().get(1);
+		private final Assignment cDataTypeAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
+		private final RuleCall cDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0 = (RuleCall)cDataTypeAssignment_1_4_2.eContents().get(0);
+		private final Keyword cCommaKeyword_1_4_3 = (Keyword)cGroup_1_4.eContents().get(3);
 		private final RuleCall cDerivedQoSMetricParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//QoSMetric:
-		//	'{' (('"name"' ':' name=QoSMetricName ','?)?
-		//	& ('"description"' ':' description=AnyString ','?)?
-		//	& '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?) DerivedQoSMetric?
+		//	'{' ('"name"' ':' name=AnyString ','? & '"metricType"' ':' metricType=QoSMetricName ','? & ('"description"' ':'
+		//	description=AnyString ','?)?
+		//	& '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?) DerivedQoSMetric? // Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'{' (('"name"' ':' name=QoSMetricName ','?)? & ('"description"' ':' description=AnyString ','?)? & '"unit"' ':'
-		//unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?) DerivedQoSMetric? '}'
+		//'{' ('"name"' ':' name=AnyString ','? & '"metricType"' ':' metricType=QoSMetricName ','? & ('"description"' ':'
+		//description=AnyString ','?)? & '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?)
+		//DerivedQoSMetric? // Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
+		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
 		
-		//('"name"' ':' name=QoSMetricName ','?)? & ('"description"' ':' description=AnyString ','?)? & '"unit"' ':'
-		//unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?
+		//'"name"' ':' name=AnyString ','? & '"metricType"' ':' metricType=QoSMetricName ','? & ('"description"' ':'
+		//description=AnyString ','?)? & '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 		
-		//('"name"' ':' name=QoSMetricName ','?)?
+		//'"name"' ':' name=AnyString ','?
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//'"name"'
@@ -3600,72 +3608,91 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_1_0_1() { return cColonKeyword_1_0_1; }
 		
-		//name=QoSMetricName
+		//name=AnyString
 		public Assignment getNameAssignment_1_0_2() { return cNameAssignment_1_0_2; }
 		
-		//QoSMetricName
-		public RuleCall getNameQoSMetricNameParserRuleCall_1_0_2_0() { return cNameQoSMetricNameParserRuleCall_1_0_2_0; }
+		//AnyString
+		public RuleCall getNameAnyStringParserRuleCall_1_0_2_0() { return cNameAnyStringParserRuleCall_1_0_2_0; }
 		
 		//','?
 		public Keyword getCommaKeyword_1_0_3() { return cCommaKeyword_1_0_3; }
 		
-		//('"description"' ':' description=AnyString ','?)?
+		//'"metricType"' ':' metricType=QoSMetricName ','?
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//'"description"'
-		public Keyword getDescriptionKeyword_1_1_0() { return cDescriptionKeyword_1_1_0; }
+		//'"metricType"'
+		public Keyword getMetricTypeKeyword_1_1_0() { return cMetricTypeKeyword_1_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_1_1_1() { return cColonKeyword_1_1_1; }
 		
-		//description=AnyString
-		public Assignment getDescriptionAssignment_1_1_2() { return cDescriptionAssignment_1_1_2; }
+		//metricType=QoSMetricName
+		public Assignment getMetricTypeAssignment_1_1_2() { return cMetricTypeAssignment_1_1_2; }
 		
-		//AnyString
-		public RuleCall getDescriptionAnyStringParserRuleCall_1_1_2_0() { return cDescriptionAnyStringParserRuleCall_1_1_2_0; }
+		//QoSMetricName
+		public RuleCall getMetricTypeQoSMetricNameEnumRuleCall_1_1_2_0() { return cMetricTypeQoSMetricNameEnumRuleCall_1_1_2_0; }
 		
 		//','?
 		public Keyword getCommaKeyword_1_1_3() { return cCommaKeyword_1_1_3; }
 		
-		//'"unit"' ':' unit=QoSMetricUnit ','?
+		//('"description"' ':' description=AnyString ','?)?
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
-		//'"unit"'
-		public Keyword getUnitKeyword_1_2_0() { return cUnitKeyword_1_2_0; }
+		//'"description"'
+		public Keyword getDescriptionKeyword_1_2_0() { return cDescriptionKeyword_1_2_0; }
 		
 		//':'
 		public Keyword getColonKeyword_1_2_1() { return cColonKeyword_1_2_1; }
 		
-		//unit=QoSMetricUnit
-		public Assignment getUnitAssignment_1_2_2() { return cUnitAssignment_1_2_2; }
+		//description=AnyString
+		public Assignment getDescriptionAssignment_1_2_2() { return cDescriptionAssignment_1_2_2; }
 		
-		//QoSMetricUnit
-		public RuleCall getUnitQoSMetricUnitEnumRuleCall_1_2_2_0() { return cUnitQoSMetricUnitEnumRuleCall_1_2_2_0; }
+		//AnyString
+		public RuleCall getDescriptionAnyStringParserRuleCall_1_2_2_0() { return cDescriptionAnyStringParserRuleCall_1_2_2_0; }
 		
 		//','?
 		public Keyword getCommaKeyword_1_2_3() { return cCommaKeyword_1_2_3; }
 		
-		//'"dataType"' ':' dataType=QoSMetricType ','?
+		//'"unit"' ':' unit=QoSMetricUnit ','?
 		public Group getGroup_1_3() { return cGroup_1_3; }
 		
-		//'"dataType"'
-		public Keyword getDataTypeKeyword_1_3_0() { return cDataTypeKeyword_1_3_0; }
+		//'"unit"'
+		public Keyword getUnitKeyword_1_3_0() { return cUnitKeyword_1_3_0; }
 		
 		//':'
 		public Keyword getColonKeyword_1_3_1() { return cColonKeyword_1_3_1; }
 		
-		//dataType=QoSMetricType
-		public Assignment getDataTypeAssignment_1_3_2() { return cDataTypeAssignment_1_3_2; }
+		//unit=QoSMetricUnit
+		public Assignment getUnitAssignment_1_3_2() { return cUnitAssignment_1_3_2; }
 		
-		//QoSMetricType
-		public RuleCall getDataTypeQoSMetricTypeEnumRuleCall_1_3_2_0() { return cDataTypeQoSMetricTypeEnumRuleCall_1_3_2_0; }
+		//QoSMetricUnit
+		public RuleCall getUnitQoSMetricUnitEnumRuleCall_1_3_2_0() { return cUnitQoSMetricUnitEnumRuleCall_1_3_2_0; }
 		
 		//','?
 		public Keyword getCommaKeyword_1_3_3() { return cCommaKeyword_1_3_3; }
 		
+		//'"dataType"' ':' dataType=QoSMetricType ','?
+		public Group getGroup_1_4() { return cGroup_1_4; }
+		
+		//'"dataType"'
+		public Keyword getDataTypeKeyword_1_4_0() { return cDataTypeKeyword_1_4_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1_4_1() { return cColonKeyword_1_4_1; }
+		
+		//dataType=QoSMetricType
+		public Assignment getDataTypeAssignment_1_4_2() { return cDataTypeAssignment_1_4_2; }
+		
+		//QoSMetricType
+		public RuleCall getDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0() { return cDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0; }
+		
+		//','?
+		public Keyword getCommaKeyword_1_4_3() { return cCommaKeyword_1_4_3; }
+		
 		//DerivedQoSMetric?
 		public RuleCall getDerivedQoSMetricParserRuleCall_2() { return cDerivedQoSMetricParserRuleCall_2; }
 		
+		//// Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
@@ -3694,24 +3721,24 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAggregationFunctionKeyword_1_3_2_0 = (Keyword)cGroup_1_3_2.eContents().get(0);
 		private final Keyword cColonKeyword_1_3_2_1 = (Keyword)cGroup_1_3_2.eContents().get(1);
 		private final Assignment cAggregationFunctionAssignment_1_3_2_2 = (Assignment)cGroup_1_3_2.eContents().get(2);
-		private final RuleCall cAggregationFunctionAnyStringParserRuleCall_1_3_2_2_0 = (RuleCall)cAggregationFunctionAssignment_1_3_2_2.eContents().get(0);
+		private final RuleCall cAggregationFunctionAggregationFunctionEnumRuleCall_1_3_2_2_0 = (RuleCall)cAggregationFunctionAssignment_1_3_2_2.eContents().get(0);
 		private final Keyword cCommaKeyword_1_3_2_3 = (Keyword)cGroup_1_3_2.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		
 		//DerivedQoSMetric:
 		//	{DerivedQoSMetric} ('"derivedQoSMetricDefinition"' ':' '{' ('"window"' ':' window=AnyString ','? & '"windowUnit"' ':'
-		//	windowUnit=WindowUnit ','? & '"aggregationFunction"' ':' aggregationFunction=AnyString ','?) '}');
+		//	windowUnit=WindowUnit ','? & '"aggregationFunction"' ':' aggregationFunction=AggregationFunction ','?) '}');
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{DerivedQoSMetric} ('"derivedQoSMetricDefinition"' ':' '{' ('"window"' ':' window=AnyString ','? & '"windowUnit"' ':'
-		//windowUnit=WindowUnit ','? & '"aggregationFunction"' ':' aggregationFunction=AnyString ','?) '}')
+		//windowUnit=WindowUnit ','? & '"aggregationFunction"' ':' aggregationFunction=AggregationFunction ','?) '}')
 		public Group getGroup() { return cGroup; }
 		
 		//{DerivedQoSMetric}
 		public Action getDerivedQoSMetricAction_0() { return cDerivedQoSMetricAction_0; }
 		
 		//'"derivedQoSMetricDefinition"' ':' '{' ('"window"' ':' window=AnyString ','? & '"windowUnit"' ':' windowUnit=WindowUnit
-		//','? & '"aggregationFunction"' ':' aggregationFunction=AnyString ','?) '}'
+		//','? & '"aggregationFunction"' ':' aggregationFunction=AggregationFunction ','?) '}'
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'"derivedQoSMetricDefinition"'
@@ -3724,7 +3751,7 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_1_2() { return cLeftCurlyBracketKeyword_1_2; }
 		
 		//'"window"' ':' window=AnyString ','? & '"windowUnit"' ':' windowUnit=WindowUnit ','? & '"aggregationFunction"' ':'
-		//aggregationFunction=AnyString ','?
+		//aggregationFunction=AggregationFunction ','?
 		public UnorderedGroup getUnorderedGroup_1_3() { return cUnorderedGroup_1_3; }
 		
 		//'"window"' ':' window=AnyString ','?
@@ -3763,7 +3790,7 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//','?
 		public Keyword getCommaKeyword_1_3_1_3() { return cCommaKeyword_1_3_1_3; }
 		
-		//'"aggregationFunction"' ':' aggregationFunction=AnyString ','?
+		//'"aggregationFunction"' ':' aggregationFunction=AggregationFunction ','?
 		public Group getGroup_1_3_2() { return cGroup_1_3_2; }
 		
 		//'"aggregationFunction"'
@@ -3772,11 +3799,11 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_1_3_2_1() { return cColonKeyword_1_3_2_1; }
 		
-		//aggregationFunction=AnyString
+		//aggregationFunction=AggregationFunction
 		public Assignment getAggregationFunctionAssignment_1_3_2_2() { return cAggregationFunctionAssignment_1_3_2_2; }
 		
-		//AnyString
-		public RuleCall getAggregationFunctionAnyStringParserRuleCall_1_3_2_2_0() { return cAggregationFunctionAnyStringParserRuleCall_1_3_2_2_0; }
+		//AggregationFunction
+		public RuleCall getAggregationFunctionAggregationFunctionEnumRuleCall_1_3_2_2_0() { return cAggregationFunctionAggregationFunctionEnumRuleCall_1_3_2_2_0; }
 		
 		//','?
 		public Keyword getCommaKeyword_1_3_2_3() { return cCommaKeyword_1_3_2_3; }
@@ -4056,31 +4083,6 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-	public class QoSMetricNameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.QoSMetricName");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cLatencyKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cMetric2Keyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cMetric3Keyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		
-		//QoSMetricName:
-		//	'"latency"'
-		//	| '"metric2"'
-		//	| '"metric3"';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'"latency"' | '"metric2"' | '"metric3"'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'"latency"'
-		public Keyword getLatencyKeyword_0() { return cLatencyKeyword_0; }
-		
-		//'"metric2"'
-		public Keyword getMetric2Keyword_1() { return cMetric2Keyword_1; }
-		
-		//'"metric3"'
-		public Keyword getMetric3Keyword_2() { return cMetric3Keyword_2; }
 	}
 	public class PrimitiveValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.PrimitiveValue");
@@ -4530,6 +4532,80 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//'"messages"'
 		public Keyword getMessagesMessagesKeyword_4_0() { return cMessagesMessagesKeyword_4_0; }
 	}
+	public class AggregationFunctionElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.AggregationFunction");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cAVGEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cAVGAVGKeyword_0_0 = (Keyword)cAVGEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cMEDIANEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cMEDIANMEDIANKeyword_1_0 = (Keyword)cMEDIANEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cMAXEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cMAXMAXKeyword_2_0 = (Keyword)cMAXEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cMINEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cMINMINKeyword_3_0 = (Keyword)cMINEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum AggregationFunction:
+		//	AVG='"AVG"'
+		//	| MEDIAN='"MEDIAN"'
+		//	| MAX='"MAX"'
+		//	| MIN='"MIN"';
+		public EnumRule getRule() { return rule; }
+		
+		//AVG='"AVG"' | MEDIAN='"MEDIAN"' | MAX='"MAX"' | MIN='"MIN"'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//AVG='"AVG"'
+		public EnumLiteralDeclaration getAVGEnumLiteralDeclaration_0() { return cAVGEnumLiteralDeclaration_0; }
+		
+		//'"AVG"'
+		public Keyword getAVGAVGKeyword_0_0() { return cAVGAVGKeyword_0_0; }
+		
+		//MEDIAN='"MEDIAN"'
+		public EnumLiteralDeclaration getMEDIANEnumLiteralDeclaration_1() { return cMEDIANEnumLiteralDeclaration_1; }
+		
+		//'"MEDIAN"'
+		public Keyword getMEDIANMEDIANKeyword_1_0() { return cMEDIANMEDIANKeyword_1_0; }
+		
+		//MAX='"MAX"'
+		public EnumLiteralDeclaration getMAXEnumLiteralDeclaration_2() { return cMAXEnumLiteralDeclaration_2; }
+		
+		//'"MAX"'
+		public Keyword getMAXMAXKeyword_2_0() { return cMAXMAXKeyword_2_0; }
+		
+		//MIN='"MIN"'
+		public EnumLiteralDeclaration getMINEnumLiteralDeclaration_3() { return cMINEnumLiteralDeclaration_3; }
+		
+		//'"MIN"'
+		public Keyword getMINMINKeyword_3_0() { return cMINMINKeyword_3_0; }
+	}
+	public class QoSMetricNameElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.QoSMetricName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cLatencyEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cLatencyLatencyKeyword_0_0 = (Keyword)cLatencyEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cAvailabilityEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cAvailabilityAvailabilityKeyword_1_0 = (Keyword)cAvailabilityEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum QoSMetricName:
+		//	latency='"latency"'
+		//	| availability='"availability"';
+		public EnumRule getRule() { return rule; }
+		
+		//latency='"latency"' | availability='"availability"'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//latency='"latency"'
+		public EnumLiteralDeclaration getLatencyEnumLiteralDeclaration_0() { return cLatencyEnumLiteralDeclaration_0; }
+		
+		//'"latency"'
+		public Keyword getLatencyLatencyKeyword_0_0() { return cLatencyLatencyKeyword_0_0; }
+		
+		//availability='"availability"'
+		public EnumLiteralDeclaration getAvailabilityEnumLiteralDeclaration_1() { return cAvailabilityEnumLiteralDeclaration_1; }
+		
+		//'"availability"'
+		public Keyword getAvailabilityAvailabilityKeyword_1_0() { return cAvailabilityAvailabilityKeyword_1_0; }
+	}
 	public class QoSMetricUnitElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.QoSMetricUnit");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -4927,7 +5003,8 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	private final AtomicBooleanConditionElements pAtomicBooleanCondition;
 	private final ReferenceElements pReference;
 	private final WindowUnitElements eWindowUnit;
-	private final QoSMetricNameElements pQoSMetricName;
+	private final AggregationFunctionElements eAggregationFunction;
+	private final QoSMetricNameElements eQoSMetricName;
 	private final QoSMetricUnitElements eQoSMetricUnit;
 	private final QoSMetricTypeElements eQoSMetricType;
 	private final OperatorElements eOperator;
@@ -4989,7 +5066,8 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAtomicBooleanCondition = new AtomicBooleanConditionElements();
 		this.pReference = new ReferenceElements();
 		this.eWindowUnit = new WindowUnitElements();
-		this.pQoSMetricName = new QoSMetricNameElements();
+		this.eAggregationFunction = new AggregationFunctionElements();
+		this.eQoSMetricName = new QoSMetricNameElements();
 		this.eQoSMetricUnit = new QoSMetricUnitElements();
 		this.eQoSMetricType = new QoSMetricTypeElements();
 		this.eOperator = new OperatorElements();
@@ -5432,7 +5510,7 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//QoSMetricReference:
-	//	metric=[QoSMetric|QoSMetricName];
+	//	metric=[QoSMetric|AnyString];
 	public QoSMetricReferenceElements getQoSMetricReferenceAccess() {
 		return pQoSMetricReference;
 	}
@@ -5442,9 +5520,9 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//QoSMetric:
-	//	'{' (('"name"' ':' name=QoSMetricName ','?)?
-	//	& ('"description"' ':' description=AnyString ','?)?
-	//	& '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?) DerivedQoSMetric?
+	//	'{' ('"name"' ':' name=AnyString ','? & '"metricType"' ':' metricType=QoSMetricName ','? & ('"description"' ':'
+	//	description=AnyString ','?)?
+	//	& '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?) DerivedQoSMetric? // Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
 	//	'}';
 	public QoSMetricElements getQoSMetricAccess() {
 		return pQoSMetric;
@@ -5456,7 +5534,7 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DerivedQoSMetric:
 	//	{DerivedQoSMetric} ('"derivedQoSMetricDefinition"' ':' '{' ('"window"' ':' window=AnyString ','? & '"windowUnit"' ':'
-	//	windowUnit=WindowUnit ','? & '"aggregationFunction"' ':' aggregationFunction=AnyString ','?) '}');
+	//	windowUnit=WindowUnit ','? & '"aggregationFunction"' ':' aggregationFunction=AggregationFunction ','?) '}');
 	public DerivedQoSMetricElements getDerivedQoSMetricAccess() {
 		return pDerivedQoSMetric;
 	}
@@ -5534,15 +5612,27 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		return getWindowUnitAccess().getRule();
 	}
 	
-	//QoSMetricName:
-	//	'"latency"'
-	//	| '"metric2"'
-	//	| '"metric3"';
-	public QoSMetricNameElements getQoSMetricNameAccess() {
-		return pQoSMetricName;
+	//enum AggregationFunction:
+	//	AVG='"AVG"'
+	//	| MEDIAN='"MEDIAN"'
+	//	| MAX='"MAX"'
+	//	| MIN='"MIN"';
+	public AggregationFunctionElements getAggregationFunctionAccess() {
+		return eAggregationFunction;
 	}
 	
-	public ParserRule getQoSMetricNameRule() {
+	public EnumRule getAggregationFunctionRule() {
+		return getAggregationFunctionAccess().getRule();
+	}
+	
+	//enum QoSMetricName:
+	//	latency='"latency"'
+	//	| availability='"availability"';
+	public QoSMetricNameElements getQoSMetricNameAccess() {
+		return eQoSMetricName;
+	}
+	
+	public EnumRule getQoSMetricNameRule() {
 		return getQoSMetricNameAccess().getRule();
 	}
 	

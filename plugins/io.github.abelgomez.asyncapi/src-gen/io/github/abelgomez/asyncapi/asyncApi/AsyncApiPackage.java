@@ -1586,13 +1586,22 @@ public interface AsyncApiPackage extends EPackage
   int QO_SMETRIC__NAME = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Metric Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QO_SMETRIC__METRIC_TYPE = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QO_SMETRIC__DESCRIPTION = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 1;
+  int QO_SMETRIC__DESCRIPTION = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Unit</b></em>' attribute.
@@ -1601,7 +1610,7 @@ public interface AsyncApiPackage extends EPackage
    * @generated
    * @ordered
    */
-  int QO_SMETRIC__UNIT = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 2;
+  int QO_SMETRIC__UNIT = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -1610,7 +1619,7 @@ public interface AsyncApiPackage extends EPackage
    * @generated
    * @ordered
    */
-  int QO_SMETRIC__DATA_TYPE = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 3;
+  int QO_SMETRIC__DATA_TYPE = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Qo SMetric</em>' class.
@@ -1619,7 +1628,7 @@ public interface AsyncApiPackage extends EPackage
    * @generated
    * @ordered
    */
-  int QO_SMETRIC_FEATURE_COUNT = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 4;
+  int QO_SMETRIC_FEATURE_COUNT = ABSTRACT_QO_SMETRIC_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.impl.DerivedQoSMetricImpl <em>Derived Qo SMetric</em>}' class.
@@ -1639,6 +1648,15 @@ public interface AsyncApiPackage extends EPackage
    * @ordered
    */
   int DERIVED_QO_SMETRIC__NAME = QO_SMETRIC__NAME;
+
+  /**
+   * The feature id for the '<em><b>Metric Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVED_QO_SMETRIC__METRIC_TYPE = QO_SMETRIC__METRIC_TYPE;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1854,6 +1872,26 @@ public interface AsyncApiPackage extends EPackage
   int WINDOW_UNIT = 39;
 
   /**
+   * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.AggregationFunction <em>Aggregation Function</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.github.abelgomez.asyncapi.asyncApi.AggregationFunction
+   * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getAggregationFunction()
+   * @generated
+   */
+  int AGGREGATION_FUNCTION = 40;
+
+  /**
+   * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetricName <em>Qo SMetric Name</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.github.abelgomez.asyncapi.asyncApi.QoSMetricName
+   * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getQoSMetricName()
+   * @generated
+   */
+  int QO_SMETRIC_NAME = 41;
+
+  /**
    * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetricUnit <em>Qo SMetric Unit</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1861,7 +1899,7 @@ public interface AsyncApiPackage extends EPackage
    * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getQoSMetricUnit()
    * @generated
    */
-  int QO_SMETRIC_UNIT = 40;
+  int QO_SMETRIC_UNIT = 42;
 
   /**
    * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetricType <em>Qo SMetric Type</em>}' enum.
@@ -1871,7 +1909,7 @@ public interface AsyncApiPackage extends EPackage
    * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getQoSMetricType()
    * @generated
    */
-  int QO_SMETRIC_TYPE = 41;
+  int QO_SMETRIC_TYPE = 43;
 
   /**
    * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.Operator <em>Operator</em>}' enum.
@@ -1881,7 +1919,7 @@ public interface AsyncApiPackage extends EPackage
    * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getOperator()
    * @generated
    */
-  int OPERATOR = 42;
+  int OPERATOR = 44;
 
   /**
    * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.JsonType <em>Json Type</em>}' enum.
@@ -1891,7 +1929,7 @@ public interface AsyncApiPackage extends EPackage
    * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getJsonType()
    * @generated
    */
-  int JSON_TYPE = 43;
+  int JSON_TYPE = 45;
 
   /**
    * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.Boolean <em>Boolean</em>}' enum.
@@ -1901,7 +1939,7 @@ public interface AsyncApiPackage extends EPackage
    * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getBoolean()
    * @generated
    */
-  int BOOLEAN = 44;
+  int BOOLEAN = 46;
 
   /**
    * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.VersionNumber <em>Version Number</em>}' enum.
@@ -1911,7 +1949,7 @@ public interface AsyncApiPackage extends EPackage
    * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getVersionNumber()
    * @generated
    */
-  int VERSION_NUMBER = 45;
+  int VERSION_NUMBER = 47;
 
   /**
    * The meta object id for the '{@link io.github.abelgomez.asyncapi.asyncApi.Protocol <em>Protocol</em>}' enum.
@@ -1921,7 +1959,7 @@ public interface AsyncApiPackage extends EPackage
    * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getProtocol()
    * @generated
    */
-  int PROTOCOL = 46;
+  int PROTOCOL = 48;
 
 
   /**
@@ -3366,6 +3404,17 @@ public interface AsyncApiPackage extends EPackage
   EAttribute getQoSMetric_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getMetricType <em>Metric Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Metric Type</em>'.
+   * @see io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getMetricType()
+   * @see #getQoSMetric()
+   * @generated
+   */
+  EAttribute getQoSMetric_MetricType();
+
+  /**
    * Returns the meta object for the attribute '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3555,6 +3604,26 @@ public interface AsyncApiPackage extends EPackage
    * @generated
    */
   EEnum getWindowUnit();
+
+  /**
+   * Returns the meta object for enum '{@link io.github.abelgomez.asyncapi.asyncApi.AggregationFunction <em>Aggregation Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Aggregation Function</em>'.
+   * @see io.github.abelgomez.asyncapi.asyncApi.AggregationFunction
+   * @generated
+   */
+  EEnum getAggregationFunction();
+
+  /**
+   * Returns the meta object for enum '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetricName <em>Qo SMetric Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Qo SMetric Name</em>'.
+   * @see io.github.abelgomez.asyncapi.asyncApi.QoSMetricName
+   * @generated
+   */
+  EEnum getQoSMetricName();
 
   /**
    * Returns the meta object for enum '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetricUnit <em>Qo SMetric Unit</em>}'.
@@ -4788,6 +4857,14 @@ public interface AsyncApiPackage extends EPackage
     EAttribute QO_SMETRIC__NAME = eINSTANCE.getQoSMetric_Name();
 
     /**
+     * The meta object literal for the '<em><b>Metric Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute QO_SMETRIC__METRIC_TYPE = eINSTANCE.getQoSMetric_MetricType();
+
+    /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4944,6 +5021,26 @@ public interface AsyncApiPackage extends EPackage
      * @generated
      */
     EEnum WINDOW_UNIT = eINSTANCE.getWindowUnit();
+
+    /**
+     * The meta object literal for the '{@link io.github.abelgomez.asyncapi.asyncApi.AggregationFunction <em>Aggregation Function</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.github.abelgomez.asyncapi.asyncApi.AggregationFunction
+     * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getAggregationFunction()
+     * @generated
+     */
+    EEnum AGGREGATION_FUNCTION = eINSTANCE.getAggregationFunction();
+
+    /**
+     * The meta object literal for the '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetricName <em>Qo SMetric Name</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.github.abelgomez.asyncapi.asyncApi.QoSMetricName
+     * @see io.github.abelgomez.asyncapi.asyncApi.impl.AsyncApiPackageImpl#getQoSMetricName()
+     * @generated
+     */
+    EEnum QO_SMETRIC_NAME = eINSTANCE.getQoSMetricName();
 
     /**
      * The meta object literal for the '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetricUnit <em>Qo SMetric Unit</em>}' enum.

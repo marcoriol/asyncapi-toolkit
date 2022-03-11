@@ -21,6 +21,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 
 import static extension io.github.abelgomez.asyncapi.generator.TransformationContext.*
+import org.eclipse.emf.ecore.util.EcoreUtil
 
 class AsyncApiGeneratorDelegate {
 
@@ -32,7 +33,11 @@ class AsyncApiGeneratorDelegate {
 	new(IFileSystemAccess2 fsa, IGeneratorContext context, AsyncAPI api) {
 		this.fsa = fsa
 		this.context = context
-		this.api = api
+	
+		this.api = EcoreUtil.copy(api)
+		
+		//TODO: to complete
+		// this.api.components+= [ /*aqui crear instancias. e.g. crear schema del mensaje mqtt que quiero mandar para el monitor. Con esto, me va a generar tb el codigo para mandar los mensajes de monitorización */]
 	}
 
 	def generate() {

@@ -14,6 +14,7 @@ package io.github.abelgomez.asyncapi.asyncApi;
  * </p>
  * <ul>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getName <em>Name</em>}</li>
+ *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getMetricType <em>Metric Type</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getDescription <em>Description</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getUnit <em>Unit</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getDataType <em>Data Type</em>}</li>
@@ -46,6 +47,31 @@ public interface QoSMetric extends AbstractQoSMetric
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Metric Type</b></em>' attribute.
+   * The literals are from the enumeration {@link io.github.abelgomez.asyncapi.asyncApi.QoSMetricName}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Metric Type</em>' attribute.
+   * @see io.github.abelgomez.asyncapi.asyncApi.QoSMetricName
+   * @see #setMetricType(QoSMetricName)
+   * @see io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage#getQoSMetric_MetricType()
+   * @model
+   * @generated
+   */
+  QoSMetricName getMetricType();
+
+  /**
+   * Sets the value of the '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getMetricType <em>Metric Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Metric Type</em>' attribute.
+   * @see io.github.abelgomez.asyncapi.asyncApi.QoSMetricName
+   * @see #getMetricType()
+   * @generated
+   */
+  void setMetricType(QoSMetricName value);
 
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.
