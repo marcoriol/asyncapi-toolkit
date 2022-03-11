@@ -10,6 +10,7 @@ import io.github.abelgomez.asyncapi.asyncApi.Server
 import io.github.abelgomez.asyncapi.generator.infra.ITargetElement
 import io.github.abelgomez.asyncapi.generator.target.ChannelPackage
 import io.github.abelgomez.asyncapi.generator.target.ComponentsPackage
+import io.github.abelgomez.asyncapi.generator.target.PomFile
 import io.github.abelgomez.asyncapi.generator.target.RootPackage
 import io.github.abelgomez.asyncapi.generator.target.channels.OperationClass
 import io.github.abelgomez.asyncapi.generator.target.messages.MessageClass
@@ -23,29 +24,32 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import static extension io.github.abelgomez.asyncapi.generator.TransformationContext.*
 import org.eclipse.emf.ecore.util.EcoreUtil
 
+
 class AsyncApiGeneratorDelegate {
 
+	public static val SRC_FOLDER = "src/main/java" 
+
 	val IFileSystemAccess2 fsa
-	val IGeneratorContext context
+	val IGeneratorContext generatorContext
 
 	val AsyncAPI api
 
 	new(IFileSystemAccess2 fsa, IGeneratorContext context, AsyncAPI api) {
 		this.fsa = fsa
-		this.context = context
-	
-		this.api = EcoreUtil.copy(api)
-		
-		//TODO: to complete
-		// this.api.components+= [ /*aqui crear instancias. e.g. crear schema del mensaje mqtt que quiero mandar para el monitor. Con esto, me va a generar tb el codigo para mandar los mensajes de monitorización */]
+		this.generatorContext = context
+		this.api = EcoreUtil.copy(api) //TODO: Check if we need to make the copy or not (depending if we start modifying this.api.components to add monitoring components).
 	}
 
 	def generate() {
 		TransformationContext.initialize()
-		api.transform.saveContents(fsa, context)
-		api.channels.forEach[c | c.transform.saveContents(fsa, context)]
-		api.components.transform.saveContents(fsa, context)
-		TransformationContext.cleanup()
+		try {
+			api?.transform?.saveContents(fsa, generatorContext)
+			api?.channels?.forEach[c | c.transform?.saveContents(fsa, generatorContext)]
+			api?.components?.transform?.saveContents(fsa, generatorContext)
+			PomFile.createFrom(api).generate(fsa)
+		} finally {
+			TransformationContext.cleanup()
+		}
 	}
 
 }

@@ -3,12 +3,44 @@
  */
 package io.github.abelgomez.asyncapi
 
+import io.github.abelgomez.asyncapi.generator.target.PomFile
+import io.github.abelgomez.asyncapi.generator.target.RootPomFile
+import java.io.File
+import org.eclipse.xtext.generator.IFileSystemAccess
+import org.eclipse.xtext.generator.IOutputConfigurationProvider
+import org.eclipse.xtext.generator.OutputConfiguration
+import org.eclipse.xtext.generator.OutputConfigurationProvider
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class AsyncApiRuntimeModule extends AbstractAsyncApiRuntimeModule {
 	
+	
 	override bindIValueConverterService() {
 		CustomStringConverters
+	}
+	
+	def Class<? extends IOutputConfigurationProvider> bindIOutputConfigurationProvider() {
+		AsyncApiOutputConfigurationProvider
+	}
+}
+
+class AsyncApiOutputConfigurationProvider extends OutputConfigurationProvider {
+
+	public static final String GEN_DIRECTORY = "gen"
+	public static final String POM_FILE = GEN_DIRECTORY + File.separator + PomFile.POM_FILE
+	public static final String ROOT_POM_FILE = GEN_DIRECTORY + File.separator + RootPomFile.ROOT_POM_FILE
+
+	override getOutputConfigurations() {
+		val defaultOutput = new OutputConfiguration(IFileSystemAccess.DEFAULT_OUTPUT);
+		defaultOutput.setDescription("Output Folder");
+		defaultOutput.setOutputDirectory(GEN_DIRECTORY);
+		defaultOutput.setOverrideExistingResources(true);
+		defaultOutput.setCreateOutputDirectory(true);
+		defaultOutput.setCleanUpDerivedResources(true);
+		defaultOutput.setSetDerivedProperty(true);
+		defaultOutput.setKeepLocalHistory(true);
+		return newHashSet(defaultOutput);
 	}
 }

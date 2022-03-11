@@ -24,7 +24,7 @@ class ChannelInterface extends AbstractType implements IType {
 		}
 		
 		override pkg() {
-			return channelInterface.api.transform.pkg + "." + "infra"
+			return channelInterface.pkg + "." + "infra"
 		}
 		
 		override fqn() {
@@ -33,7 +33,7 @@ class ChannelInterface extends AbstractType implements IType {
 		
 		override imports() {
 			val result = new TreeSet		
-			result.add(channelInterface.api.transform.parametersInterface.parameterLiteralInterface.fqn)
+			result += channelInterface.api.transform.parametersInterface.parameterLiteralInterface.fqn
 			return Collections.unmodifiableNavigableSet(result)
 		}
 		
@@ -61,7 +61,7 @@ class ChannelInterface extends AbstractType implements IType {
 		}
 		
 		override pkg() {
-			return channelInterface.api.transform.pkg + "." + "infra"
+			return channelInterface.pkg + "." + "infra"
 		}
 		
 		override fqn() {
@@ -70,7 +70,7 @@ class ChannelInterface extends AbstractType implements IType {
 		
 		override imports() {
 			val result = new TreeSet		
-			result.add("java.util.Map")
+			result += "java.util.Map"
 			return Collections.unmodifiableNavigableSet(result)
 		}
 		
@@ -135,7 +135,7 @@ class ChannelInterface extends AbstractType implements IType {
 	}
 	
 	override pkg() {
-		return api.transform.pkg + "." + "infra"
+		return api.transform.fqn + "." + "infra"
 	}
 	
 	override fqn() {
@@ -156,9 +156,9 @@ class ChannelInterface extends AbstractType implements IType {
 	
 	override imports() {
 		val result = new TreeSet		
-		result.addAll(channelConfigurationInterface.imports)
-		result.addAll(channelPublishConfigurationInterface.imports)
-		result.addAll(channelSubscribeConfigurationInterface.imports)
+		result += channelConfigurationInterface.imports
+		result += channelPublishConfigurationInterface.imports
+		result += channelSubscribeConfigurationInterface.imports
 		return Collections.unmodifiableNavigableSet(result)
 	}
 	

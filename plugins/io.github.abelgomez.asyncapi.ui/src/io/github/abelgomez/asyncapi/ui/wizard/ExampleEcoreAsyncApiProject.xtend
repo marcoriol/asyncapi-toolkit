@@ -39,65 +39,55 @@ import java.util.stream.Collectors
 import java.io.InputStream
 import java.io.ByteArrayInputStream
 
-@ProjectTemplate(label="Example AsyncAPI Project from Ecore", icon="asyncapi_project_template.png", description="<p><b>Example Ecore project</b></p>
-<p>Creates a new AsyncAPI v2.0.0 project from using an example Ecore file. You can set the package the file is created in.</p>")
-final class ExampleEcoreAsyncAPIProject {
-	val advanced = check("Advanced:", false)
-	val advancedGroup = group("Properties")
-	val path = text("Package:", "example", "The package path to place the files in", advancedGroup)
-
-	override getVariables() {
-		super.getVariables()
+final class ExampleEcoreAsyncApiProject extends AbstractAsyncApiProjectTemplate {
+	
+	override getLabel() {
+		"Example AsyncAPI Project from Ecore"
 	}
 
-	override protected updateVariables() {
-		path.enabled = advanced.value
-		if (!advanced.value) {
-			path.value = "example"
-		}
+	override getDescription() {
+		"<p><b>Example Ecore project</b></p><p>Creates a new AsyncAPI v2.0.0 project from using an example Ecore file. You can set the package the file is created in.</p>"
 	}
 
-	override generateProjects(IProjectGenerator generator) {
-		generator.generate(new PluginProjectFactory => [
-			projectName = projectInfo.projectName
-			location = projectInfo.locationPath
-			projectDefaultCharset = "UTF-8"
-			projectNatures += #[JavaCore.NATURE_ID, "org.eclipse.pde.PluginNature", XtextProjectHelper.NATURE_ID]
-			builderIds += #[JavaCore.BUILDER_ID, XtextProjectHelper.BUILDER_ID]
-			folders += "src"
-			folders += "src-gen"
-			addFile('''src/«path»/Events.ecore''', ecoreFileContents())
-			addFile('''src/«path»/Events.asyncapi''', Ecore2AsyncApi.generate(loadEPackage(new ByteArrayInputStream(ecoreFileContents().toString().bytes))))
-			addFile('''src/main/MainExample.java''', '''
+	override createProjectFactory() {
+		super.createProjectFactory => [
+			addFile('''«SRC_JAVA»/«path»/Events.ecore''', ecoreFileContents())
+			addFile('''«SRC_JAVA»/«path»/Events.asyncapi''', Ecore2AsyncApi.generate(loadEPackage(new ByteArrayInputStream(ecoreFileContents().toString().bytes))))
+			addFile('''«SRC_JAVA»/main/MainExample.java''', '''
 				package main;
 				
 				import java.text.MessageFormat;
 				import java.util.stream.Collectors;
 				
-				import schemas.Event;
-				import schemas.Sensor;
-				import schemas.Timestamp;
-				import sensors._group_.events.PublishOp;
-				import sensors._group_.events.PublishOp.PublishOpParams;
-				import sensors._group_.events.SubscribeOp;
+				import events.components.schemas.Event;
+				import events.components.schemas.Sensor;
+				import events.components.schemas.Timestamp;
+				import events.infra.IChannel.IChannelPublishConfiguration;
+				import events.infra.IServer;
+				import events.sensors._group_.events.EventsChannel.EventsChannelParameters;
+				import events.sensors._group_.events.PublishOperation;
+				import events.sensors._group_.events.SubscribeOperation;
+				import events.servers.ProductionServer;
 				
-				public class MainExample {
+				public class MainExample  {
 					public static void main(String[] args) throws Exception {
+						// Create a connection to the Production server
+						IServer production = ProductionServer.create();
 						try {
 							// Register a new subscription to the LightMeasured operation
-							SubscribeOp.subscribe((message, params) -> {
+							SubscribeOperation.subscribe(production, (message, params) -> {
 								// Inform about the message received
 								System.err.println(MessageFormat.format(
 										"Received message from sensor ''{0}'' in group ''{1}'':\n{2}",
-										message.getName(),
+										message.getPayload().getName(),
 										params.getGroup(),
-										message.getEvents().stream().map(e -> e.toJson(true)).collect(Collectors.toList())));
+										message.getPayload().getEvents().stream().map(e -> e.toJson(true)).collect(Collectors.toList())));
 							});
 					
 							// Prepare to publish several messages
 							for (int i = 0; i < 5; i++) {
-								// Create the payload via the payloadBuiler offered by the publish operation
-								Sensor payload = PublishOp.payloadBuilder()
+								// Create the payload via the its builder
+								Sensor payload = Sensor.newBuilder()
 										// Notice that the properties of the payload can be set via
 										// setter that know about the domain (e.g., name and type of
 										// the property
@@ -118,40 +108,28 @@ final class ExampleEcoreAsyncAPIProject {
 										).build();
 								
 								// Create the parameters
-								PublishOpParams params = PublishOpParams.create().withGroup("MyGroup");
-								
+								EventsChannelParameters params = PublishOperation.newParametersBuilder().withGroup("MyGroup").build();
+								IChannelPublishConfiguration configuration = PublishOperation.newConfiguration(params);
 								// Inform about the message to be sent
-								// Note that the "expand" method allows getting the TOPIC with the parameters set to 
+								// Note that the "retrieveTopicName" method allows getting the topic (channel) with the parameters set to 
 								// their actual values
 								System.out.println(MessageFormat.format(
 										"Publishing at topic ''{0}'' (''{1}''):\n{2}",
-										PublishOp.TOPIC_ID,
-										PublishOp.expand(params),
+										configuration.getChannelName(),
+										ProductionServer.retrieveTopicName(configuration),
 										payload.toJson(true)));
 								
 								// Publish the LightMeasured message
-								PublishOp.publish(payload, params);
+								PublishOperation.publish(production, configuration, payload);
 							}
 						} finally {
 							// Unsubscribe from the topic
-							SubscribeOp.unsubscribe();
+							SubscribeOperation.unsubscribe(production);
 						}
 					}
 				}
 			''')
-			addFile('''ivy.xml''', '''
-				<ivy-module version="2.0">
-				    <info organisation="com.example" module="mymodule"/>
-				    <dependencies>
-				        <dependency org="com.google.code.gson" name="gson" rev="2.8.5"/>
-				        <dependency org="org.eclipse.paho" name="org.eclipse.paho.client.mqttv3" rev="1.2.1"/>
-				    </dependencies>
-				</ivy-module>
-			''')
-			addClasspathEntries = JavaCore.newContainerEntry(
-				new Path("org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=" + projectInfo.projectName +
-					"&ivyXmlPath=ivy.xml&confs=*&acceptedTypes=jar%2Cbundle%2Cejb%2Cmaven-plugin%2Ceclipse-plugin&alphaOrder=false&resolveInWorkspace=false&transitiveResolve=true&readOSGiMetadata=false&retrievedClasspath=false"))
-		])
+		]
 	}
 	
 	def ecoreFileContents() '''
@@ -167,8 +145,8 @@ final class ExampleEcoreAsyncAPIProject {
 			    <eAnnotations source="http://io.github.abelgomez/asyncapi/eAnnotations/Channel">
 			      <details key="name" value="sensors/{group}/events"/>
 			      <details key="description" value="Description"/>
-			      <details key="publish" value="publishOp"/>
-			      <details key="subscribe" value="subscribeOp"/>
+			      <details key="publish" value="publish"/>
+			      <details key="subscribe" value="subscribe"/>
 			      <details key="parameters" value="group"/>
 			    </eAnnotations>
 			    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

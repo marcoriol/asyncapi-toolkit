@@ -21,12 +21,14 @@ class SchemaClass extends SchemaAbstractType {
 	}
 	
 	override imports() {
-		val result = new TreeSet		
-		result.add("com.google.gson.Gson")
-		result.add("com.google.gson.annotations.SerializedName")
-		result.add("java.util.UUID")
-		result.add(schema.api.transform.jsonSerializableInterface.fqn)
-		referencedClasses.forEach[nc | result.addAll(nc.imports)]
+		val result = new TreeSet	
+				
+		result += "com.google.gson.Gson"
+		result += "com.google.gson.annotations.SerializedName"
+		result += "java.util.UUID"
+		result += schema.api.transform.jsonSerializableInterface.fqn
+		referencedClasses.forEach[nc | result += nc.imports]
+
 		return Collections.unmodifiableNavigableSet(result)
 	}
 	
