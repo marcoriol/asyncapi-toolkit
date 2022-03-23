@@ -1,9 +1,11 @@
 package io.github.abelgomez.asyncapi.generator.target.servers
 
 import io.github.abelgomez.asyncapi.asyncApi.AsyncAPI
+import io.github.abelgomez.asyncapi.asyncApi.Protocol
 import io.github.abelgomez.asyncapi.asyncApi.Server
 import io.github.abelgomez.asyncapi.generator.infra.IClass
 import io.github.abelgomez.asyncapi.generator.target.AbstractType
+import io.github.abelgomez.asyncapi.generator.utils.Assertions
 import java.util.Collections
 import java.util.TreeSet
 
@@ -11,8 +13,6 @@ import static extension io.github.abelgomez.asyncapi.generator.ModelExtensions.*
 import static extension io.github.abelgomez.asyncapi.generator.TransformationContext.*
 import static extension io.github.abelgomez.asyncapi.generator.utils.StringUtils.*
 import static extension java.text.MessageFormat.*
-import io.github.abelgomez.asyncapi.asyncApi.Protocol
-import io.github.abelgomez.asyncapi.generator.utils.Assertions
 
 abstract class ServerClass extends AbstractType implements IClass {
 
@@ -55,12 +55,11 @@ class MqttServerClass extends ServerClass implements IClass {
 	override imports() {
 		val result = new TreeSet		
 		result += "java.util.List"
-		result += "java.util.Arrays"
+		result += "java.util.ArrayList"
 		result += "java.util.Map"
 		result += "java.util.Map.Entry"
 		result += "java.util.HashMap"
 		result += "java.util.function.Consumer"
-		result += "java.util.stream.Collectors"
 		result += "java.util.regex.Pattern"
 		result += "java.util.regex.Matcher"
 		result += "org.eclipse.paho.client.mqttv3.MqttClient"
@@ -70,6 +69,10 @@ class MqttServerClass extends ServerClass implements IClass {
 		result += "org.eclipse.paho.client.mqttv3.MqttCallback"
 		result += "org.eclipse.paho.client.mqttv3.IMqttDeliveryToken"
 		result += "org.eclipse.paho.client.mqttv3.persist.MemoryPersistence"
+		result += "com.google.common.cache.CacheBuilder"
+		result += "com.google.common.cache.CacheLoader"
+		result += "com.google.common.cache.LoadingCache"
+		result += server.api.transform.parametersInterface.parameterLiteralInterface.fqn
 		result += server.api.transform.serverInterface.fqn
 		result += server.api.transform.channelInterface.channelConfigurationInterface.fqn
 		result += server.api.transform.channelInterface.channelPublishConfigurationInterface.fqn
@@ -115,7 +118,13 @@ class MqttServerClass extends ServerClass implements IClass {
 		«imports.join(System.lineSeparator, [i | "import {0};".format(i)])»
 		
 		/**
+		 *
+		 * <code>«server.name»</code> server at <code>«scheme»:«server.expandUrl»</code>.
+		 «IF server.description !== null»
+		 *
 		 * «server.description»
+		 «ENDIF»
+		 *
 		 */
 		public class «name» implements «serverInterface.name» {
 			
@@ -151,6 +160,11 @@ class MqttServerClass extends ServerClass implements IClass {
 			 */
 			MqttConnectOptions options = new MqttConnectOptions();
 			
+			/**
+			 * Mqtt Callbacks
+			 */
+			private List<Entry<IChannelSubscribeConfiguration, Consumer<Received>>> callbacks = new ArrayList<>();
+
 			public static «name» create() throws «serverExceptionClass.name» {
 				return new «name»();
 			}
@@ -162,7 +176,26 @@ class MqttServerClass extends ServerClass implements IClass {
 				MemoryPersistence persistence = new MemoryPersistence();
 				try {
 					client = new MqttClient(broker, clientId, persistence);
-				} catch (MqttException e) {
+					client.setCallback(new MqttCallback() {
+						@Override public void deliveryComplete(IMqttDeliveryToken token) {}
+						@Override public void connectionLost(Throwable cause) {}
+						@Override public void messageArrived(String topic, MqttMessage message) throws Exception {
+							// Subscriptions are done using wildcards, and the topic name we receive here
+							// is already instantiated with actual data.
+							// Thus, it is not possible to lookup for the Callbacks to be executed
+							// using "more elegant " options (such as a Map or a Cache), and we must do
+							// a linear search for matches instead 
+							for (Entry<IChannelSubscribeConfiguration, Consumer<Received>> entry : callbacks) {
+								IChannelSubscribeConfiguration config = entry.getKey();
+								Consumer<Received> callback = entry.getValue();
+								if (matches(topic, config.getChannelName(), config.getParameterLiterals())) {
+									callback.accept(Received.from(message.getPayload(), 
+											parseParams(topic, config.getChannelName(), config.getParameterLiterals())));
+								}
+							}
+						}
+					});
+				} catch (Exception e) {
 					throw new ServerException(e);
 				} 
 			}
@@ -212,14 +245,7 @@ class MqttServerClass extends ServerClass implements IClass {
 			    if (!isConnected()) {
 					connect();
 			    }
-			    client.setCallback(new MqttCallback() {
-					@Override public void deliveryComplete(IMqttDeliveryToken token) {}
-					@Override public void connectionLost(Throwable cause) {}
-					@Override public void messageArrived(String topic, MqttMessage message) throws Exception {
-						List<String> parameters = Arrays.asList(config.getParameterLiterals()).stream().map(p -> p.getName()).collect(Collectors.toList());
-						callback.accept(«receivedClass.name».from(message.getPayload(), parseParams(topic, config.getChannelName(), parameters)));
-					}
-				});
+			    callbacks.add(Map.entry(config, callback));
 				try {
 			    	client.subscribe(config.getSubscriptionPattern(), DEFAULT_QOS);
 				} catch (MqttException e) {
@@ -244,8 +270,6 @@ class MqttServerClass extends ServerClass implements IClass {
 				return this.client.getClientId();
 			}
 
-			
-
 			/**
 			 * Computes the actual topic name for the given {@link «channelConfigurationInterface.name»}
 			 * in this {@link «serverInterface.name»}
@@ -262,19 +286,49 @@ class MqttServerClass extends ServerClass implements IClass {
 				return topic;
 			}
 
-			private static Map<String, String> parseParams(String actualTopic, String topicId, List<String> parameters) {
+			/**
+			 * Cache to optimize the computation of topic patterns
+			 */
+			private LoadingCache<Entry<String, List<IParameterLiteral>>, String> topicPatternCache = CacheBuilder.newBuilder()
+					.build(new CacheLoader<>() {
+						@Override
+						public String load(Entry<String, List<IParameterLiteral>> key) {
+							String regex = key.getKey();
+							for (IParameterLiteral param : key.getValue()) {
+								regex = regex.replaceAll(String.format("\\{%s\\}", param.getName()), String.format("(?<%s>.+)", param.getName()));
+							}
+							return regex;
+						}
+					});
+			
+			/**
+			 * Returns a {@link Map} containing the parsed parameters if <code>actualTopic</code> 
+			 * matches the <code>topicId</code> pattern.
+			 */
+			private Map<String, String> parseParams(String actualTopic, String topicId, List<IParameterLiteral> parameters) {
 				Map<String, String> result = new HashMap<>();
-				String regex = topicId;
-				for (String param : parameters) {
-					regex = regex.replaceAll(String.format("\\{%s\\}", param), String.format("(?<%s>.+)", param));
-				}
+				String regex = topicPatternCache.getUnchecked(Map.entry(topicId, parameters));
 				Matcher matcher = Pattern.compile(regex).matcher(actualTopic);
 				if (matcher.matches()) {
-					for (String p : parameters) {
-						result.put(p, matcher.group(p));
+					for (IParameterLiteral param : parameters) {
+						result.put(param.getName(), matcher.group(param.getName()));
 					}
 				}
 				return result;
+			}
+			
+			/**
+			 * Returns whether if <code>actualTopic</code> matches the <code>topicId</code>
+			 * pattern when all its {@link IParameterLiteral}s are converted to wildcards
+			 */
+			private boolean matches(String actualTopic, String topicId, List<IParameterLiteral> parameters) {
+				String regex = topicPatternCache.getUnchecked(Map.entry(topicId, parameters));
+				Matcher matcher = Pattern.compile(regex).matcher(actualTopic);
+				if (matcher.matches()) {
+					return true;
+				} else {
+					return false;
+				}
 			}
 		}
 	'''
