@@ -129,7 +129,11 @@ abstract class OperationClass extends AbstractType implements IClass, ISerializa
 	// Methods to support Monitoring generation. 
 	//////////////////////////////////////////////////////////////
 	protected def requiresMonitoring(){
-		operation.api.sla.eAllContents.toIterable.filter(Scope).exists[it.reference.name.equals(operation.channel.name)]
+	    if(operation.api.sla !== null){
+	    	return operation.api.sla.eAllContents.toIterable.filter(Scope).exists[it.reference.name.equals(operation.channel.name)]		
+	    }else{
+	    	return false;
+	    }
 	}
 	
 	protected def getMetricNames(){
@@ -184,7 +188,7 @@ abstract class OperationClass extends AbstractType implements IClass, ISerializa
 			«IF (requiresMonitoring)»
 			     private static Monitor monitor; 	 
 			«ENDIF»
-			
+						
 			/**
 			 * Creates a new {@link «message.transform.asBuilder.name»}
 			 */
