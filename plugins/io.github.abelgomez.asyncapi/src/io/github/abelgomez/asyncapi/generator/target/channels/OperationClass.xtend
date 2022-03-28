@@ -70,6 +70,10 @@ abstract class OperationClass extends AbstractType implements IClass, ISerializa
 		return channel.api.transform.channelInterface
 	}
 	
+	protected def operationInterface() {
+		return channel.api.transform.operationInterface
+	}
+	
 	protected def channelPublishConfigurationInterface() {
 		return channel.api.transform.channelInterface.channelPublishConfigurationInterface
 	}
@@ -106,6 +110,7 @@ abstract class OperationClass extends AbstractType implements IClass, ISerializa
 
 	override imports() {
 		val result = new TreeSet		
+		result += operationInterface.fqn
 		result += serverInterface.fqn
 		result += serverExceptionClass.fqn
 		result += message.resolve.transform.asBuilder.fqn
@@ -179,7 +184,7 @@ abstract class OperationClass extends AbstractType implements IClass, ISerializa
 		 *
 		 «ENDIF»
 		 */
-		public class «name» {
+		public class «name» implements «operationInterface.name» {
 			«IF nestedMessage !== null»
 			
 			«nestedMessage.serialize»
@@ -228,7 +233,7 @@ class PublishOperationClass extends OperationClass {
 		 * Creates a new {@link «channelPublishConfigurationInterface.name»} for the {@link «channelInterface.name»} of this operation 
 		 */
 		public static «channelPublishConfigurationInterface.name» newConfiguration() {
-			return «channelClass.name».newPublishConfiguration();
+			return «channelClass.name».INSTANCE.newPublishConfiguration();
 		}
 		«ELSE»
 		/**
@@ -236,24 +241,20 @@ class PublishOperationClass extends OperationClass {
 		 * given {@link «parametersClass.name»} 
 		 */
 		public static «channelPublishConfigurationInterface.name» newConfiguration(«parametersClass.name» params) {
-			return «channelClass.name».newPublishConfiguration(params);
+			return «channelClass.name».INSTANCE.newPublishConfiguration(params);
 		}
 		
 		/**
 		 * Creates a new {@link «parametersClass.asBuilder.name»} for the {@link «channelInterface.name»} of this operation 
 		 */
 		public static «parametersClass.asBuilder.name» newParametersBuilder() {
-			return «channelClass.name».newParametersBuilder();
+			return «channelClass.name».INSTANCE.newParametersBuilder();
 		}
 		«ENDIF»
 	'''
 	
-	// TODO: Re-check all the conditions below... 
 	override protected serverMethods() '''
 		public static void publish(IServer server, «channelPublishConfigurationInterface.name» config, «messageInterface.name» message) throws «serverExceptionClass.name» {
-		    if (!server.isConnected()) {
-				server.connect();
-			}
 			«IF (requiresMonitoring)»
 				String[] metricNames = { « getMetricNames.join (',')» };
 				MetricsDescriptor metricsDescriptor = new MetricsDescriptor(metricNames);
@@ -355,20 +356,38 @@ class SubscribeOperationClass extends OperationClass {
 		 * Creates a new {@link «channelSubscribeConfigurationInterface.name»} for the {@link «channelInterface.name»} of this operation 
 		 */
 		public static «channelSubscribeConfigurationInterface.name» newConfiguration() {
-			return «channelClass.name».newSubscribeConfiguration();
+			return «channelClass.name».INSTANCE.newSubscribeConfiguration();
 		}
 	'''
 	
 	override protected serverMethods() '''
+		/**
+		 * Register the {@link «callbackInterface.name»} callback to be called
+		 * using the default {@link «channelSubscribeConfigurationInterface.name»}
+		 * when a message is published in the given {@link IServer} is published
+		 * on the {@link «channel.transform.name»} channel
+		 *
+		 * @throws IllegalStateException if a {@link «callbackInterface.name»} is already registered.
+		 *                               In such a case, it is necessary to call
+		 *                               {@link #unsubscribe(IServer)} first
+		 */
 		public static void subscribe(IServer server, «callbackInterface.name» callback) throws «serverExceptionClass.name» {
 			«channelSubscribeConfigurationInterface.name» config = newConfiguration();
 		    subscribe(server, config, callback);
 		}
 		
+		/**
+		 * Register the {@link «callbackInterface.name»} callback to be called
+		 * using the provided {@link «channelSubscribeConfigurationInterface.name»}
+		 * when a message is published in the given {@link IServer} is published
+		 * on the {@link «channel.transform.name»} channel 
+		 *
+		 * @throws IllegalStateException if a {@link «callbackInterface.name»} is already registered.
+		 *                               In such a case, it is necessary to call
+		 *                               {@link #unsubscribe(IServer)} first
+		 */
 		public static void subscribe(IServer server, «channelSubscribeConfigurationInterface.name» config, «callbackInterface.name» callback) throws «serverExceptionClass.name» {
-		    if (!server.isConnected()) {
-				server.connect();
-		    }		    
+	    
    			«IF (requiresMonitoring)»
 			String[] metricNames = { « getMetricNames.join (',')» };
 			
@@ -395,11 +414,12 @@ class SubscribeOperationClass extends OperationClass {
 		    });
 		}
 		
+		/**
+		 * Unregister the previously registered {@link «callbackInterface.name»} callback 
+		 * from the given {@link IServer} on the {@link «channel.transform.name»} channel
+		 */
 		public static void unsubscribe(IServer server) throws «serverExceptionClass.name» {
 			«channelSubscribeConfigurationInterface.name» config = newConfiguration();
-		    if (!server.isConnected()) {
-				server.connect();
-		    }
 		    server.unsubscribe(config);
 		}
 		

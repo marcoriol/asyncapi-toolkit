@@ -52,11 +52,20 @@ class ChannelClass extends AbstractType implements IClass, ISerializable {
 	
 	override imports() {
 		val result = new TreeSet
-		result += "java.util.Collections"
 		result += "java.util.Arrays"
 		result += "java.util.List"
 		result += channelInterface.fqn
 		result += parametersInterface.parameterLiteralInterface.fqn
+		if (channel.publish !== null || channel.subscribe !== null) {
+			result += operationInterface.fqn
+		}
+		if (channel.publish !== null) {
+			result += "java.util.Collections"
+			result += "java.util.Map"
+		}
+		if (!channel.parameters.isEmpty) {
+			result += "java.util.Map.Entry"
+		}
 		if (parametersClass !== null) {
 			result += parametersInterface.fqn
 			result += parametersClass.asBuilder.fqn
@@ -71,6 +80,10 @@ class ChannelClass extends AbstractType implements IClass, ISerializable {
 	
 	private def channelInterface() {
 		return channel.api.transform.channelInterface
+	}
+	
+	private def operationInterface() {
+		return channel.api.transform.operationInterface
 	}
 	
 	private def channelPublishConfigurationInterface() {
@@ -95,58 +108,67 @@ class ChannelClass extends AbstractType implements IClass, ISerializable {
 		 */
 		public final class «name» implements «channelInterface.name» {
 		
+			static final «name» INSTANCE = new «name»();
+
 			public static final String TOPIC_ID = "«channel.name»";
 			
-			public static final String TOPIC_PATTERN = "«channel.wildcardify»";
+			static final String TOPIC_PATTERN = "«channel.wildcardify»";
 			
 			/**
-			 * Private constructor. This class only holds constants and static 
-			 * methods and classes and should not be extended or instantiated
+			 * Private constructor. This class is a singleton and should not be extended or instantiated
 			 */
 			private «name»() {
 			}
 			
+			@Override
+			public String getName() {
+				return TOPIC_ID;
+			}
+			
+			«IF channel.subscribe !== null»
 			/**
 			 * Creates a new {@link «channelSubscribeConfigurationInterface.name»} for this {@link IChannel} 
 			 */
-			static «channelSubscribeConfigurationInterface.name» newSubscribeConfiguration() {
+			«channelSubscribeConfigurationInterface.name» newSubscribeConfiguration() {
 				return new  «channelSubscribeConfigurationInterface.name»() {
-					@Override
-					public List<«parametersInterface.parameterLiteralInterface.name»> getParameterLiterals() {
-						«IF channel.parameters.isEmpty»
-						return Arrays.asList(new «parametersInterface.parameterLiteralInterface.name»[] {});
-						«ELSE»
-						return Arrays.asList(«parametersClass.name».LITERALS.values());
-						«ENDIF»
-					}
-					@Override
-					public String getChannelName() {
-						return TOPIC_ID;
-					}
 					@Override
 					public String getSubscriptionPattern() {
 						return TOPIC_PATTERN;
 					}
+					@Override
+					public «name» getChannel() {
+						return «name».this;
+					}
+					@Override
+					public Class<? extends «channelInterface.operationInterface.name»> getOperation() {
+						return «channel.subscribe.transform.name».class;
+					}
 				}; 
 			}
-
+			«ENDIF»
+			
+			«IF channel.publish !== null»
 			«IF channel.parameters.isEmpty»
 			/**
 			 * Creates a new {@link «channelPublishConfigurationInterface.name»} for this {@link IChannel} 
 			 */
-			static «channelPublishConfigurationInterface.name» newPublishConfiguration() {
+			«channelPublishConfigurationInterface.name» newPublishConfiguration() {
 				return new  «channelPublishConfigurationInterface.name»() {
-					@Override
-					public String getChannelName() {
-						return TOPIC_ID;
-					}
-					@Override
-					public List<«parametersInterface.parameterLiteralInterface.name»> getParameterLiterals() {
-						return Arrays.asList(new «parametersInterface.parameterLiteralInterface.name»[] {});
-					}
 					@Override
 					public Map<String, String> getParameters() {
 						return Collections.emptyMap();
+					}
+					@Override
+					public «name» getChannel() {
+						return «name».this;
+					}
+					@Override
+					public String getActualChannelName() {
+						return getChannel().getName();
+					}
+					@Override
+					public Class<? extends «channelInterface.operationInterface.name»> getOperation() {
+						return «channel.publish.transform.name».class;
 					}
 				}; 
 			}
@@ -155,17 +177,28 @@ class ChannelClass extends AbstractType implements IClass, ISerializable {
 			 * Creates a new {@link «channelPublishConfigurationInterface.name»} for this {@link IChannel} for the 
 			 * given {@link «parametersClass.name»} 
 			 */
-			static «channelPublishConfigurationInterface.name» newPublishConfiguration(«parametersClass.name» params) {
+			«channelPublishConfigurationInterface.name» newPublishConfiguration(«parametersClass.name» params) {
 				return new  «channelPublishConfigurationInterface.name»() {
-					public List<«parametersInterface.parameterLiteralInterface.name»> getParameterLiterals() {
-						return Arrays.asList(«parametersClass.name».LITERALS.values());
-					}
-					public String getChannelName() {
-						return TOPIC_ID;
-					}
 					@Override
 					public Map<String, String> getParameters() {
 						return Collections.unmodifiableMap(params.asMap());
+					}
+					@Override
+					public «name» getChannel() {
+						return «name».this;
+					}
+					@Override
+					public String getActualChannelName() {
+						String topic = getChannel().getName();
+						Map<String, String> parameters = this.getParameters();
+						for (Entry<String, String> entry : parameters.entrySet()) {
+							topic = topic.replaceAll("\\{" + entry.getKey() + "\\}", entry.getValue());
+						}
+						return topic;
+					}
+					@Override
+					public Class<? extends «channelInterface.operationInterface.name»> getOperation() {
+						return «channel.publish.transform.name».class;
 					}
 				}; 
 				
@@ -174,12 +207,22 @@ class ChannelClass extends AbstractType implements IClass, ISerializable {
 			/**
 			 * Creates a new {@link «parametersClass.asBuilder.name»} for this {@link IChannel} 
 			 */
-			public static «parametersClass.asBuilder.name» newParametersBuilder() {
+			«parametersClass.asBuilder.name» newParametersBuilder() {
 				return «parametersClass.name».newBuilder();
 			}
 			
 			«parametersClass.serialize»
 			«ENDIF»
+			«ENDIF»
+			
+			@Override
+			public List<«parametersInterface.parameterLiteralInterface.name»> getParameterLiterals() {
+				«IF channel.parameters.isEmpty»
+				return Arrays.asList(new «parametersInterface.parameterLiteralInterface.name»[] {});
+				«ELSE»
+				return Arrays.asList(«parametersClass.name».LITERALS.values());
+				«ENDIF»
+			}
 		}
 	'''
 }

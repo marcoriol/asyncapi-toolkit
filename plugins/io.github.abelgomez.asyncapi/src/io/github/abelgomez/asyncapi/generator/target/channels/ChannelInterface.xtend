@@ -43,8 +43,17 @@ class ChannelInterface extends AbstractType implements IType {
 			 * Base interface for channel configurations
 			 */
 			public interface «name» {
-				String getChannelName();
-				List<«channelInterface.api.transform.parametersInterface.parameterLiteralInterface.name»> getParameterLiterals();
+				/**
+				 * Returns the {@link «channelInterface.name»} instance to which this 
+				 * configuration belongs to
+				 */
+				«channelInterface.name» getChannel();
+				
+				/**
+				 * Returns the {@link «channelInterface.operationInterface.name»} class associated 
+				 * to this configuration
+				 */
+				Class<? extends «channelInterface.operationInterface.name»> getOperation();
 			}
 		'''
 	}
@@ -81,6 +90,12 @@ class ChannelInterface extends AbstractType implements IType {
 			 */
 			public interface «name» extends «channelInterface.channelConfigurationInterface.name» {
 				Map<String, String> getParameters();
+				
+				/**
+				 * Computes the actual channel name (i.e., perform parameters substitution)
+				 * in this given {@link «name»}
+				 */
+				String getActualChannelName();
 			}
 		'''
 	}
@@ -143,6 +158,10 @@ class ChannelInterface extends AbstractType implements IType {
 		return pkg + "." + name
 	}
 	
+	def operationInterface() {
+		return api.transform.operationInterface
+	}
+	
 	def channelConfigurationInterface() {
 		return channelConfigurationInterface
 	}
@@ -172,6 +191,10 @@ class ChannelInterface extends AbstractType implements IType {
 		 * Base interface for Channels 
 		 */
 		public interface «name» {
+			
+			String getName();
+			
+			List<«api.transform.parametersInterface.parameterLiteralInterface.name»> getParameterLiterals();
 			
 			«channelConfigurationInterface.serialize»
 			
