@@ -1,4 +1,4 @@
-package io.github.abelgomez.asyncapi.generator
+package io.github.abelgomez.asyncapi.m2m
 
 import io.github.abelgomez.asyncapi.asyncApi.AbstractSchema
 import io.github.abelgomez.asyncapi.asyncApi.AsyncAPI
@@ -24,15 +24,12 @@ import org.eclipse.emf.ecore.EClassifier
 import org.eclipse.emf.ecore.EDataType
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EPackage
-import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.util.Diagnostician
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl
 import org.eclipse.xtext.EcoreUtil2
-
-import static extension io.github.abelgomez.asyncapi.generator.AsyncApi2Json.*
 
 class Ecore2AsyncApi {
 
@@ -57,10 +54,6 @@ class Ecore2AsyncApi {
 	public static final String EANNOTATION_SCHEMA = BASE_EANNOTATION_URI + "Schema"
 	public static final String EANNOTATION_SCHEMA_NAME = "name"
 	public static final String EANNOTATION_SCHEMA_TITLE = "title"
-
-	static def CharSequence generate(EPackage ePackage) {
-		return ePackage.asyncApi.generate
-	}
 
 	static def AsyncAPI asyncApi(EPackage ePackage) {
 		return AsyncApiFactory.eINSTANCE.createAsyncAPI => [
@@ -139,8 +132,10 @@ class Ecore2AsyncApi {
 			val eClass = it
 			AsyncApiFactory.eINSTANCE.createNamedMessage => [
 				name = eClass.messageName
-				message = AsyncApiFactory.eINSTANCE.createReference => [
-					uri = "#/components/schemas/" + eClass.schemaName
+				message = AsyncApiFactory.eINSTANCE.createMessage => [
+					payload = AsyncApiFactory.eINSTANCE.createReference => [
+						uri = "#/components/schemas/" + eClass.schemaName
+					]
 				]
 			]
 		]
@@ -223,11 +218,11 @@ class Ecore2AsyncApi {
 				case "EShort": JsonType.INTEGER
 				case "EShortObject": JsonType.INTEGER
 				case "EString": JsonType.STRING
-				default: JsonType.OBJECT
+				default: JsonType.STRING
 			}
 			if (eDataType instanceof EEnum) {
 				type = JsonType.STRING
-				enum += (eDataType as EEnum).ELiterals.map[name]  
+				enum += eDataType.ELiterals.map[name]  
 			}
 		]
 	}
@@ -238,10 +233,6 @@ class Ecore2AsyncApi {
 		]
 	}
 	
-	static def NamedSchema schema(EReference eReference) {
-
-	}
-
 	static def String channelName(EClass eClass) {
 		return EcoreUtil.getAnnotation(eClass, EANNOTATION_CHANNEL, EANNOTATION_CHANNEL_NAME)
 	}

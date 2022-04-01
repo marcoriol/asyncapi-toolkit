@@ -4165,68 +4165,107 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.Keyword");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Keyword cQuotationMarkDigitTwoFullStopDigitZeroFullStopDigitZeroQuotationMarkKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cAmqpKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cAmqpsKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cAnyKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Keyword cArrayKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Keyword cAsyncapiKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
-		private final Keyword cBooleanKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
-		private final Keyword cChannelsKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
-		private final Keyword cComponentsKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
-		private final Keyword cContactKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
-		private final Keyword cDefaultKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
-		private final Keyword cDeprecatedKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
-		private final Keyword cDescriptionKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
-		private final Keyword cEmailKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
-		private final Keyword cEnumKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
-		private final Keyword cFormatKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
-		private final Keyword cHeadersKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
-		private final Keyword cInfoKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
-		private final Keyword cIntegerKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
-		private final Keyword cItemsKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
-		private final Keyword cLicenseKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
-		private final Keyword cLocationKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
-		private final Keyword cMaximumKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
-		private final Keyword cMessageKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
-		private final Keyword cMessageTraitsKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
-		private final Keyword cMessagesKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
-		private final Keyword cMinimumKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
-		private final Keyword cMqttKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
-		private final Keyword cMqttsKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
-		private final Keyword cNameKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
-		private final Keyword cNullKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
-		private final Keyword cNumberKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
-		private final Keyword cObjectKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
-		private final Keyword cOperationIdKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
-		private final Keyword cOperationTraitsKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
-		private final Keyword cParametersKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
-		private final Keyword cPayloadKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
-		private final Keyword cPropertiesKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
-		private final Keyword cProtocolKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
-		private final Keyword cPublishKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
-		private final Keyword cRequiredKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
-		private final Keyword cSchemaKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
-		private final Keyword cSchemasKeyword_42 = (Keyword)cAlternatives.eContents().get(42);
-		private final Keyword cServersKeyword_43 = (Keyword)cAlternatives.eContents().get(43);
-		private final Keyword cStompKeyword_44 = (Keyword)cAlternatives.eContents().get(44);
-		private final Keyword cStompsKeyword_45 = (Keyword)cAlternatives.eContents().get(45);
-		private final Keyword cStringKeyword_46 = (Keyword)cAlternatives.eContents().get(46);
-		private final Keyword cSubscribeKeyword_47 = (Keyword)cAlternatives.eContents().get(47);
-		private final Keyword cSummaryKeyword_48 = (Keyword)cAlternatives.eContents().get(48);
-		private final Keyword cTagsKeyword_49 = (Keyword)cAlternatives.eContents().get(49);
-		private final Keyword cTermsOfServiceKeyword_50 = (Keyword)cAlternatives.eContents().get(50);
-		private final Keyword cTitleKeyword_51 = (Keyword)cAlternatives.eContents().get(51);
-		private final Keyword cTraitsKeyword_52 = (Keyword)cAlternatives.eContents().get(52);
-		private final Keyword cTypeKeyword_53 = (Keyword)cAlternatives.eContents().get(53);
-		private final Keyword cUrlKeyword_54 = (Keyword)cAlternatives.eContents().get(54);
-		private final Keyword cVariablesKeyword_55 = (Keyword)cAlternatives.eContents().get(55);
-		private final Keyword cVersionKeyword_56 = (Keyword)cAlternatives.eContents().get(56);
-		private final Keyword cWsKeyword_57 = (Keyword)cAlternatives.eContents().get(57);
-		private final Keyword cWssKeyword_58 = (Keyword)cAlternatives.eContents().get(58);
-		private final Keyword cXTitleKeyword_59 = (Keyword)cAlternatives.eContents().get(59);
+		private final Keyword cQuotationMarkLessThanSignQuotationMarkKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cQuotationMarkLessThanSignEqualsSignQuotationMarkKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cQuotationMarkEqualsSignQuotationMarkKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cQuotationMarkGreaterThanSignQuotationMarkKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cQuotationMarkGreaterThanSignEqualsSignQuotationMarkKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cANDKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cORKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cAggregationFunctionKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cAmqpKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cAmqpsKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cAnyKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cArrayKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cAsyncapiKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cBooleanKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cChannelsKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cComponentsKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cContactKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cDataTypeKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cDaysKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cDefaultKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cDeprecatedKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cDerivedQoSMetricDefinitionKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Keyword cDescriptionKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
+		private final Keyword cEmailKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cEnumKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cFormatKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		private final Keyword cGuaranteeTermKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
+		private final Keyword cHeadersKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
+		private final Keyword cHoursKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
+		private final Keyword cInfoKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
+		private final Keyword cIntegerKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
+		private final Keyword cItemsKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
+		private final Keyword cLicenseKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
+		private final Keyword cLocationKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
+		private final Keyword cMaxItemsKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
+		private final Keyword cMaximumKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
+		private final Keyword cMessageKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
+		private final Keyword cMessageTraitsKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
+		private final Keyword cMessagesKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
+		private final Keyword cMetricTypeKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
+		private final Keyword cMillisecondsKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
+		private final Keyword cMinItemsKeyword_42 = (Keyword)cAlternatives.eContents().get(42);
+		private final Keyword cMinimumKeyword_43 = (Keyword)cAlternatives.eContents().get(43);
+		private final Keyword cMinutesKeyword_44 = (Keyword)cAlternatives.eContents().get(44);
+		private final Keyword cMqttKeyword_45 = (Keyword)cAlternatives.eContents().get(45);
+		private final Keyword cMqttsKeyword_46 = (Keyword)cAlternatives.eContents().get(46);
+		private final Keyword cNameKeyword_47 = (Keyword)cAlternatives.eContents().get(47);
+		private final Keyword cNullKeyword_48 = (Keyword)cAlternatives.eContents().get(48);
+		private final Keyword cNumberKeyword_49 = (Keyword)cAlternatives.eContents().get(49);
+		private final Keyword cObjectKeyword_50 = (Keyword)cAlternatives.eContents().get(50);
+		private final Keyword cOperationIdKeyword_51 = (Keyword)cAlternatives.eContents().get(51);
+		private final Keyword cOperationTraitsKeyword_52 = (Keyword)cAlternatives.eContents().get(52);
+		private final Keyword cOperatorKeyword_53 = (Keyword)cAlternatives.eContents().get(53);
+		private final Keyword cParametersKeyword_54 = (Keyword)cAlternatives.eContents().get(54);
+		private final Keyword cPayloadKeyword_55 = (Keyword)cAlternatives.eContents().get(55);
+		private final Keyword cPropertiesKeyword_56 = (Keyword)cAlternatives.eContents().get(56);
+		private final Keyword cProtocolKeyword_57 = (Keyword)cAlternatives.eContents().get(57);
+		private final Keyword cPublishKeyword_58 = (Keyword)cAlternatives.eContents().get(58);
+		private final Keyword cQosMetricKeyword_59 = (Keyword)cAlternatives.eContents().get(59);
+		private final Keyword cQualifyingConditionsKeyword_60 = (Keyword)cAlternatives.eContents().get(60);
+		private final Keyword cRequiredKeyword_61 = (Keyword)cAlternatives.eContents().get(61);
+		private final Keyword cSchemaKeyword_62 = (Keyword)cAlternatives.eContents().get(62);
+		private final Keyword cSchemasKeyword_63 = (Keyword)cAlternatives.eContents().get(63);
+		private final Keyword cScopesKeyword_64 = (Keyword)cAlternatives.eContents().get(64);
+		private final Keyword cSecondsKeyword_65 = (Keyword)cAlternatives.eContents().get(65);
+		private final Keyword cServersKeyword_66 = (Keyword)cAlternatives.eContents().get(66);
+		private final Keyword cSlosKeyword_67 = (Keyword)cAlternatives.eContents().get(67);
+		private final Keyword cStompKeyword_68 = (Keyword)cAlternatives.eContents().get(68);
+		private final Keyword cStompsKeyword_69 = (Keyword)cAlternatives.eContents().get(69);
+		private final Keyword cStringKeyword_70 = (Keyword)cAlternatives.eContents().get(70);
+		private final Keyword cSubscribeKeyword_71 = (Keyword)cAlternatives.eContents().get(71);
+		private final Keyword cSummaryKeyword_72 = (Keyword)cAlternatives.eContents().get(72);
+		private final Keyword cTagsKeyword_73 = (Keyword)cAlternatives.eContents().get(73);
+		private final Keyword cTermsOfServiceKeyword_74 = (Keyword)cAlternatives.eContents().get(74);
+		private final Keyword cTitleKeyword_75 = (Keyword)cAlternatives.eContents().get(75);
+		private final Keyword cTraitsKeyword_76 = (Keyword)cAlternatives.eContents().get(76);
+		private final Keyword cTypeKeyword_77 = (Keyword)cAlternatives.eContents().get(77);
+		private final Keyword cUnitKeyword_78 = (Keyword)cAlternatives.eContents().get(78);
+		private final Keyword cUrlKeyword_79 = (Keyword)cAlternatives.eContents().get(79);
+		private final Keyword cValueKeyword_80 = (Keyword)cAlternatives.eContents().get(80);
+		private final Keyword cVariablesKeyword_81 = (Keyword)cAlternatives.eContents().get(81);
+		private final Keyword cVersionKeyword_82 = (Keyword)cAlternatives.eContents().get(82);
+		private final Keyword cWindowKeyword_83 = (Keyword)cAlternatives.eContents().get(83);
+		private final Keyword cWindowUnitKeyword_84 = (Keyword)cAlternatives.eContents().get(84);
+		private final Keyword cWsKeyword_85 = (Keyword)cAlternatives.eContents().get(85);
+		private final Keyword cWssKeyword_86 = (Keyword)cAlternatives.eContents().get(86);
+		private final Keyword cXBasePackageKeyword_87 = (Keyword)cAlternatives.eContents().get(87);
+		private final Keyword cXQosMetricsKeyword_88 = (Keyword)cAlternatives.eContents().get(88);
+		private final Keyword cXSlaKeyword_89 = (Keyword)cAlternatives.eContents().get(89);
+		private final Keyword cXTitleKeyword_90 = (Keyword)cAlternatives.eContents().get(90);
 		
 		//Keyword:
 		//	'"2.0.0"'
+		//	| '"<"'
+		//	| '"<="'
+		//	| '"="'
+		//	| '">"'
+		//	| '">="'
+		//	| '"AND"'
+		//	| '"OR"'
+		//	| '"aggregationFunction"'
 		//	| '"amqp"'
 		//	| '"amqps"'
 		//	| '"any"'
@@ -4236,23 +4275,33 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//	| '"channels"'
 		//	| '"components"'
 		//	| '"contact"'
+		//	| '"dataType"'
+		//	| '"days"'
 		//	| '"default"'
 		//	| '"deprecated"'
+		//	| '"derivedQoSMetricDefinition"'
 		//	| '"description"'
 		//	| '"email"'
 		//	| '"enum"'
 		//	| '"format"'
+		//	| '"guaranteeTerm"'
 		//	| '"headers"'
+		//	| '"hours"'
 		//	| '"info"'
 		//	| '"integer"'
 		//	| '"items"'
 		//	| '"license"'
 		//	| '"location"'
+		//	| '"maxItems"'
 		//	| '"maximum"'
 		//	| '"message"'
 		//	| '"messageTraits"'
 		//	| '"messages"'
+		//	| '"metricType"'
+		//	| '"milliseconds"'
+		//	| '"minItems"'
 		//	| '"minimum"'
+		//	| '"minutes"'
 		//	| '"mqtt"'
 		//	| '"mqtts"'
 		//	| '"name"'
@@ -4261,15 +4310,21 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//	| '"object"'
 		//	| '"operationId"'
 		//	| '"operationTraits"'
+		//	| '"operator"'
 		//	| '"parameters"'
 		//	| '"payload"'
 		//	| '"properties"'
 		//	| '"protocol"'
 		//	| '"publish"'
+		//	| '"qosMetric"'
+		//	| '"qualifyingConditions"'
 		//	| '"required"'
 		//	| '"schema"'
 		//	| '"schemas"'
+		//	| '"scopes"'
+		//	| '"seconds"'
 		//	| '"servers"'
+		//	| '"slos"'
 		//	| '"stomp"'
 		//	| '"stomps"'
 		//	| '"string"'
@@ -4280,203 +4335,307 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//	| '"title"'
 		//	| '"traits"'
 		//	| '"type"'
+		//	| '"unit"'
 		//	| '"url"'
+		//	| '"value"'
 		//	| '"variables"'
 		//	| '"version"'
+		//	| '"window"'
+		//	| '"windowUnit"'
 		//	| '"ws"'
 		//	| '"wss"'
+		//	| '"x-basePackage"'
+		//	| '"x-qosMetrics"'
+		//	| '"x-sla"'
 		//	| '"x-title"';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'"2.0.0"' | '"amqp"' | '"amqps"' | '"any"' | '"array"' | '"asyncapi"' | '"boolean"' | '"channels"' | '"components"' |
-		//'"contact"' | '"default"' | '"deprecated"' | '"description"' | '"email"' | '"enum"' | '"format"' | '"headers"' |
-		//'"info"' | '"integer"' | '"items"' | '"license"' | '"location"' | '"maximum"' | '"message"' | '"messageTraits"' |
-		//'"messages"' | '"minimum"' | '"mqtt"' | '"mqtts"' | '"name"' | '"null"' | '"number"' | '"object"' | '"operationId"' |
-		//'"operationTraits"' | '"parameters"' | '"payload"' | '"properties"' | '"protocol"' | '"publish"' | '"required"' |
-		//'"schema"' | '"schemas"' | '"servers"' | '"stomp"' | '"stomps"' | '"string"' | '"subscribe"' | '"summary"' | '"tags"'
-		//| '"termsOfService"' | '"title"' | '"traits"' | '"type"' | '"url"' | '"variables"' | '"version"' | '"ws"' | '"wss"' |
+		//'"2.0.0"' | '"<"' | '"<="' | '"="' | '">"' | '">="' | '"AND"' | '"OR"' | '"aggregationFunction"' | '"amqp"' | '"amqps"'
+		//| '"any"' | '"array"' | '"asyncapi"' | '"boolean"' | '"channels"' | '"components"' | '"contact"' | '"dataType"' |
+		//'"days"' | '"default"' | '"deprecated"' | '"derivedQoSMetricDefinition"' | '"description"' | '"email"' | '"enum"' |
+		//'"format"' | '"guaranteeTerm"' | '"headers"' | '"hours"' | '"info"' | '"integer"' | '"items"' | '"license"' |
+		//'"location"' | '"maxItems"' | '"maximum"' | '"message"' | '"messageTraits"' | '"messages"' | '"metricType"' |
+		//'"milliseconds"' | '"minItems"' | '"minimum"' | '"minutes"' | '"mqtt"' | '"mqtts"' | '"name"' | '"null"' | '"number"'
+		//| '"object"' | '"operationId"' | '"operationTraits"' | '"operator"' | '"parameters"' | '"payload"' | '"properties"' |
+		//'"protocol"' | '"publish"' | '"qosMetric"' | '"qualifyingConditions"' | '"required"' | '"schema"' | '"schemas"' |
+		//'"scopes"' | '"seconds"' | '"servers"' | '"slos"' | '"stomp"' | '"stomps"' | '"string"' | '"subscribe"' | '"summary"'
+		//| '"tags"' | '"termsOfService"' | '"title"' | '"traits"' | '"type"' | '"unit"' | '"url"' | '"value"' | '"variables"' |
+		//'"version"' | '"window"' | '"windowUnit"' | '"ws"' | '"wss"' | '"x-basePackage"' | '"x-qosMetrics"' | '"x-sla"' |
 		//'"x-title"'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'"2.0.0"'
 		public Keyword getQuotationMarkDigitTwoFullStopDigitZeroFullStopDigitZeroQuotationMarkKeyword_0() { return cQuotationMarkDigitTwoFullStopDigitZeroFullStopDigitZeroQuotationMarkKeyword_0; }
 		
+		//'"<"'
+		public Keyword getQuotationMarkLessThanSignQuotationMarkKeyword_1() { return cQuotationMarkLessThanSignQuotationMarkKeyword_1; }
+		
+		//'"<="'
+		public Keyword getQuotationMarkLessThanSignEqualsSignQuotationMarkKeyword_2() { return cQuotationMarkLessThanSignEqualsSignQuotationMarkKeyword_2; }
+		
+		//'"="'
+		public Keyword getQuotationMarkEqualsSignQuotationMarkKeyword_3() { return cQuotationMarkEqualsSignQuotationMarkKeyword_3; }
+		
+		//'">"'
+		public Keyword getQuotationMarkGreaterThanSignQuotationMarkKeyword_4() { return cQuotationMarkGreaterThanSignQuotationMarkKeyword_4; }
+		
+		//'">="'
+		public Keyword getQuotationMarkGreaterThanSignEqualsSignQuotationMarkKeyword_5() { return cQuotationMarkGreaterThanSignEqualsSignQuotationMarkKeyword_5; }
+		
+		//'"AND"'
+		public Keyword getANDKeyword_6() { return cANDKeyword_6; }
+		
+		//'"OR"'
+		public Keyword getORKeyword_7() { return cORKeyword_7; }
+		
+		//'"aggregationFunction"'
+		public Keyword getAggregationFunctionKeyword_8() { return cAggregationFunctionKeyword_8; }
+		
 		//'"amqp"'
-		public Keyword getAmqpKeyword_1() { return cAmqpKeyword_1; }
+		public Keyword getAmqpKeyword_9() { return cAmqpKeyword_9; }
 		
 		//'"amqps"'
-		public Keyword getAmqpsKeyword_2() { return cAmqpsKeyword_2; }
+		public Keyword getAmqpsKeyword_10() { return cAmqpsKeyword_10; }
 		
 		//'"any"'
-		public Keyword getAnyKeyword_3() { return cAnyKeyword_3; }
+		public Keyword getAnyKeyword_11() { return cAnyKeyword_11; }
 		
 		//'"array"'
-		public Keyword getArrayKeyword_4() { return cArrayKeyword_4; }
+		public Keyword getArrayKeyword_12() { return cArrayKeyword_12; }
 		
 		//'"asyncapi"'
-		public Keyword getAsyncapiKeyword_5() { return cAsyncapiKeyword_5; }
+		public Keyword getAsyncapiKeyword_13() { return cAsyncapiKeyword_13; }
 		
 		//'"boolean"'
-		public Keyword getBooleanKeyword_6() { return cBooleanKeyword_6; }
+		public Keyword getBooleanKeyword_14() { return cBooleanKeyword_14; }
 		
 		//'"channels"'
-		public Keyword getChannelsKeyword_7() { return cChannelsKeyword_7; }
+		public Keyword getChannelsKeyword_15() { return cChannelsKeyword_15; }
 		
 		//'"components"'
-		public Keyword getComponentsKeyword_8() { return cComponentsKeyword_8; }
+		public Keyword getComponentsKeyword_16() { return cComponentsKeyword_16; }
 		
 		//'"contact"'
-		public Keyword getContactKeyword_9() { return cContactKeyword_9; }
+		public Keyword getContactKeyword_17() { return cContactKeyword_17; }
+		
+		//'"dataType"'
+		public Keyword getDataTypeKeyword_18() { return cDataTypeKeyword_18; }
+		
+		//'"days"'
+		public Keyword getDaysKeyword_19() { return cDaysKeyword_19; }
 		
 		//'"default"'
-		public Keyword getDefaultKeyword_10() { return cDefaultKeyword_10; }
+		public Keyword getDefaultKeyword_20() { return cDefaultKeyword_20; }
 		
 		//'"deprecated"'
-		public Keyword getDeprecatedKeyword_11() { return cDeprecatedKeyword_11; }
+		public Keyword getDeprecatedKeyword_21() { return cDeprecatedKeyword_21; }
+		
+		//'"derivedQoSMetricDefinition"'
+		public Keyword getDerivedQoSMetricDefinitionKeyword_22() { return cDerivedQoSMetricDefinitionKeyword_22; }
 		
 		//'"description"'
-		public Keyword getDescriptionKeyword_12() { return cDescriptionKeyword_12; }
+		public Keyword getDescriptionKeyword_23() { return cDescriptionKeyword_23; }
 		
 		//'"email"'
-		public Keyword getEmailKeyword_13() { return cEmailKeyword_13; }
+		public Keyword getEmailKeyword_24() { return cEmailKeyword_24; }
 		
 		//'"enum"'
-		public Keyword getEnumKeyword_14() { return cEnumKeyword_14; }
+		public Keyword getEnumKeyword_25() { return cEnumKeyword_25; }
 		
 		//'"format"'
-		public Keyword getFormatKeyword_15() { return cFormatKeyword_15; }
+		public Keyword getFormatKeyword_26() { return cFormatKeyword_26; }
+		
+		//'"guaranteeTerm"'
+		public Keyword getGuaranteeTermKeyword_27() { return cGuaranteeTermKeyword_27; }
 		
 		//'"headers"'
-		public Keyword getHeadersKeyword_16() { return cHeadersKeyword_16; }
+		public Keyword getHeadersKeyword_28() { return cHeadersKeyword_28; }
+		
+		//'"hours"'
+		public Keyword getHoursKeyword_29() { return cHoursKeyword_29; }
 		
 		//'"info"'
-		public Keyword getInfoKeyword_17() { return cInfoKeyword_17; }
+		public Keyword getInfoKeyword_30() { return cInfoKeyword_30; }
 		
 		//'"integer"'
-		public Keyword getIntegerKeyword_18() { return cIntegerKeyword_18; }
+		public Keyword getIntegerKeyword_31() { return cIntegerKeyword_31; }
 		
 		//'"items"'
-		public Keyword getItemsKeyword_19() { return cItemsKeyword_19; }
+		public Keyword getItemsKeyword_32() { return cItemsKeyword_32; }
 		
 		//'"license"'
-		public Keyword getLicenseKeyword_20() { return cLicenseKeyword_20; }
+		public Keyword getLicenseKeyword_33() { return cLicenseKeyword_33; }
 		
 		//'"location"'
-		public Keyword getLocationKeyword_21() { return cLocationKeyword_21; }
+		public Keyword getLocationKeyword_34() { return cLocationKeyword_34; }
+		
+		//'"maxItems"'
+		public Keyword getMaxItemsKeyword_35() { return cMaxItemsKeyword_35; }
 		
 		//'"maximum"'
-		public Keyword getMaximumKeyword_22() { return cMaximumKeyword_22; }
+		public Keyword getMaximumKeyword_36() { return cMaximumKeyword_36; }
 		
 		//'"message"'
-		public Keyword getMessageKeyword_23() { return cMessageKeyword_23; }
+		public Keyword getMessageKeyword_37() { return cMessageKeyword_37; }
 		
 		//'"messageTraits"'
-		public Keyword getMessageTraitsKeyword_24() { return cMessageTraitsKeyword_24; }
+		public Keyword getMessageTraitsKeyword_38() { return cMessageTraitsKeyword_38; }
 		
 		//'"messages"'
-		public Keyword getMessagesKeyword_25() { return cMessagesKeyword_25; }
+		public Keyword getMessagesKeyword_39() { return cMessagesKeyword_39; }
+		
+		//'"metricType"'
+		public Keyword getMetricTypeKeyword_40() { return cMetricTypeKeyword_40; }
+		
+		//'"milliseconds"'
+		public Keyword getMillisecondsKeyword_41() { return cMillisecondsKeyword_41; }
+		
+		//'"minItems"'
+		public Keyword getMinItemsKeyword_42() { return cMinItemsKeyword_42; }
 		
 		//'"minimum"'
-		public Keyword getMinimumKeyword_26() { return cMinimumKeyword_26; }
+		public Keyword getMinimumKeyword_43() { return cMinimumKeyword_43; }
+		
+		//'"minutes"'
+		public Keyword getMinutesKeyword_44() { return cMinutesKeyword_44; }
 		
 		//'"mqtt"'
-		public Keyword getMqttKeyword_27() { return cMqttKeyword_27; }
+		public Keyword getMqttKeyword_45() { return cMqttKeyword_45; }
 		
 		//'"mqtts"'
-		public Keyword getMqttsKeyword_28() { return cMqttsKeyword_28; }
+		public Keyword getMqttsKeyword_46() { return cMqttsKeyword_46; }
 		
 		//'"name"'
-		public Keyword getNameKeyword_29() { return cNameKeyword_29; }
+		public Keyword getNameKeyword_47() { return cNameKeyword_47; }
 		
 		//'"null"'
-		public Keyword getNullKeyword_30() { return cNullKeyword_30; }
+		public Keyword getNullKeyword_48() { return cNullKeyword_48; }
 		
 		//'"number"'
-		public Keyword getNumberKeyword_31() { return cNumberKeyword_31; }
+		public Keyword getNumberKeyword_49() { return cNumberKeyword_49; }
 		
 		//'"object"'
-		public Keyword getObjectKeyword_32() { return cObjectKeyword_32; }
+		public Keyword getObjectKeyword_50() { return cObjectKeyword_50; }
 		
 		//'"operationId"'
-		public Keyword getOperationIdKeyword_33() { return cOperationIdKeyword_33; }
+		public Keyword getOperationIdKeyword_51() { return cOperationIdKeyword_51; }
 		
 		//'"operationTraits"'
-		public Keyword getOperationTraitsKeyword_34() { return cOperationTraitsKeyword_34; }
+		public Keyword getOperationTraitsKeyword_52() { return cOperationTraitsKeyword_52; }
+		
+		//'"operator"'
+		public Keyword getOperatorKeyword_53() { return cOperatorKeyword_53; }
 		
 		//'"parameters"'
-		public Keyword getParametersKeyword_35() { return cParametersKeyword_35; }
+		public Keyword getParametersKeyword_54() { return cParametersKeyword_54; }
 		
 		//'"payload"'
-		public Keyword getPayloadKeyword_36() { return cPayloadKeyword_36; }
+		public Keyword getPayloadKeyword_55() { return cPayloadKeyword_55; }
 		
 		//'"properties"'
-		public Keyword getPropertiesKeyword_37() { return cPropertiesKeyword_37; }
+		public Keyword getPropertiesKeyword_56() { return cPropertiesKeyword_56; }
 		
 		//'"protocol"'
-		public Keyword getProtocolKeyword_38() { return cProtocolKeyword_38; }
+		public Keyword getProtocolKeyword_57() { return cProtocolKeyword_57; }
 		
 		//'"publish"'
-		public Keyword getPublishKeyword_39() { return cPublishKeyword_39; }
+		public Keyword getPublishKeyword_58() { return cPublishKeyword_58; }
+		
+		//'"qosMetric"'
+		public Keyword getQosMetricKeyword_59() { return cQosMetricKeyword_59; }
+		
+		//'"qualifyingConditions"'
+		public Keyword getQualifyingConditionsKeyword_60() { return cQualifyingConditionsKeyword_60; }
 		
 		//'"required"'
-		public Keyword getRequiredKeyword_40() { return cRequiredKeyword_40; }
+		public Keyword getRequiredKeyword_61() { return cRequiredKeyword_61; }
 		
 		//'"schema"'
-		public Keyword getSchemaKeyword_41() { return cSchemaKeyword_41; }
+		public Keyword getSchemaKeyword_62() { return cSchemaKeyword_62; }
 		
 		//'"schemas"'
-		public Keyword getSchemasKeyword_42() { return cSchemasKeyword_42; }
+		public Keyword getSchemasKeyword_63() { return cSchemasKeyword_63; }
+		
+		//'"scopes"'
+		public Keyword getScopesKeyword_64() { return cScopesKeyword_64; }
+		
+		//'"seconds"'
+		public Keyword getSecondsKeyword_65() { return cSecondsKeyword_65; }
 		
 		//'"servers"'
-		public Keyword getServersKeyword_43() { return cServersKeyword_43; }
+		public Keyword getServersKeyword_66() { return cServersKeyword_66; }
+		
+		//'"slos"'
+		public Keyword getSlosKeyword_67() { return cSlosKeyword_67; }
 		
 		//'"stomp"'
-		public Keyword getStompKeyword_44() { return cStompKeyword_44; }
+		public Keyword getStompKeyword_68() { return cStompKeyword_68; }
 		
 		//'"stomps"'
-		public Keyword getStompsKeyword_45() { return cStompsKeyword_45; }
+		public Keyword getStompsKeyword_69() { return cStompsKeyword_69; }
 		
 		//'"string"'
-		public Keyword getStringKeyword_46() { return cStringKeyword_46; }
+		public Keyword getStringKeyword_70() { return cStringKeyword_70; }
 		
 		//'"subscribe"'
-		public Keyword getSubscribeKeyword_47() { return cSubscribeKeyword_47; }
+		public Keyword getSubscribeKeyword_71() { return cSubscribeKeyword_71; }
 		
 		//'"summary"'
-		public Keyword getSummaryKeyword_48() { return cSummaryKeyword_48; }
+		public Keyword getSummaryKeyword_72() { return cSummaryKeyword_72; }
 		
 		//'"tags"'
-		public Keyword getTagsKeyword_49() { return cTagsKeyword_49; }
+		public Keyword getTagsKeyword_73() { return cTagsKeyword_73; }
 		
 		//'"termsOfService"'
-		public Keyword getTermsOfServiceKeyword_50() { return cTermsOfServiceKeyword_50; }
+		public Keyword getTermsOfServiceKeyword_74() { return cTermsOfServiceKeyword_74; }
 		
 		//'"title"'
-		public Keyword getTitleKeyword_51() { return cTitleKeyword_51; }
+		public Keyword getTitleKeyword_75() { return cTitleKeyword_75; }
 		
 		//'"traits"'
-		public Keyword getTraitsKeyword_52() { return cTraitsKeyword_52; }
+		public Keyword getTraitsKeyword_76() { return cTraitsKeyword_76; }
 		
 		//'"type"'
-		public Keyword getTypeKeyword_53() { return cTypeKeyword_53; }
+		public Keyword getTypeKeyword_77() { return cTypeKeyword_77; }
+		
+		//'"unit"'
+		public Keyword getUnitKeyword_78() { return cUnitKeyword_78; }
 		
 		//'"url"'
-		public Keyword getUrlKeyword_54() { return cUrlKeyword_54; }
+		public Keyword getUrlKeyword_79() { return cUrlKeyword_79; }
+		
+		//'"value"'
+		public Keyword getValueKeyword_80() { return cValueKeyword_80; }
 		
 		//'"variables"'
-		public Keyword getVariablesKeyword_55() { return cVariablesKeyword_55; }
+		public Keyword getVariablesKeyword_81() { return cVariablesKeyword_81; }
 		
 		//'"version"'
-		public Keyword getVersionKeyword_56() { return cVersionKeyword_56; }
+		public Keyword getVersionKeyword_82() { return cVersionKeyword_82; }
+		
+		//'"window"'
+		public Keyword getWindowKeyword_83() { return cWindowKeyword_83; }
+		
+		//'"windowUnit"'
+		public Keyword getWindowUnitKeyword_84() { return cWindowUnitKeyword_84; }
 		
 		//'"ws"'
-		public Keyword getWsKeyword_57() { return cWsKeyword_57; }
+		public Keyword getWsKeyword_85() { return cWsKeyword_85; }
 		
 		//'"wss"'
-		public Keyword getWssKeyword_58() { return cWssKeyword_58; }
+		public Keyword getWssKeyword_86() { return cWssKeyword_86; }
+		
+		//'"x-basePackage"'
+		public Keyword getXBasePackageKeyword_87() { return cXBasePackageKeyword_87; }
+		
+		//'"x-qosMetrics"'
+		public Keyword getXQosMetricsKeyword_88() { return cXQosMetricsKeyword_88; }
+		
+		//'"x-sla"'
+		public Keyword getXSlaKeyword_89() { return cXSlaKeyword_89; }
 		
 		//'"x-title"'
-		public Keyword getXTitleKeyword_59() { return cXTitleKeyword_59; }
+		public Keyword getXTitleKeyword_90() { return cXTitleKeyword_90; }
 	}
 	
 	public class WindowUnitElements extends AbstractEnumRuleElementFinder {
@@ -5746,6 +5905,14 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Keyword:
 	//	'"2.0.0"'
+	//	| '"<"'
+	//	| '"<="'
+	//	| '"="'
+	//	| '">"'
+	//	| '">="'
+	//	| '"AND"'
+	//	| '"OR"'
+	//	| '"aggregationFunction"'
 	//	| '"amqp"'
 	//	| '"amqps"'
 	//	| '"any"'
@@ -5755,23 +5922,33 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	//	| '"channels"'
 	//	| '"components"'
 	//	| '"contact"'
+	//	| '"dataType"'
+	//	| '"days"'
 	//	| '"default"'
 	//	| '"deprecated"'
+	//	| '"derivedQoSMetricDefinition"'
 	//	| '"description"'
 	//	| '"email"'
 	//	| '"enum"'
 	//	| '"format"'
+	//	| '"guaranteeTerm"'
 	//	| '"headers"'
+	//	| '"hours"'
 	//	| '"info"'
 	//	| '"integer"'
 	//	| '"items"'
 	//	| '"license"'
 	//	| '"location"'
+	//	| '"maxItems"'
 	//	| '"maximum"'
 	//	| '"message"'
 	//	| '"messageTraits"'
 	//	| '"messages"'
+	//	| '"metricType"'
+	//	| '"milliseconds"'
+	//	| '"minItems"'
 	//	| '"minimum"'
+	//	| '"minutes"'
 	//	| '"mqtt"'
 	//	| '"mqtts"'
 	//	| '"name"'
@@ -5780,15 +5957,21 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	//	| '"object"'
 	//	| '"operationId"'
 	//	| '"operationTraits"'
+	//	| '"operator"'
 	//	| '"parameters"'
 	//	| '"payload"'
 	//	| '"properties"'
 	//	| '"protocol"'
 	//	| '"publish"'
+	//	| '"qosMetric"'
+	//	| '"qualifyingConditions"'
 	//	| '"required"'
 	//	| '"schema"'
 	//	| '"schemas"'
+	//	| '"scopes"'
+	//	| '"seconds"'
 	//	| '"servers"'
+	//	| '"slos"'
 	//	| '"stomp"'
 	//	| '"stomps"'
 	//	| '"string"'
@@ -5799,11 +5982,18 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	//	| '"title"'
 	//	| '"traits"'
 	//	| '"type"'
+	//	| '"unit"'
 	//	| '"url"'
+	//	| '"value"'
 	//	| '"variables"'
 	//	| '"version"'
+	//	| '"window"'
+	//	| '"windowUnit"'
 	//	| '"ws"'
 	//	| '"wss"'
+	//	| '"x-basePackage"'
+	//	| '"x-qosMetrics"'
+	//	| '"x-sla"'
 	//	| '"x-title"';
 	public KeywordElements getKeywordAccess() {
 		return pKeyword;
