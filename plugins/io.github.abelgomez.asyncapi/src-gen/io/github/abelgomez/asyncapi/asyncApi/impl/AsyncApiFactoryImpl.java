@@ -40,7 +40,6 @@ import io.github.abelgomez.asyncapi.asyncApi.Protocol;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetric;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricName;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricReference;
-import io.github.abelgomez.asyncapi.asyncApi.QoSMetricType;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricUnit;
 import io.github.abelgomez.asyncapi.asyncApi.QualifyingCondition;
 import io.github.abelgomez.asyncapi.asyncApi.Reference;
@@ -177,8 +176,6 @@ public class AsyncApiFactoryImpl extends EFactoryImpl implements AsyncApiFactory
         return createQoSMetricNameFromString(eDataType, initialValue);
       case AsyncApiPackage.QO_SMETRIC_UNIT:
         return createQoSMetricUnitFromString(eDataType, initialValue);
-      case AsyncApiPackage.QO_SMETRIC_TYPE:
-        return createQoSMetricTypeFromString(eDataType, initialValue);
       case AsyncApiPackage.OPERATOR:
         return createOperatorFromString(eDataType, initialValue);
       case AsyncApiPackage.JSON_TYPE:
@@ -212,8 +209,6 @@ public class AsyncApiFactoryImpl extends EFactoryImpl implements AsyncApiFactory
         return convertQoSMetricNameToString(eDataType, instanceValue);
       case AsyncApiPackage.QO_SMETRIC_UNIT:
         return convertQoSMetricUnitToString(eDataType, instanceValue);
-      case AsyncApiPackage.QO_SMETRIC_TYPE:
-        return convertQoSMetricTypeToString(eDataType, instanceValue);
       case AsyncApiPackage.OPERATOR:
         return convertOperatorToString(eDataType, instanceValue);
       case AsyncApiPackage.JSON_TYPE:
@@ -781,28 +776,6 @@ public class AsyncApiFactoryImpl extends EFactoryImpl implements AsyncApiFactory
    * @generated
    */
   public String convertQoSMetricUnitToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public QoSMetricType createQoSMetricTypeFromString(EDataType eDataType, String initialValue)
-  {
-    QoSMetricType result = QoSMetricType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertQoSMetricTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

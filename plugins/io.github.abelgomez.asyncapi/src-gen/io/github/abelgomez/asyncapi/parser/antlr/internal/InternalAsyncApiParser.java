@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_WS", "'{'", "'\"asyncapi\"'", "':'", "','", "'\"info\"'", "'\"servers\"'", "'}'", "'\"channels\"'", "'\"components\"'", "'\"x-sla\"'", "'\"title\"'", "'\"version\"'", "'\"description\"'", "'\"termsOfService\"'", "'\"contact\"'", "'\"license\"'", "'\"x-basePackage\"'", "'\"name\"'", "'\"url\"'", "'\"email\"'", "'\"protocol\"'", "'\"variables\"'", "'\"default\"'", "'\"enum\"'", "'['", "']'", "'\"publish\"'", "'\"subscribe\"'", "'\"parameters\"'", "'\"x-title\"'", "'\"operationId\"'", "'\"summary\"'", "'\"message\"'", "'\"traits\"'", "'\"deprecated\"'", "'\"headers\"'", "'\"tags\"'", "'\"payload\"'", "'\"type\"'", "'\"format\"'", "'\"minimum\"'", "'\"maximum\"'", "'\"minItems\"'", "'\"maxItems\"'", "'\"properties\"'", "'\"items\"'", "'\"required\"'", "'\"schema\"'", "'\"location\"'", "'\"schemas\"'", "'\"messages\"'", "'\"operationTraits\"'", "'\"messageTraits\"'", "'\"x-qosMetrics\"'", "'\"guaranteeTerm\"'", "'\"scopes\"'", "'\"qualifyingConditions\"'", "'\"slos\"'", "'\"metricType\"'", "'\"unit\"'", "'\"dataType\"'", "'\"derivedQoSMetricDefinition\"'", "'\"window\"'", "'\"windowUnit\"'", "'\"aggregationFunction\"'", "'\"AND\"'", "'\"OR\"'", "'\"qosMetric\"'", "'\"operator\"'", "'\"value\"'", "'\"$ref\"'", "'true'", "'false'", "'\"2.0.0\"'", "'\"amqp\"'", "'\"amqps\"'", "'\"any\"'", "'\"array\"'", "'\"boolean\"'", "'\"integer\"'", "'\"mqtt\"'", "'\"mqtts\"'", "'\"null\"'", "'\"number\"'", "'\"object\"'", "'\"stomp\"'", "'\"stomps\"'", "'\"string\"'", "'\"ws\"'", "'\"wss\"'", "'\"seconds\"'", "'\"minutes\"'", "'\"hours\"'", "'\"days\"'", "'\"AVG\"'", "'\"MEDIAN\"'", "'\"MAX\"'", "'\"MIN\"'", "'\"latency\"'", "'\"availability\"'", "'\"milliseconds\"'", "'\"real\"'", "'\">\"'", "'\">=\"'", "'\"=\"'", "'\"<=\"'", "'\"<\"'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_WS", "'{'", "'\"asyncapi\"'", "':'", "','", "'\"info\"'", "'\"servers\"'", "'}'", "'\"channels\"'", "'\"components\"'", "'\"x-sla\"'", "'\"title\"'", "'\"version\"'", "'\"description\"'", "'\"termsOfService\"'", "'\"contact\"'", "'\"license\"'", "'\"x-basePackage\"'", "'\"name\"'", "'\"url\"'", "'\"email\"'", "'\"protocol\"'", "'\"variables\"'", "'\"default\"'", "'\"enum\"'", "'['", "']'", "'\"publish\"'", "'\"subscribe\"'", "'\"parameters\"'", "'\"x-title\"'", "'\"operationId\"'", "'\"summary\"'", "'\"message\"'", "'\"traits\"'", "'\"deprecated\"'", "'\"headers\"'", "'\"tags\"'", "'\"payload\"'", "'\"type\"'", "'\"format\"'", "'\"minimum\"'", "'\"maximum\"'", "'\"minItems\"'", "'\"maxItems\"'", "'\"properties\"'", "'\"items\"'", "'\"required\"'", "'\"schema\"'", "'\"location\"'", "'\"schemas\"'", "'\"messages\"'", "'\"operationTraits\"'", "'\"messageTraits\"'", "'\"x-qosMetrics\"'", "'\"guaranteeTerm\"'", "'\"scopes\"'", "'\"qualifyingConditions\"'", "'\"slos\"'", "'\"metricType\"'", "'\"unit\"'", "'\"groupedByMessage\"'", "'\"derivedQoSMetricDefinition\"'", "'\"window\"'", "'\"windowUnit\"'", "'\"aggregationFunction\"'", "'\"AND\"'", "'\"OR\"'", "'\"qosMetric\"'", "'\"operator\"'", "'\"value\"'", "'\"$ref\"'", "'true'", "'false'", "'\"2.0.0\"'", "'\"amqp\"'", "'\"amqps\"'", "'\"any\"'", "'\"array\"'", "'\"boolean\"'", "'\"integer\"'", "'\"mqtt\"'", "'\"mqtts\"'", "'\"null\"'", "'\"number\"'", "'\"object\"'", "'\"stomp\"'", "'\"stomps\"'", "'\"string\"'", "'\"ws\"'", "'\"wss\"'", "'\"seconds\"'", "'\"minutes\"'", "'\"hours\"'", "'\"days\"'", "'\"AVG\"'", "'\"MEDIAN\"'", "'\"MAX\"'", "'\"MIN\"'", "'\"latency\"'", "'\"availability\"'", "'\"milliseconds\"'", "'\">\"'", "'\">=\"'", "'\"=\"'", "'\"<=\"'", "'\"<\"'"
     };
     public static final int T__50=50;
     public static final int T__59=59;
@@ -111,7 +111,6 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
     public static final int T__73=73;
     public static final int EOF=-1;
     public static final int T__74=74;
-    public static final int T__114=114;
     public static final int T__75=75;
     public static final int T__76=76;
     public static final int T__80=80;
@@ -5728,11 +5727,11 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
             if ( (LA50_0==8) ) {
                 int LA50_1 = input.LA(2);
 
-                if ( (LA50_1==14||LA50_1==18||LA50_1==20||LA50_1==25||LA50_1==39||(LA50_1>=41 && LA50_1<=45)) ) {
-                    alt50=2;
-                }
-                else if ( (LA50_1==78) ) {
+                if ( (LA50_1==78) ) {
                     alt50=1;
+                }
+                else if ( (LA50_1==14||LA50_1==18||LA50_1==20||LA50_1==25||LA50_1==39||(LA50_1>=41 && LA50_1<=45)) ) {
+                    alt50=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -7614,11 +7613,11 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
             if ( (LA66_0==8) ) {
                 int LA66_1 = input.LA(2);
 
-                if ( (LA66_1==14||LA66_1==18||LA66_1==20||(LA66_1>=30 && LA66_1<=31)||(LA66_1>=46 && LA66_1<=54)) ) {
-                    alt66=2;
-                }
-                else if ( (LA66_1==78) ) {
+                if ( (LA66_1==78) ) {
                     alt66=1;
+                }
+                else if ( (LA66_1==14||LA66_1==18||LA66_1==20||(LA66_1>=30 && LA66_1<=31)||(LA66_1>=46 && LA66_1<=54)) ) {
+                    alt66=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -14774,7 +14773,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQoSMetric"
-    // InternalAsyncApi.g:5908:1: ruleQoSMetric returns [EObject current=null] : (otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}' ) ;
+    // InternalAsyncApi.g:5908:1: ruleQoSMetric returns [EObject current=null] : (otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}' ) ;
     public final EObject ruleQoSMetric() throws RecognitionException {
         EObject current = null;
 
@@ -14803,7 +14802,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
         Enumerator lv_unit_16_0 = null;
 
-        Enumerator lv_dataType_20_0 = null;
+        Enumerator lv_groupedByMessage_20_0 = null;
 
         EObject this_DerivedQoSMetric_22 = null;
 
@@ -14812,29 +14811,29 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAsyncApi.g:5914:2: ( (otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}' ) )
-            // InternalAsyncApi.g:5915:2: (otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}' )
+            // InternalAsyncApi.g:5914:2: ( (otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}' ) )
+            // InternalAsyncApi.g:5915:2: (otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}' )
             {
-            // InternalAsyncApi.g:5915:2: (otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}' )
-            // InternalAsyncApi.g:5916:3: otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}'
+            // InternalAsyncApi.g:5915:2: (otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}' )
+            // InternalAsyncApi.g:5916:3: otherlv_0= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) ) (this_DerivedQoSMetric_22= ruleDerivedQoSMetric )? otherlv_23= '}'
             {
             otherlv_0=(Token)match(input,8,FOLLOW_54); 
 
             			newLeafNode(otherlv_0, grammarAccess.getQoSMetricAccess().getLeftCurlyBracketKeyword_0());
             		
-            // InternalAsyncApi.g:5920:3: ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) )
-            // InternalAsyncApi.g:5921:4: ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) )
+            // InternalAsyncApi.g:5920:3: ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) ) )
+            // InternalAsyncApi.g:5921:4: ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) )
             {
-            // InternalAsyncApi.g:5921:4: ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) )
-            // InternalAsyncApi.g:5922:5: ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?)
+            // InternalAsyncApi.g:5921:4: ( ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?) )
+            // InternalAsyncApi.g:5922:5: ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?)
             {
              
             				  getUnorderedGroupHelper().enter(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1());
             				
-            // InternalAsyncApi.g:5925:5: ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?)
-            // InternalAsyncApi.g:5926:6: ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?
+            // InternalAsyncApi.g:5925:5: ( ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?)
+            // InternalAsyncApi.g:5926:6: ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+ {...}?
             {
-            // InternalAsyncApi.g:5926:6: ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) ) )+
+            // InternalAsyncApi.g:5926:6: ( ({...}? => ( ({...}? => (otherlv_2= '\"name\"' otherlv_3= ':' ( (lv_name_4_0= ruleAnyString ) ) (otherlv_5= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= '\"metricType\"' otherlv_7= ':' ( (lv_metricType_8_0= ruleQoSMetricName ) ) (otherlv_9= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_10= '\"description\"' otherlv_11= ':' ( (lv_description_12_0= ruleAnyString ) ) (otherlv_13= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_14= '\"unit\"' otherlv_15= ':' ( (lv_unit_16_0= ruleQoSMetricUnit ) ) (otherlv_17= ',' )? ) ) ) ) | ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) ) )+
             int cnt126=0;
             loop126:
             do {
@@ -15268,48 +15267,48 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 5 :
-            	    // InternalAsyncApi.g:6103:4: ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) )
+            	    // InternalAsyncApi.g:6103:4: ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) )
             	    {
-            	    // InternalAsyncApi.g:6103:4: ({...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) ) )
-            	    // InternalAsyncApi.g:6104:5: {...}? => ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) )
+            	    // InternalAsyncApi.g:6103:4: ({...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) ) )
+            	    // InternalAsyncApi.g:6104:5: {...}? => ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1(), 4) ) {
             	        throw new FailedPredicateException(input, "ruleQoSMetric", "getUnorderedGroupHelper().canSelect(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1(), 4)");
             	    }
-            	    // InternalAsyncApi.g:6104:106: ( ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) ) )
-            	    // InternalAsyncApi.g:6105:6: ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) )
+            	    // InternalAsyncApi.g:6104:106: ( ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) ) )
+            	    // InternalAsyncApi.g:6105:6: ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) )
             	    {
 
             	    						getUnorderedGroupHelper().select(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1(), 4);
             	    					
-            	    // InternalAsyncApi.g:6108:9: ({...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? ) )
-            	    // InternalAsyncApi.g:6108:10: {...}? => (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? )
+            	    // InternalAsyncApi.g:6108:9: ({...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? ) )
+            	    // InternalAsyncApi.g:6108:10: {...}? => (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleQoSMetric", "true");
             	    }
-            	    // InternalAsyncApi.g:6108:19: (otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )? )
-            	    // InternalAsyncApi.g:6108:20: otherlv_18= '\"dataType\"' otherlv_19= ':' ( (lv_dataType_20_0= ruleQoSMetricType ) ) (otherlv_21= ',' )?
+            	    // InternalAsyncApi.g:6108:19: (otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )? )
+            	    // InternalAsyncApi.g:6108:20: otherlv_18= '\"groupedByMessage\"' otherlv_19= ':' ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) ) (otherlv_21= ',' )?
             	    {
             	    otherlv_18=(Token)match(input,68,FOLLOW_4); 
 
-            	    									newLeafNode(otherlv_18, grammarAccess.getQoSMetricAccess().getDataTypeKeyword_1_4_0());
+            	    									newLeafNode(otherlv_18, grammarAccess.getQoSMetricAccess().getGroupedByMessageKeyword_1_4_0());
             	    								
             	    otherlv_19=(Token)match(input,10,FOLLOW_59); 
 
             	    									newLeafNode(otherlv_19, grammarAccess.getQoSMetricAccess().getColonKeyword_1_4_1());
             	    								
-            	    // InternalAsyncApi.g:6116:9: ( (lv_dataType_20_0= ruleQoSMetricType ) )
-            	    // InternalAsyncApi.g:6117:10: (lv_dataType_20_0= ruleQoSMetricType )
+            	    // InternalAsyncApi.g:6116:9: ( (lv_groupedByMessage_20_0= ruleAggregationFunction ) )
+            	    // InternalAsyncApi.g:6117:10: (lv_groupedByMessage_20_0= ruleAggregationFunction )
             	    {
-            	    // InternalAsyncApi.g:6117:10: (lv_dataType_20_0= ruleQoSMetricType )
-            	    // InternalAsyncApi.g:6118:11: lv_dataType_20_0= ruleQoSMetricType
+            	    // InternalAsyncApi.g:6117:10: (lv_groupedByMessage_20_0= ruleAggregationFunction )
+            	    // InternalAsyncApi.g:6118:11: lv_groupedByMessage_20_0= ruleAggregationFunction
             	    {
 
-            	    											newCompositeNode(grammarAccess.getQoSMetricAccess().getDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0());
+            	    											newCompositeNode(grammarAccess.getQoSMetricAccess().getGroupedByMessageAggregationFunctionEnumRuleCall_1_4_2_0());
             	    										
             	    pushFollow(FOLLOW_55);
-            	    lv_dataType_20_0=ruleQoSMetricType();
+            	    lv_groupedByMessage_20_0=ruleAggregationFunction();
 
             	    state._fsp--;
 
@@ -15319,9 +15318,9 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
             	    											}
             	    											set(
             	    												current,
-            	    												"dataType",
-            	    												lv_dataType_20_0,
-            	    												"io.github.abelgomez.asyncapi.AsyncApi.QoSMetricType");
+            	    												"groupedByMessage",
+            	    												lv_groupedByMessage_20_0,
+            	    												"io.github.abelgomez.asyncapi.AsyncApi.AggregationFunction");
             	    											afterParserOrEnumRuleCall();
             	    										
 
@@ -15809,7 +15808,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             	    										newLeafNode(otherlv_13, grammarAccess.getDerivedQoSMetricAccess().getAggregationFunctionKeyword_1_3_2_0());
             	    									
-            	    otherlv_14=(Token)match(input,10,FOLLOW_64); 
+            	    otherlv_14=(Token)match(input,10,FOLLOW_59); 
 
             	    										newLeafNode(otherlv_14, grammarAccess.getDerivedQoSMetricAccess().getColonKeyword_1_3_2_1());
             	    									
@@ -15998,6 +15997,11 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             if ( (LA132_0==8) ) {
                 switch ( input.LA(2) ) {
+                case 74:
+                    {
+                    alt132=2;
+                    }
+                    break;
                 case 73:
                     {
                     alt132=1;
@@ -16006,11 +16010,6 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                 case 75:
                     {
                     alt132=3;
-                    }
-                    break;
-                case 74:
-                    {
-                    alt132=2;
                     }
                     break;
                 default:
@@ -16178,7 +16177,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,8,FOLLOW_65); 
+            otherlv_1=(Token)match(input,8,FOLLOW_64); 
 
             			newLeafNode(otherlv_1, grammarAccess.getANDConditionAccess().getLeftCurlyBracketKeyword_1());
             		
@@ -16388,7 +16387,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,8,FOLLOW_66); 
+            otherlv_1=(Token)match(input,8,FOLLOW_65); 
 
             			newLeafNode(otherlv_1, grammarAccess.getORConditionAccess().getLeftCurlyBracketKeyword_1());
             		
@@ -16603,7 +16602,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,8,FOLLOW_67); 
+            otherlv_1=(Token)match(input,8,FOLLOW_66); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAtomicBooleanConditionAccess().getLeftCurlyBracketKeyword_1());
             		
@@ -16611,7 +16610,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getAtomicBooleanConditionAccess().getQosMetricKeyword_2());
             		
-            otherlv_3=(Token)match(input,10,FOLLOW_68); 
+            otherlv_3=(Token)match(input,10,FOLLOW_67); 
 
             			newLeafNode(otherlv_3, grammarAccess.getAtomicBooleanConditionAccess().getColonKeyword_3());
             		
@@ -16646,7 +16645,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,11,FOLLOW_69); 
+            otherlv_5=(Token)match(input,11,FOLLOW_68); 
 
             			newLeafNode(otherlv_5, grammarAccess.getAtomicBooleanConditionAccess().getCommaKeyword_5());
             		
@@ -16654,7 +16653,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_6, grammarAccess.getAtomicBooleanConditionAccess().getOperatorKeyword_6());
             		
-            otherlv_7=(Token)match(input,10,FOLLOW_70); 
+            otherlv_7=(Token)match(input,10,FOLLOW_69); 
 
             			newLeafNode(otherlv_7, grammarAccess.getAtomicBooleanConditionAccess().getColonKeyword_7());
             		
@@ -16689,7 +16688,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,11,FOLLOW_71); 
+            otherlv_9=(Token)match(input,11,FOLLOW_70); 
 
             			newLeafNode(otherlv_9, grammarAccess.getAtomicBooleanConditionAccess().getCommaKeyword_9());
             		
@@ -16827,7 +16826,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,8,FOLLOW_72); 
+            otherlv_1=(Token)match(input,8,FOLLOW_71); 
 
             			newLeafNode(otherlv_1, grammarAccess.getReferenceAccess().getLeftCurlyBracketKeyword_1());
             		
@@ -18913,123 +18912,8 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleQoSMetricUnit"
 
 
-    // $ANTLR start "ruleQoSMetricType"
-    // InternalAsyncApi.g:7423:1: ruleQoSMetricType returns [Enumerator current=null] : ( (enumLiteral_0= '\"real\"' ) | (enumLiteral_1= '\"integer\"' ) | (enumLiteral_2= '\"boolean\"' ) ) ;
-    public final Enumerator ruleQoSMetricType() throws RecognitionException {
-        Enumerator current = null;
-
-        Token enumLiteral_0=null;
-        Token enumLiteral_1=null;
-        Token enumLiteral_2=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalAsyncApi.g:7429:2: ( ( (enumLiteral_0= '\"real\"' ) | (enumLiteral_1= '\"integer\"' ) | (enumLiteral_2= '\"boolean\"' ) ) )
-            // InternalAsyncApi.g:7430:2: ( (enumLiteral_0= '\"real\"' ) | (enumLiteral_1= '\"integer\"' ) | (enumLiteral_2= '\"boolean\"' ) )
-            {
-            // InternalAsyncApi.g:7430:2: ( (enumLiteral_0= '\"real\"' ) | (enumLiteral_1= '\"integer\"' ) | (enumLiteral_2= '\"boolean\"' ) )
-            int alt142=3;
-            switch ( input.LA(1) ) {
-            case 109:
-                {
-                alt142=1;
-                }
-                break;
-            case 87:
-                {
-                alt142=2;
-                }
-                break;
-            case 86:
-                {
-                alt142=3;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 142, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt142) {
-                case 1 :
-                    // InternalAsyncApi.g:7431:3: (enumLiteral_0= '\"real\"' )
-                    {
-                    // InternalAsyncApi.g:7431:3: (enumLiteral_0= '\"real\"' )
-                    // InternalAsyncApi.g:7432:4: enumLiteral_0= '\"real\"'
-                    {
-                    enumLiteral_0=(Token)match(input,109,FOLLOW_2); 
-
-                    				current = grammarAccess.getQoSMetricTypeAccess().getRealEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getQoSMetricTypeAccess().getRealEnumLiteralDeclaration_0());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalAsyncApi.g:7439:3: (enumLiteral_1= '\"integer\"' )
-                    {
-                    // InternalAsyncApi.g:7439:3: (enumLiteral_1= '\"integer\"' )
-                    // InternalAsyncApi.g:7440:4: enumLiteral_1= '\"integer\"'
-                    {
-                    enumLiteral_1=(Token)match(input,87,FOLLOW_2); 
-
-                    				current = grammarAccess.getQoSMetricTypeAccess().getIntegerEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getQoSMetricTypeAccess().getIntegerEnumLiteralDeclaration_1());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 3 :
-                    // InternalAsyncApi.g:7447:3: (enumLiteral_2= '\"boolean\"' )
-                    {
-                    // InternalAsyncApi.g:7447:3: (enumLiteral_2= '\"boolean\"' )
-                    // InternalAsyncApi.g:7448:4: enumLiteral_2= '\"boolean\"'
-                    {
-                    enumLiteral_2=(Token)match(input,86,FOLLOW_2); 
-
-                    				current = grammarAccess.getQoSMetricTypeAccess().getBooleanEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_2, grammarAccess.getQoSMetricTypeAccess().getBooleanEnumLiteralDeclaration_2());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleQoSMetricType"
-
-
     // $ANTLR start "ruleOperator"
-    // InternalAsyncApi.g:7458:1: ruleOperator returns [Enumerator current=null] : ( (enumLiteral_0= '\">\"' ) | (enumLiteral_1= '\">=\"' ) | (enumLiteral_2= '\"=\"' ) | (enumLiteral_3= '\"<=\"' ) | (enumLiteral_4= '\"<\"' ) ) ;
+    // InternalAsyncApi.g:7423:1: ruleOperator returns [Enumerator current=null] : ( (enumLiteral_0= '\">\"' ) | (enumLiteral_1= '\">=\"' ) | (enumLiteral_2= '\"=\"' ) | (enumLiteral_3= '\"<=\"' ) | (enumLiteral_4= '\"<\"' ) ) ;
     public final Enumerator ruleOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -19043,52 +18927,52 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAsyncApi.g:7464:2: ( ( (enumLiteral_0= '\">\"' ) | (enumLiteral_1= '\">=\"' ) | (enumLiteral_2= '\"=\"' ) | (enumLiteral_3= '\"<=\"' ) | (enumLiteral_4= '\"<\"' ) ) )
-            // InternalAsyncApi.g:7465:2: ( (enumLiteral_0= '\">\"' ) | (enumLiteral_1= '\">=\"' ) | (enumLiteral_2= '\"=\"' ) | (enumLiteral_3= '\"<=\"' ) | (enumLiteral_4= '\"<\"' ) )
+            // InternalAsyncApi.g:7429:2: ( ( (enumLiteral_0= '\">\"' ) | (enumLiteral_1= '\">=\"' ) | (enumLiteral_2= '\"=\"' ) | (enumLiteral_3= '\"<=\"' ) | (enumLiteral_4= '\"<\"' ) ) )
+            // InternalAsyncApi.g:7430:2: ( (enumLiteral_0= '\">\"' ) | (enumLiteral_1= '\">=\"' ) | (enumLiteral_2= '\"=\"' ) | (enumLiteral_3= '\"<=\"' ) | (enumLiteral_4= '\"<\"' ) )
             {
-            // InternalAsyncApi.g:7465:2: ( (enumLiteral_0= '\">\"' ) | (enumLiteral_1= '\">=\"' ) | (enumLiteral_2= '\"=\"' ) | (enumLiteral_3= '\"<=\"' ) | (enumLiteral_4= '\"<\"' ) )
-            int alt143=5;
+            // InternalAsyncApi.g:7430:2: ( (enumLiteral_0= '\">\"' ) | (enumLiteral_1= '\">=\"' ) | (enumLiteral_2= '\"=\"' ) | (enumLiteral_3= '\"<=\"' ) | (enumLiteral_4= '\"<\"' ) )
+            int alt142=5;
             switch ( input.LA(1) ) {
+            case 109:
+                {
+                alt142=1;
+                }
+                break;
             case 110:
                 {
-                alt143=1;
+                alt142=2;
                 }
                 break;
             case 111:
                 {
-                alt143=2;
+                alt142=3;
                 }
                 break;
             case 112:
                 {
-                alt143=3;
+                alt142=4;
                 }
                 break;
             case 113:
                 {
-                alt143=4;
-                }
-                break;
-            case 114:
-                {
-                alt143=5;
+                alt142=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 143, 0, input);
+                    new NoViableAltException("", 142, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt143) {
+            switch (alt142) {
                 case 1 :
-                    // InternalAsyncApi.g:7466:3: (enumLiteral_0= '\">\"' )
+                    // InternalAsyncApi.g:7431:3: (enumLiteral_0= '\">\"' )
                     {
-                    // InternalAsyncApi.g:7466:3: (enumLiteral_0= '\">\"' )
-                    // InternalAsyncApi.g:7467:4: enumLiteral_0= '\">\"'
+                    // InternalAsyncApi.g:7431:3: (enumLiteral_0= '\">\"' )
+                    // InternalAsyncApi.g:7432:4: enumLiteral_0= '\">\"'
                     {
-                    enumLiteral_0=(Token)match(input,110,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,109,FOLLOW_2); 
 
                     				current = grammarAccess.getOperatorAccess().getGreaterEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getOperatorAccess().getGreaterEnumLiteralDeclaration_0());
@@ -19100,12 +18984,12 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAsyncApi.g:7474:3: (enumLiteral_1= '\">=\"' )
+                    // InternalAsyncApi.g:7439:3: (enumLiteral_1= '\">=\"' )
                     {
-                    // InternalAsyncApi.g:7474:3: (enumLiteral_1= '\">=\"' )
-                    // InternalAsyncApi.g:7475:4: enumLiteral_1= '\">=\"'
+                    // InternalAsyncApi.g:7439:3: (enumLiteral_1= '\">=\"' )
+                    // InternalAsyncApi.g:7440:4: enumLiteral_1= '\">=\"'
                     {
-                    enumLiteral_1=(Token)match(input,111,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,110,FOLLOW_2); 
 
                     				current = grammarAccess.getOperatorAccess().getGreater_equalEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getOperatorAccess().getGreater_equalEnumLiteralDeclaration_1());
@@ -19117,12 +19001,12 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalAsyncApi.g:7482:3: (enumLiteral_2= '\"=\"' )
+                    // InternalAsyncApi.g:7447:3: (enumLiteral_2= '\"=\"' )
                     {
-                    // InternalAsyncApi.g:7482:3: (enumLiteral_2= '\"=\"' )
-                    // InternalAsyncApi.g:7483:4: enumLiteral_2= '\"=\"'
+                    // InternalAsyncApi.g:7447:3: (enumLiteral_2= '\"=\"' )
+                    // InternalAsyncApi.g:7448:4: enumLiteral_2= '\"=\"'
                     {
-                    enumLiteral_2=(Token)match(input,112,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,111,FOLLOW_2); 
 
                     				current = grammarAccess.getOperatorAccess().getEqualEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getOperatorAccess().getEqualEnumLiteralDeclaration_2());
@@ -19134,12 +19018,12 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalAsyncApi.g:7490:3: (enumLiteral_3= '\"<=\"' )
+                    // InternalAsyncApi.g:7455:3: (enumLiteral_3= '\"<=\"' )
                     {
-                    // InternalAsyncApi.g:7490:3: (enumLiteral_3= '\"<=\"' )
-                    // InternalAsyncApi.g:7491:4: enumLiteral_3= '\"<=\"'
+                    // InternalAsyncApi.g:7455:3: (enumLiteral_3= '\"<=\"' )
+                    // InternalAsyncApi.g:7456:4: enumLiteral_3= '\"<=\"'
                     {
-                    enumLiteral_3=(Token)match(input,113,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,112,FOLLOW_2); 
 
                     				current = grammarAccess.getOperatorAccess().getLess_equalEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getOperatorAccess().getLess_equalEnumLiteralDeclaration_3());
@@ -19151,12 +19035,12 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalAsyncApi.g:7498:3: (enumLiteral_4= '\"<\"' )
+                    // InternalAsyncApi.g:7463:3: (enumLiteral_4= '\"<\"' )
                     {
-                    // InternalAsyncApi.g:7498:3: (enumLiteral_4= '\"<\"' )
-                    // InternalAsyncApi.g:7499:4: enumLiteral_4= '\"<\"'
+                    // InternalAsyncApi.g:7463:3: (enumLiteral_4= '\"<\"' )
+                    // InternalAsyncApi.g:7464:4: enumLiteral_4= '\"<\"'
                     {
-                    enumLiteral_4=(Token)match(input,114,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,113,FOLLOW_2); 
 
                     				current = grammarAccess.getOperatorAccess().getLessEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getOperatorAccess().getLessEnumLiteralDeclaration_4());
@@ -19190,7 +19074,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJsonType"
-    // InternalAsyncApi.g:7509:1: ruleJsonType returns [Enumerator current=null] : ( (enumLiteral_0= '\"string\"' ) | (enumLiteral_1= '\"number\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"boolean\"' ) | (enumLiteral_4= '\"object\"' ) | (enumLiteral_5= '\"array\"' ) | (enumLiteral_6= '\"any\"' ) | (enumLiteral_7= '\"null\"' ) ) ;
+    // InternalAsyncApi.g:7474:1: ruleJsonType returns [Enumerator current=null] : ( (enumLiteral_0= '\"string\"' ) | (enumLiteral_1= '\"number\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"boolean\"' ) | (enumLiteral_4= '\"object\"' ) | (enumLiteral_5= '\"array\"' ) | (enumLiteral_6= '\"any\"' ) | (enumLiteral_7= '\"null\"' ) ) ;
     public final Enumerator ruleJsonType() throws RecognitionException {
         Enumerator current = null;
 
@@ -19207,65 +19091,65 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAsyncApi.g:7515:2: ( ( (enumLiteral_0= '\"string\"' ) | (enumLiteral_1= '\"number\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"boolean\"' ) | (enumLiteral_4= '\"object\"' ) | (enumLiteral_5= '\"array\"' ) | (enumLiteral_6= '\"any\"' ) | (enumLiteral_7= '\"null\"' ) ) )
-            // InternalAsyncApi.g:7516:2: ( (enumLiteral_0= '\"string\"' ) | (enumLiteral_1= '\"number\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"boolean\"' ) | (enumLiteral_4= '\"object\"' ) | (enumLiteral_5= '\"array\"' ) | (enumLiteral_6= '\"any\"' ) | (enumLiteral_7= '\"null\"' ) )
+            // InternalAsyncApi.g:7480:2: ( ( (enumLiteral_0= '\"string\"' ) | (enumLiteral_1= '\"number\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"boolean\"' ) | (enumLiteral_4= '\"object\"' ) | (enumLiteral_5= '\"array\"' ) | (enumLiteral_6= '\"any\"' ) | (enumLiteral_7= '\"null\"' ) ) )
+            // InternalAsyncApi.g:7481:2: ( (enumLiteral_0= '\"string\"' ) | (enumLiteral_1= '\"number\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"boolean\"' ) | (enumLiteral_4= '\"object\"' ) | (enumLiteral_5= '\"array\"' ) | (enumLiteral_6= '\"any\"' ) | (enumLiteral_7= '\"null\"' ) )
             {
-            // InternalAsyncApi.g:7516:2: ( (enumLiteral_0= '\"string\"' ) | (enumLiteral_1= '\"number\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"boolean\"' ) | (enumLiteral_4= '\"object\"' ) | (enumLiteral_5= '\"array\"' ) | (enumLiteral_6= '\"any\"' ) | (enumLiteral_7= '\"null\"' ) )
-            int alt144=8;
+            // InternalAsyncApi.g:7481:2: ( (enumLiteral_0= '\"string\"' ) | (enumLiteral_1= '\"number\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"boolean\"' ) | (enumLiteral_4= '\"object\"' ) | (enumLiteral_5= '\"array\"' ) | (enumLiteral_6= '\"any\"' ) | (enumLiteral_7= '\"null\"' ) )
+            int alt143=8;
             switch ( input.LA(1) ) {
             case 95:
                 {
-                alt144=1;
+                alt143=1;
                 }
                 break;
             case 91:
                 {
-                alt144=2;
+                alt143=2;
                 }
                 break;
             case 87:
                 {
-                alt144=3;
+                alt143=3;
                 }
                 break;
             case 86:
                 {
-                alt144=4;
+                alt143=4;
                 }
                 break;
             case 92:
                 {
-                alt144=5;
+                alt143=5;
                 }
                 break;
             case 85:
                 {
-                alt144=6;
+                alt143=6;
                 }
                 break;
             case 84:
                 {
-                alt144=7;
+                alt143=7;
                 }
                 break;
             case 90:
                 {
-                alt144=8;
+                alt143=8;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 144, 0, input);
+                    new NoViableAltException("", 143, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt144) {
+            switch (alt143) {
                 case 1 :
-                    // InternalAsyncApi.g:7517:3: (enumLiteral_0= '\"string\"' )
+                    // InternalAsyncApi.g:7482:3: (enumLiteral_0= '\"string\"' )
                     {
-                    // InternalAsyncApi.g:7517:3: (enumLiteral_0= '\"string\"' )
-                    // InternalAsyncApi.g:7518:4: enumLiteral_0= '\"string\"'
+                    // InternalAsyncApi.g:7482:3: (enumLiteral_0= '\"string\"' )
+                    // InternalAsyncApi.g:7483:4: enumLiteral_0= '\"string\"'
                     {
                     enumLiteral_0=(Token)match(input,95,FOLLOW_2); 
 
@@ -19279,10 +19163,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAsyncApi.g:7525:3: (enumLiteral_1= '\"number\"' )
+                    // InternalAsyncApi.g:7490:3: (enumLiteral_1= '\"number\"' )
                     {
-                    // InternalAsyncApi.g:7525:3: (enumLiteral_1= '\"number\"' )
-                    // InternalAsyncApi.g:7526:4: enumLiteral_1= '\"number\"'
+                    // InternalAsyncApi.g:7490:3: (enumLiteral_1= '\"number\"' )
+                    // InternalAsyncApi.g:7491:4: enumLiteral_1= '\"number\"'
                     {
                     enumLiteral_1=(Token)match(input,91,FOLLOW_2); 
 
@@ -19296,10 +19180,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalAsyncApi.g:7533:3: (enumLiteral_2= '\"integer\"' )
+                    // InternalAsyncApi.g:7498:3: (enumLiteral_2= '\"integer\"' )
                     {
-                    // InternalAsyncApi.g:7533:3: (enumLiteral_2= '\"integer\"' )
-                    // InternalAsyncApi.g:7534:4: enumLiteral_2= '\"integer\"'
+                    // InternalAsyncApi.g:7498:3: (enumLiteral_2= '\"integer\"' )
+                    // InternalAsyncApi.g:7499:4: enumLiteral_2= '\"integer\"'
                     {
                     enumLiteral_2=(Token)match(input,87,FOLLOW_2); 
 
@@ -19313,10 +19197,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalAsyncApi.g:7541:3: (enumLiteral_3= '\"boolean\"' )
+                    // InternalAsyncApi.g:7506:3: (enumLiteral_3= '\"boolean\"' )
                     {
-                    // InternalAsyncApi.g:7541:3: (enumLiteral_3= '\"boolean\"' )
-                    // InternalAsyncApi.g:7542:4: enumLiteral_3= '\"boolean\"'
+                    // InternalAsyncApi.g:7506:3: (enumLiteral_3= '\"boolean\"' )
+                    // InternalAsyncApi.g:7507:4: enumLiteral_3= '\"boolean\"'
                     {
                     enumLiteral_3=(Token)match(input,86,FOLLOW_2); 
 
@@ -19330,10 +19214,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalAsyncApi.g:7549:3: (enumLiteral_4= '\"object\"' )
+                    // InternalAsyncApi.g:7514:3: (enumLiteral_4= '\"object\"' )
                     {
-                    // InternalAsyncApi.g:7549:3: (enumLiteral_4= '\"object\"' )
-                    // InternalAsyncApi.g:7550:4: enumLiteral_4= '\"object\"'
+                    // InternalAsyncApi.g:7514:3: (enumLiteral_4= '\"object\"' )
+                    // InternalAsyncApi.g:7515:4: enumLiteral_4= '\"object\"'
                     {
                     enumLiteral_4=(Token)match(input,92,FOLLOW_2); 
 
@@ -19347,10 +19231,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalAsyncApi.g:7557:3: (enumLiteral_5= '\"array\"' )
+                    // InternalAsyncApi.g:7522:3: (enumLiteral_5= '\"array\"' )
                     {
-                    // InternalAsyncApi.g:7557:3: (enumLiteral_5= '\"array\"' )
-                    // InternalAsyncApi.g:7558:4: enumLiteral_5= '\"array\"'
+                    // InternalAsyncApi.g:7522:3: (enumLiteral_5= '\"array\"' )
+                    // InternalAsyncApi.g:7523:4: enumLiteral_5= '\"array\"'
                     {
                     enumLiteral_5=(Token)match(input,85,FOLLOW_2); 
 
@@ -19364,10 +19248,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalAsyncApi.g:7565:3: (enumLiteral_6= '\"any\"' )
+                    // InternalAsyncApi.g:7530:3: (enumLiteral_6= '\"any\"' )
                     {
-                    // InternalAsyncApi.g:7565:3: (enumLiteral_6= '\"any\"' )
-                    // InternalAsyncApi.g:7566:4: enumLiteral_6= '\"any\"'
+                    // InternalAsyncApi.g:7530:3: (enumLiteral_6= '\"any\"' )
+                    // InternalAsyncApi.g:7531:4: enumLiteral_6= '\"any\"'
                     {
                     enumLiteral_6=(Token)match(input,84,FOLLOW_2); 
 
@@ -19381,10 +19265,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalAsyncApi.g:7573:3: (enumLiteral_7= '\"null\"' )
+                    // InternalAsyncApi.g:7538:3: (enumLiteral_7= '\"null\"' )
                     {
-                    // InternalAsyncApi.g:7573:3: (enumLiteral_7= '\"null\"' )
-                    // InternalAsyncApi.g:7574:4: enumLiteral_7= '\"null\"'
+                    // InternalAsyncApi.g:7538:3: (enumLiteral_7= '\"null\"' )
+                    // InternalAsyncApi.g:7539:4: enumLiteral_7= '\"null\"'
                     {
                     enumLiteral_7=(Token)match(input,90,FOLLOW_2); 
 
@@ -19420,7 +19304,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBoolean"
-    // InternalAsyncApi.g:7584:1: ruleBoolean returns [Enumerator current=null] : ( (enumLiteral_0= 'false' ) | (enumLiteral_1= 'true' ) ) ;
+    // InternalAsyncApi.g:7549:1: ruleBoolean returns [Enumerator current=null] : ( (enumLiteral_0= 'false' ) | (enumLiteral_1= 'true' ) ) ;
     public final Enumerator ruleBoolean() throws RecognitionException {
         Enumerator current = null;
 
@@ -19431,31 +19315,31 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAsyncApi.g:7590:2: ( ( (enumLiteral_0= 'false' ) | (enumLiteral_1= 'true' ) ) )
-            // InternalAsyncApi.g:7591:2: ( (enumLiteral_0= 'false' ) | (enumLiteral_1= 'true' ) )
+            // InternalAsyncApi.g:7555:2: ( ( (enumLiteral_0= 'false' ) | (enumLiteral_1= 'true' ) ) )
+            // InternalAsyncApi.g:7556:2: ( (enumLiteral_0= 'false' ) | (enumLiteral_1= 'true' ) )
             {
-            // InternalAsyncApi.g:7591:2: ( (enumLiteral_0= 'false' ) | (enumLiteral_1= 'true' ) )
-            int alt145=2;
-            int LA145_0 = input.LA(1);
+            // InternalAsyncApi.g:7556:2: ( (enumLiteral_0= 'false' ) | (enumLiteral_1= 'true' ) )
+            int alt144=2;
+            int LA144_0 = input.LA(1);
 
-            if ( (LA145_0==80) ) {
-                alt145=1;
+            if ( (LA144_0==80) ) {
+                alt144=1;
             }
-            else if ( (LA145_0==79) ) {
-                alt145=2;
+            else if ( (LA144_0==79) ) {
+                alt144=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 145, 0, input);
+                    new NoViableAltException("", 144, 0, input);
 
                 throw nvae;
             }
-            switch (alt145) {
+            switch (alt144) {
                 case 1 :
-                    // InternalAsyncApi.g:7592:3: (enumLiteral_0= 'false' )
+                    // InternalAsyncApi.g:7557:3: (enumLiteral_0= 'false' )
                     {
-                    // InternalAsyncApi.g:7592:3: (enumLiteral_0= 'false' )
-                    // InternalAsyncApi.g:7593:4: enumLiteral_0= 'false'
+                    // InternalAsyncApi.g:7557:3: (enumLiteral_0= 'false' )
+                    // InternalAsyncApi.g:7558:4: enumLiteral_0= 'false'
                     {
                     enumLiteral_0=(Token)match(input,80,FOLLOW_2); 
 
@@ -19469,10 +19353,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAsyncApi.g:7600:3: (enumLiteral_1= 'true' )
+                    // InternalAsyncApi.g:7565:3: (enumLiteral_1= 'true' )
                     {
-                    // InternalAsyncApi.g:7600:3: (enumLiteral_1= 'true' )
-                    // InternalAsyncApi.g:7601:4: enumLiteral_1= 'true'
+                    // InternalAsyncApi.g:7565:3: (enumLiteral_1= 'true' )
+                    // InternalAsyncApi.g:7566:4: enumLiteral_1= 'true'
                     {
                     enumLiteral_1=(Token)match(input,79,FOLLOW_2); 
 
@@ -19508,7 +19392,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVersionNumber"
-    // InternalAsyncApi.g:7611:1: ruleVersionNumber returns [Enumerator current=null] : (enumLiteral_0= '\"2.0.0\"' ) ;
+    // InternalAsyncApi.g:7576:1: ruleVersionNumber returns [Enumerator current=null] : (enumLiteral_0= '\"2.0.0\"' ) ;
     public final Enumerator ruleVersionNumber() throws RecognitionException {
         Enumerator current = null;
 
@@ -19518,11 +19402,11 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAsyncApi.g:7617:2: ( (enumLiteral_0= '\"2.0.0\"' ) )
-            // InternalAsyncApi.g:7618:2: (enumLiteral_0= '\"2.0.0\"' )
+            // InternalAsyncApi.g:7582:2: ( (enumLiteral_0= '\"2.0.0\"' ) )
+            // InternalAsyncApi.g:7583:2: (enumLiteral_0= '\"2.0.0\"' )
             {
-            // InternalAsyncApi.g:7618:2: (enumLiteral_0= '\"2.0.0\"' )
-            // InternalAsyncApi.g:7619:3: enumLiteral_0= '\"2.0.0\"'
+            // InternalAsyncApi.g:7583:2: (enumLiteral_0= '\"2.0.0\"' )
+            // InternalAsyncApi.g:7584:3: enumLiteral_0= '\"2.0.0\"'
             {
             enumLiteral_0=(Token)match(input,81,FOLLOW_2); 
 
@@ -19552,7 +19436,7 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProtocol"
-    // InternalAsyncApi.g:7628:1: ruleProtocol returns [Enumerator current=null] : ( (enumLiteral_0= '\"amqp\"' ) | (enumLiteral_1= '\"amqps\"' ) | (enumLiteral_2= '\"mqtt\"' ) | (enumLiteral_3= '\"mqtts\"' ) | (enumLiteral_4= '\"ws\"' ) | (enumLiteral_5= '\"wss\"' ) | (enumLiteral_6= '\"stomp\"' ) | (enumLiteral_7= '\"stomps\"' ) ) ;
+    // InternalAsyncApi.g:7593:1: ruleProtocol returns [Enumerator current=null] : ( (enumLiteral_0= '\"amqp\"' ) | (enumLiteral_1= '\"amqps\"' ) | (enumLiteral_2= '\"mqtt\"' ) | (enumLiteral_3= '\"mqtts\"' ) | (enumLiteral_4= '\"ws\"' ) | (enumLiteral_5= '\"wss\"' ) | (enumLiteral_6= '\"stomp\"' ) | (enumLiteral_7= '\"stomps\"' ) ) ;
     public final Enumerator ruleProtocol() throws RecognitionException {
         Enumerator current = null;
 
@@ -19569,65 +19453,65 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAsyncApi.g:7634:2: ( ( (enumLiteral_0= '\"amqp\"' ) | (enumLiteral_1= '\"amqps\"' ) | (enumLiteral_2= '\"mqtt\"' ) | (enumLiteral_3= '\"mqtts\"' ) | (enumLiteral_4= '\"ws\"' ) | (enumLiteral_5= '\"wss\"' ) | (enumLiteral_6= '\"stomp\"' ) | (enumLiteral_7= '\"stomps\"' ) ) )
-            // InternalAsyncApi.g:7635:2: ( (enumLiteral_0= '\"amqp\"' ) | (enumLiteral_1= '\"amqps\"' ) | (enumLiteral_2= '\"mqtt\"' ) | (enumLiteral_3= '\"mqtts\"' ) | (enumLiteral_4= '\"ws\"' ) | (enumLiteral_5= '\"wss\"' ) | (enumLiteral_6= '\"stomp\"' ) | (enumLiteral_7= '\"stomps\"' ) )
+            // InternalAsyncApi.g:7599:2: ( ( (enumLiteral_0= '\"amqp\"' ) | (enumLiteral_1= '\"amqps\"' ) | (enumLiteral_2= '\"mqtt\"' ) | (enumLiteral_3= '\"mqtts\"' ) | (enumLiteral_4= '\"ws\"' ) | (enumLiteral_5= '\"wss\"' ) | (enumLiteral_6= '\"stomp\"' ) | (enumLiteral_7= '\"stomps\"' ) ) )
+            // InternalAsyncApi.g:7600:2: ( (enumLiteral_0= '\"amqp\"' ) | (enumLiteral_1= '\"amqps\"' ) | (enumLiteral_2= '\"mqtt\"' ) | (enumLiteral_3= '\"mqtts\"' ) | (enumLiteral_4= '\"ws\"' ) | (enumLiteral_5= '\"wss\"' ) | (enumLiteral_6= '\"stomp\"' ) | (enumLiteral_7= '\"stomps\"' ) )
             {
-            // InternalAsyncApi.g:7635:2: ( (enumLiteral_0= '\"amqp\"' ) | (enumLiteral_1= '\"amqps\"' ) | (enumLiteral_2= '\"mqtt\"' ) | (enumLiteral_3= '\"mqtts\"' ) | (enumLiteral_4= '\"ws\"' ) | (enumLiteral_5= '\"wss\"' ) | (enumLiteral_6= '\"stomp\"' ) | (enumLiteral_7= '\"stomps\"' ) )
-            int alt146=8;
+            // InternalAsyncApi.g:7600:2: ( (enumLiteral_0= '\"amqp\"' ) | (enumLiteral_1= '\"amqps\"' ) | (enumLiteral_2= '\"mqtt\"' ) | (enumLiteral_3= '\"mqtts\"' ) | (enumLiteral_4= '\"ws\"' ) | (enumLiteral_5= '\"wss\"' ) | (enumLiteral_6= '\"stomp\"' ) | (enumLiteral_7= '\"stomps\"' ) )
+            int alt145=8;
             switch ( input.LA(1) ) {
             case 82:
                 {
-                alt146=1;
+                alt145=1;
                 }
                 break;
             case 83:
                 {
-                alt146=2;
+                alt145=2;
                 }
                 break;
             case 88:
                 {
-                alt146=3;
+                alt145=3;
                 }
                 break;
             case 89:
                 {
-                alt146=4;
+                alt145=4;
                 }
                 break;
             case 96:
                 {
-                alt146=5;
+                alt145=5;
                 }
                 break;
             case 97:
                 {
-                alt146=6;
+                alt145=6;
                 }
                 break;
             case 93:
                 {
-                alt146=7;
+                alt145=7;
                 }
                 break;
             case 94:
                 {
-                alt146=8;
+                alt145=8;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 146, 0, input);
+                    new NoViableAltException("", 145, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt146) {
+            switch (alt145) {
                 case 1 :
-                    // InternalAsyncApi.g:7636:3: (enumLiteral_0= '\"amqp\"' )
+                    // InternalAsyncApi.g:7601:3: (enumLiteral_0= '\"amqp\"' )
                     {
-                    // InternalAsyncApi.g:7636:3: (enumLiteral_0= '\"amqp\"' )
-                    // InternalAsyncApi.g:7637:4: enumLiteral_0= '\"amqp\"'
+                    // InternalAsyncApi.g:7601:3: (enumLiteral_0= '\"amqp\"' )
+                    // InternalAsyncApi.g:7602:4: enumLiteral_0= '\"amqp\"'
                     {
                     enumLiteral_0=(Token)match(input,82,FOLLOW_2); 
 
@@ -19641,10 +19525,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAsyncApi.g:7644:3: (enumLiteral_1= '\"amqps\"' )
+                    // InternalAsyncApi.g:7609:3: (enumLiteral_1= '\"amqps\"' )
                     {
-                    // InternalAsyncApi.g:7644:3: (enumLiteral_1= '\"amqps\"' )
-                    // InternalAsyncApi.g:7645:4: enumLiteral_1= '\"amqps\"'
+                    // InternalAsyncApi.g:7609:3: (enumLiteral_1= '\"amqps\"' )
+                    // InternalAsyncApi.g:7610:4: enumLiteral_1= '\"amqps\"'
                     {
                     enumLiteral_1=(Token)match(input,83,FOLLOW_2); 
 
@@ -19658,10 +19542,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalAsyncApi.g:7652:3: (enumLiteral_2= '\"mqtt\"' )
+                    // InternalAsyncApi.g:7617:3: (enumLiteral_2= '\"mqtt\"' )
                     {
-                    // InternalAsyncApi.g:7652:3: (enumLiteral_2= '\"mqtt\"' )
-                    // InternalAsyncApi.g:7653:4: enumLiteral_2= '\"mqtt\"'
+                    // InternalAsyncApi.g:7617:3: (enumLiteral_2= '\"mqtt\"' )
+                    // InternalAsyncApi.g:7618:4: enumLiteral_2= '\"mqtt\"'
                     {
                     enumLiteral_2=(Token)match(input,88,FOLLOW_2); 
 
@@ -19675,10 +19559,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalAsyncApi.g:7660:3: (enumLiteral_3= '\"mqtts\"' )
+                    // InternalAsyncApi.g:7625:3: (enumLiteral_3= '\"mqtts\"' )
                     {
-                    // InternalAsyncApi.g:7660:3: (enumLiteral_3= '\"mqtts\"' )
-                    // InternalAsyncApi.g:7661:4: enumLiteral_3= '\"mqtts\"'
+                    // InternalAsyncApi.g:7625:3: (enumLiteral_3= '\"mqtts\"' )
+                    // InternalAsyncApi.g:7626:4: enumLiteral_3= '\"mqtts\"'
                     {
                     enumLiteral_3=(Token)match(input,89,FOLLOW_2); 
 
@@ -19692,10 +19576,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalAsyncApi.g:7668:3: (enumLiteral_4= '\"ws\"' )
+                    // InternalAsyncApi.g:7633:3: (enumLiteral_4= '\"ws\"' )
                     {
-                    // InternalAsyncApi.g:7668:3: (enumLiteral_4= '\"ws\"' )
-                    // InternalAsyncApi.g:7669:4: enumLiteral_4= '\"ws\"'
+                    // InternalAsyncApi.g:7633:3: (enumLiteral_4= '\"ws\"' )
+                    // InternalAsyncApi.g:7634:4: enumLiteral_4= '\"ws\"'
                     {
                     enumLiteral_4=(Token)match(input,96,FOLLOW_2); 
 
@@ -19709,10 +19593,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalAsyncApi.g:7676:3: (enumLiteral_5= '\"wss\"' )
+                    // InternalAsyncApi.g:7641:3: (enumLiteral_5= '\"wss\"' )
                     {
-                    // InternalAsyncApi.g:7676:3: (enumLiteral_5= '\"wss\"' )
-                    // InternalAsyncApi.g:7677:4: enumLiteral_5= '\"wss\"'
+                    // InternalAsyncApi.g:7641:3: (enumLiteral_5= '\"wss\"' )
+                    // InternalAsyncApi.g:7642:4: enumLiteral_5= '\"wss\"'
                     {
                     enumLiteral_5=(Token)match(input,97,FOLLOW_2); 
 
@@ -19726,10 +19610,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalAsyncApi.g:7684:3: (enumLiteral_6= '\"stomp\"' )
+                    // InternalAsyncApi.g:7649:3: (enumLiteral_6= '\"stomp\"' )
                     {
-                    // InternalAsyncApi.g:7684:3: (enumLiteral_6= '\"stomp\"' )
-                    // InternalAsyncApi.g:7685:4: enumLiteral_6= '\"stomp\"'
+                    // InternalAsyncApi.g:7649:3: (enumLiteral_6= '\"stomp\"' )
+                    // InternalAsyncApi.g:7650:4: enumLiteral_6= '\"stomp\"'
                     {
                     enumLiteral_6=(Token)match(input,93,FOLLOW_2); 
 
@@ -19743,10 +19627,10 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalAsyncApi.g:7692:3: (enumLiteral_7= '\"stomps\"' )
+                    // InternalAsyncApi.g:7657:3: (enumLiteral_7= '\"stomps\"' )
                     {
-                    // InternalAsyncApi.g:7692:3: (enumLiteral_7= '\"stomps\"' )
-                    // InternalAsyncApi.g:7693:4: enumLiteral_7= '\"stomps\"'
+                    // InternalAsyncApi.g:7657:3: (enumLiteral_7= '\"stomps\"' )
+                    // InternalAsyncApi.g:7658:4: enumLiteral_7= '\"stomps\"'
                     {
                     enumLiteral_7=(Token)match(input,94,FOLLOW_2); 
 
@@ -20025,19 +19909,18 @@ public class InternalAsyncApiParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000000002104000L,0x000000000000003CL});
     public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000000L,0x00000C0000000000L});
     public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000000000000L,0x0000101C04000000L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000000L,0x0000200000C00000L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000000L,0x000003C000000000L});
     public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000000L,0x00000000000001C0L});
     public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000004800L,0x00000000000001C0L});
     public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000004000L,0x00000000000001C0L});
     public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0400000000000000L,0x0000003C00000000L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x000003C000000000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x1FF3FFFCFEFDB320L,0x00000003FFFE4000L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000000000L,0x0007C00000000000L});
-    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x1FF3FFFCFEFDB320L,0x00000003FFFE4000L});
+    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000000000L,0x0003E00000000000L});
+    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
 
 }

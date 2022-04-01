@@ -1163,22 +1163,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Rule QoSMetricType
-ruleQoSMetricType
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getQoSMetricTypeAccess().getAlternatives()); }
-		(rule__QoSMetricType__Alternatives)
-		{ after(grammarAccess.getQoSMetricTypeAccess().getAlternatives()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Rule Operator
 ruleOperator
 	@init {
@@ -1967,33 +1951,6 @@ rule__QoSMetricUnit__Alternatives
 		{ before(grammarAccess.getQoSMetricUnitAccess().getNullEnumLiteralDeclaration_4()); }
 		('"null"')
 		{ after(grammarAccess.getQoSMetricUnitAccess().getNullEnumLiteralDeclaration_4()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__QoSMetricType__Alternatives
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getQoSMetricTypeAccess().getRealEnumLiteralDeclaration_0()); }
-		('"real"')
-		{ after(grammarAccess.getQoSMetricTypeAccess().getRealEnumLiteralDeclaration_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getQoSMetricTypeAccess().getIntegerEnumLiteralDeclaration_1()); }
-		('"integer"')
-		{ after(grammarAccess.getQoSMetricTypeAccess().getIntegerEnumLiteralDeclaration_1()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getQoSMetricTypeAccess().getBooleanEnumLiteralDeclaration_2()); }
-		('"boolean"')
-		{ after(grammarAccess.getQoSMetricTypeAccess().getBooleanEnumLiteralDeclaration_2()); }
 	)
 ;
 finally {
@@ -17204,9 +17161,9 @@ rule__QoSMetric__Group_1_4__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getQoSMetricAccess().getDataTypeKeyword_1_4_0()); }
-	'"dataType"'
-	{ after(grammarAccess.getQoSMetricAccess().getDataTypeKeyword_1_4_0()); }
+	{ before(grammarAccess.getQoSMetricAccess().getGroupedByMessageKeyword_1_4_0()); }
+	'"groupedByMessage"'
+	{ after(grammarAccess.getQoSMetricAccess().getGroupedByMessageKeyword_1_4_0()); }
 )
 ;
 finally {
@@ -17258,9 +17215,9 @@ rule__QoSMetric__Group_1_4__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getQoSMetricAccess().getDataTypeAssignment_1_4_2()); }
-	(rule__QoSMetric__DataTypeAssignment_1_4_2)
-	{ after(grammarAccess.getQoSMetricAccess().getDataTypeAssignment_1_4_2()); }
+	{ before(grammarAccess.getQoSMetricAccess().getGroupedByMessageAssignment_1_4_2()); }
+	(rule__QoSMetric__GroupedByMessageAssignment_1_4_2)
+	{ after(grammarAccess.getQoSMetricAccess().getGroupedByMessageAssignment_1_4_2()); }
 )
 ;
 finally {
@@ -23600,15 +23557,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__QoSMetric__DataTypeAssignment_1_4_2
+rule__QoSMetric__GroupedByMessageAssignment_1_4_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getQoSMetricAccess().getDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0()); }
-		ruleQoSMetricType
-		{ after(grammarAccess.getQoSMetricAccess().getDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0()); }
+		{ before(grammarAccess.getQoSMetricAccess().getGroupedByMessageAggregationFunctionEnumRuleCall_1_4_2_0()); }
+		ruleAggregationFunction
+		{ after(grammarAccess.getQoSMetricAccess().getGroupedByMessageAggregationFunctionEnumRuleCall_1_4_2_0()); }
 	)
 ;
 finally {

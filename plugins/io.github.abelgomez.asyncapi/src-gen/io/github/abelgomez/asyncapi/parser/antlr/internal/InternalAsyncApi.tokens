@@ -1,10 +1,10 @@
 '"$ref"'=78
 '"2.0.0"'=81
-'"<"'=114
-'"<="'=113
-'"="'=112
-'">"'=110
-'">="'=111
+'"<"'=113
+'"<="'=112
+'"="'=111
+'">"'=109
+'">="'=110
 '"AND"'=73
 '"AVG"'=102
 '"MAX"'=104
@@ -22,7 +22,6 @@
 '"channels"'=15
 '"components"'=16
 '"contact"'=22
-'"dataType"'=68
 '"days"'=101
 '"default"'=30
 '"deprecated"'=42
@@ -31,6 +30,7 @@
 '"email"'=27
 '"enum"'=31
 '"format"'=47
+'"groupedByMessage"'=68
 '"guaranteeTerm"'=62
 '"headers"'=43
 '"hours"'=100
@@ -66,7 +66,6 @@
 '"publish"'=34
 '"qosMetric"'=75
 '"qualifyingConditions"'=64
-'"real"'=109
 '"required"'=54
 '"schema"'=55
 '"schemas"'=57
@@ -124,7 +123,6 @@ T__110=110
 T__111=111
 T__112=112
 T__113=113
-T__114=114
 T__11=11
 T__12=12
 T__13=13

@@ -563,7 +563,7 @@ public class AsyncApiSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     QoSMetric returns QoSMetric
 	 *
 	 * Constraint:
-	 *     (name=AnyString | metricType=QoSMetricName | description=AnyString | unit=QoSMetricUnit | dataType=QoSMetricType)+
+	 *     (name=AnyString | metricType=QoSMetricName | description=AnyString | unit=QoSMetricUnit | groupedByMessage=AggregationFunction)+
 	 */
 	protected void sequence_QoSMetric(ISerializationContext context, QoSMetric semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -633,9 +633,9 @@ public class AsyncApiSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *             default=PrimitiveValue | 
 	 *             items=AbstractSchema
 	 *         )? 
-	 *         (properties+=NamedSchema properties+=NamedSchema*)? 
 	 *         (enum+=PrimitiveValue enum+=PrimitiveValue*)? 
-	 *         (required+=AnyString required+=AnyString*)?
+	 *         (required+=AnyString required+=AnyString*)? 
+	 *         (properties+=NamedSchema properties+=NamedSchema*)?
 	 *     )+
 	 */
 	protected void sequence_Schema(ISerializationContext context, Schema semanticObject) {

@@ -17,7 +17,7 @@ package io.github.abelgomez.asyncapi.asyncApi;
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getMetricType <em>Metric Type</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getDescription <em>Description</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getUnit <em>Unit</em>}</li>
- *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getGroupedByMessage <em>Grouped By Message</em>}</li>
  * </ul>
  *
  * @see io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage#getQoSMetric()
@@ -121,28 +121,28 @@ public interface QoSMetric extends AbstractQoSMetric
   void setUnit(QoSMetricUnit value);
 
   /**
-   * Returns the value of the '<em><b>Data Type</b></em>' attribute.
-   * The literals are from the enumeration {@link io.github.abelgomez.asyncapi.asyncApi.QoSMetricType}.
+   * Returns the value of the '<em><b>Grouped By Message</b></em>' attribute.
+   * The literals are from the enumeration {@link io.github.abelgomez.asyncapi.asyncApi.AggregationFunction}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Data Type</em>' attribute.
-   * @see io.github.abelgomez.asyncapi.asyncApi.QoSMetricType
-   * @see #setDataType(QoSMetricType)
-   * @see io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage#getQoSMetric_DataType()
+   * @return the value of the '<em>Grouped By Message</em>' attribute.
+   * @see io.github.abelgomez.asyncapi.asyncApi.AggregationFunction
+   * @see #setGroupedByMessage(AggregationFunction)
+   * @see io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage#getQoSMetric_GroupedByMessage()
    * @model
    * @generated
    */
-  QoSMetricType getDataType();
+  AggregationFunction getGroupedByMessage();
 
   /**
-   * Sets the value of the '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getDataType <em>Data Type</em>}' attribute.
+   * Sets the value of the '{@link io.github.abelgomez.asyncapi.asyncApi.QoSMetric#getGroupedByMessage <em>Grouped By Message</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Data Type</em>' attribute.
-   * @see io.github.abelgomez.asyncapi.asyncApi.QoSMetricType
-   * @see #getDataType()
+   * @param value the new value of the '<em>Grouped By Message</em>' attribute.
+   * @see io.github.abelgomez.asyncapi.asyncApi.AggregationFunction
+   * @see #getGroupedByMessage()
    * @generated
    */
-  void setDataType(QoSMetricType value);
+  void setGroupedByMessage(AggregationFunction value);
 
 } // QoSMetric

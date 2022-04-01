@@ -1330,8 +1330,8 @@ public class AsyncApiSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=AnyString (ambiguity) '"dataType"' ':' dataType=QoSMetricType
 	 *     name=AnyString (ambiguity) '"description"' ':' description=AnyString
+	 *     name=AnyString (ambiguity) '"groupedByMessage"' ':' groupedByMessage=AggregationFunction
 	 *     name=AnyString (ambiguity) '"metricType"' ':' metricType=QoSMetricName
 	 *     name=AnyString (ambiguity) '"name"' ':' name=AnyString
 	 *     name=AnyString (ambiguity) '"unit"' ':' unit=QoSMetricUnit
@@ -1346,8 +1346,8 @@ public class AsyncApiSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     metricType=QoSMetricName (ambiguity) '"dataType"' ':' dataType=QoSMetricType
 	 *     metricType=QoSMetricName (ambiguity) '"description"' ':' description=AnyString
+	 *     metricType=QoSMetricName (ambiguity) '"groupedByMessage"' ':' groupedByMessage=AggregationFunction
 	 *     metricType=QoSMetricName (ambiguity) '"metricType"' ':' metricType=QoSMetricName
 	 *     metricType=QoSMetricName (ambiguity) '"name"' ':' name=AnyString
 	 *     metricType=QoSMetricName (ambiguity) '"unit"' ':' unit=QoSMetricUnit
@@ -1362,8 +1362,8 @@ public class AsyncApiSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     description=AnyString (ambiguity) '"dataType"' ':' dataType=QoSMetricType
 	 *     description=AnyString (ambiguity) '"description"' ':' description=AnyString
+	 *     description=AnyString (ambiguity) '"groupedByMessage"' ':' groupedByMessage=AggregationFunction
 	 *     description=AnyString (ambiguity) '"metricType"' ':' metricType=QoSMetricName
 	 *     description=AnyString (ambiguity) '"name"' ':' name=AnyString
 	 *     description=AnyString (ambiguity) '"unit"' ':' unit=QoSMetricUnit
@@ -1378,8 +1378,8 @@ public class AsyncApiSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     unit=QoSMetricUnit (ambiguity) '"dataType"' ':' dataType=QoSMetricType
 	 *     unit=QoSMetricUnit (ambiguity) '"description"' ':' description=AnyString
+	 *     unit=QoSMetricUnit (ambiguity) '"groupedByMessage"' ':' groupedByMessage=AggregationFunction
 	 *     unit=QoSMetricUnit (ambiguity) '"metricType"' ':' metricType=QoSMetricName
 	 *     unit=QoSMetricUnit (ambiguity) '"name"' ':' name=AnyString
 	 *     unit=QoSMetricUnit (ambiguity) '"unit"' ':' unit=QoSMetricUnit
@@ -1394,12 +1394,12 @@ public class AsyncApiSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     dataType=QoSMetricType (ambiguity) '"dataType"' ':' dataType=QoSMetricType
-	 *     dataType=QoSMetricType (ambiguity) '"description"' ':' description=AnyString
-	 *     dataType=QoSMetricType (ambiguity) '"metricType"' ':' metricType=QoSMetricName
-	 *     dataType=QoSMetricType (ambiguity) '"name"' ':' name=AnyString
-	 *     dataType=QoSMetricType (ambiguity) '"unit"' ':' unit=QoSMetricUnit
-	 *     dataType=QoSMetricType (ambiguity) '}' (rule end)
+	 *     groupedByMessage=AggregationFunction (ambiguity) '"description"' ':' description=AnyString
+	 *     groupedByMessage=AggregationFunction (ambiguity) '"groupedByMessage"' ':' groupedByMessage=AggregationFunction
+	 *     groupedByMessage=AggregationFunction (ambiguity) '"metricType"' ':' metricType=QoSMetricName
+	 *     groupedByMessage=AggregationFunction (ambiguity) '"name"' ':' name=AnyString
+	 *     groupedByMessage=AggregationFunction (ambiguity) '"unit"' ':' unit=QoSMetricUnit
+	 *     groupedByMessage=AggregationFunction (ambiguity) '}' (rule end)
 	 */
 	protected void emit_QoSMetric_CommaKeyword_1_4_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

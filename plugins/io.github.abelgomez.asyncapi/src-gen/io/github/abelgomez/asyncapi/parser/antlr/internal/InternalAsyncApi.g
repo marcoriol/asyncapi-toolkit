@@ -6105,9 +6105,9 @@ ruleQoSMetric returns [EObject current=null]
 					{
 						getUnorderedGroupHelper().select(grammarAccess.getQoSMetricAccess().getUnorderedGroup_1(), 4);
 					}
-								({true}?=>(otherlv_18='"dataType"'
+								({true}?=>(otherlv_18='"groupedByMessage"'
 								{
-									newLeafNode(otherlv_18, grammarAccess.getQoSMetricAccess().getDataTypeKeyword_1_4_0());
+									newLeafNode(otherlv_18, grammarAccess.getQoSMetricAccess().getGroupedByMessageKeyword_1_4_0());
 								}
 								otherlv_19=':'
 								{
@@ -6116,18 +6116,18 @@ ruleQoSMetric returns [EObject current=null]
 								(
 									(
 										{
-											newCompositeNode(grammarAccess.getQoSMetricAccess().getDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0());
+											newCompositeNode(grammarAccess.getQoSMetricAccess().getGroupedByMessageAggregationFunctionEnumRuleCall_1_4_2_0());
 										}
-										lv_dataType_20_0=ruleQoSMetricType
+										lv_groupedByMessage_20_0=ruleAggregationFunction
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getQoSMetricRule());
 											}
 											set(
 												$current,
-												"dataType",
-												lv_dataType_20_0,
-												"io.github.abelgomez.asyncapi.AsyncApi.QoSMetricType");
+												"groupedByMessage",
+												lv_groupedByMessage_20_0,
+												"io.github.abelgomez.asyncapi.AsyncApi.AggregationFunction");
 											afterParserOrEnumRuleCall();
 										}
 									)
@@ -7414,41 +7414,6 @@ ruleQoSMetricUnit returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getQoSMetricUnitAccess().getNullEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_4, grammarAccess.getQoSMetricUnitAccess().getNullEnumLiteralDeclaration_4());
-			}
-		)
-	)
-;
-
-// Rule QoSMetricType
-ruleQoSMetricType returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='"real"'
-			{
-				$current = grammarAccess.getQoSMetricTypeAccess().getRealEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getQoSMetricTypeAccess().getRealEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='"integer"'
-			{
-				$current = grammarAccess.getQoSMetricTypeAccess().getIntegerEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getQoSMetricTypeAccess().getIntegerEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='"boolean"'
-			{
-				$current = grammarAccess.getQoSMetricTypeAccess().getBooleanEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getQoSMetricTypeAccess().getBooleanEnumLiteralDeclaration_2());
 			}
 		)
 	)

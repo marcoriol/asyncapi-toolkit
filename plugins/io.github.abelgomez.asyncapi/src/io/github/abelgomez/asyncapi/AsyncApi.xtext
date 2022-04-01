@@ -227,7 +227,7 @@ QoSMetric:
 		& ( '"metricType"' ':' metricType=QoSMetricName ','? )			
 		& ( '"description"' ':' description=AnyString ','? )?
 		& ( '"unit"' ':' unit=QoSMetricUnit ','? )
-		& ( '"dataType"' ':' dataType=QoSMetricType ','? )
+		& ( '"groupedByMessage"' ':' groupedByMessage=AggregationFunction ','? )		
 		) (DerivedQoSMetric)?	// Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
 	'}');
 
@@ -302,13 +302,6 @@ enum QoSMetricUnit:
 	| minutes = '"minutes"'
 	| hours = '"hours"'
 	| null = '"null"'
-;
-
-
-enum QoSMetricType:
-	real = '"real"'
-	| integer = '"integer"'
-	| boolean = '"boolean"'
 ;
 
 enum Operator: 

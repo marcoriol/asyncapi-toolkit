@@ -3571,10 +3571,10 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnitQoSMetricUnitEnumRuleCall_1_3_2_0 = (RuleCall)cUnitAssignment_1_3_2.eContents().get(0);
 		private final Keyword cCommaKeyword_1_3_3 = (Keyword)cGroup_1_3.eContents().get(3);
 		private final Group cGroup_1_4 = (Group)cUnorderedGroup_1.eContents().get(4);
-		private final Keyword cDataTypeKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Keyword cGroupedByMessageKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
 		private final Keyword cColonKeyword_1_4_1 = (Keyword)cGroup_1_4.eContents().get(1);
-		private final Assignment cDataTypeAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
-		private final RuleCall cDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0 = (RuleCall)cDataTypeAssignment_1_4_2.eContents().get(0);
+		private final Assignment cGroupedByMessageAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
+		private final RuleCall cGroupedByMessageAggregationFunctionEnumRuleCall_1_4_2_0 = (RuleCall)cGroupedByMessageAssignment_1_4_2.eContents().get(0);
 		private final Keyword cCommaKeyword_1_4_3 = (Keyword)cGroup_1_4.eContents().get(3);
 		private final RuleCall cDerivedQoSMetricParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
@@ -3582,13 +3582,14 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//QoSMetric:
 		//	'{' ('"name"' ':' name=AnyString ','? & '"metricType"' ':' metricType=QoSMetricName ','? & ('"description"' ':'
 		//	description=AnyString ','?)?
-		//	& '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?) DerivedQoSMetric? // Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
+		//	& '"unit"' ':' unit=QoSMetricUnit ','? & '"groupedByMessage"' ':' groupedByMessage=AggregationFunction ','?)
+		//	DerivedQoSMetric? // Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'{' ('"name"' ':' name=AnyString ','? & '"metricType"' ':' metricType=QoSMetricName ','? & ('"description"' ':'
-		//description=AnyString ','?)? & '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?)
-		//DerivedQoSMetric? // Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
+		//description=AnyString ','?)? & '"unit"' ':' unit=QoSMetricUnit ','? & '"groupedByMessage"' ':'
+		//groupedByMessage=AggregationFunction ','?) DerivedQoSMetric? // Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -3596,7 +3597,8 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
 		
 		//'"name"' ':' name=AnyString ','? & '"metricType"' ':' metricType=QoSMetricName ','? & ('"description"' ':'
-		//description=AnyString ','?)? & '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?
+		//description=AnyString ','?)? & '"unit"' ':' unit=QoSMetricUnit ','? & '"groupedByMessage"' ':'
+		//groupedByMessage=AggregationFunction ','?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 		
 		//'"name"' ':' name=AnyString ','?
@@ -3671,20 +3673,20 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//','?
 		public Keyword getCommaKeyword_1_3_3() { return cCommaKeyword_1_3_3; }
 		
-		//'"dataType"' ':' dataType=QoSMetricType ','?
+		//'"groupedByMessage"' ':' groupedByMessage=AggregationFunction ','?
 		public Group getGroup_1_4() { return cGroup_1_4; }
 		
-		//'"dataType"'
-		public Keyword getDataTypeKeyword_1_4_0() { return cDataTypeKeyword_1_4_0; }
+		//'"groupedByMessage"'
+		public Keyword getGroupedByMessageKeyword_1_4_0() { return cGroupedByMessageKeyword_1_4_0; }
 		
 		//':'
 		public Keyword getColonKeyword_1_4_1() { return cColonKeyword_1_4_1; }
 		
-		//dataType=QoSMetricType
-		public Assignment getDataTypeAssignment_1_4_2() { return cDataTypeAssignment_1_4_2; }
+		//groupedByMessage=AggregationFunction
+		public Assignment getGroupedByMessageAssignment_1_4_2() { return cGroupedByMessageAssignment_1_4_2; }
 		
-		//QoSMetricType
-		public RuleCall getDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0() { return cDataTypeQoSMetricTypeEnumRuleCall_1_4_2_0; }
+		//AggregationFunction
+		public RuleCall getGroupedByMessageAggregationFunctionEnumRuleCall_1_4_2_0() { return cGroupedByMessageAggregationFunctionEnumRuleCall_1_4_2_0; }
 		
 		//','?
 		public Keyword getCommaKeyword_1_4_3() { return cCommaKeyword_1_4_3; }
@@ -4661,43 +4663,6 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		//'"null"'
 		public Keyword getNullNullKeyword_4_0() { return cNullNullKeyword_4_0; }
 	}
-	public class QoSMetricTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.QoSMetricType");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cRealEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cRealRealKeyword_0_0 = (Keyword)cRealEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cIntegerEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cIntegerIntegerKeyword_1_0 = (Keyword)cIntegerEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cBooleanEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cBooleanBooleanKeyword_2_0 = (Keyword)cBooleanEnumLiteralDeclaration_2.eContents().get(0);
-		
-		//enum QoSMetricType:
-		//	real='"real"'
-		//	| integer='"integer"'
-		//	| boolean='"boolean"';
-		public EnumRule getRule() { return rule; }
-		
-		//real='"real"' | integer='"integer"' | boolean='"boolean"'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//real='"real"'
-		public EnumLiteralDeclaration getRealEnumLiteralDeclaration_0() { return cRealEnumLiteralDeclaration_0; }
-		
-		//'"real"'
-		public Keyword getRealRealKeyword_0_0() { return cRealRealKeyword_0_0; }
-		
-		//integer='"integer"'
-		public EnumLiteralDeclaration getIntegerEnumLiteralDeclaration_1() { return cIntegerEnumLiteralDeclaration_1; }
-		
-		//'"integer"'
-		public Keyword getIntegerIntegerKeyword_1_0() { return cIntegerIntegerKeyword_1_0; }
-		
-		//boolean='"boolean"'
-		public EnumLiteralDeclaration getBooleanEnumLiteralDeclaration_2() { return cBooleanEnumLiteralDeclaration_2; }
-		
-		//'"boolean"'
-		public Keyword getBooleanBooleanKeyword_2_0() { return cBooleanBooleanKeyword_2_0; }
-	}
 	public class OperatorElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "io.github.abelgomez.asyncapi.AsyncApi.Operator");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -5006,7 +4971,6 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	private final AggregationFunctionElements eAggregationFunction;
 	private final QoSMetricNameElements eQoSMetricName;
 	private final QoSMetricUnitElements eQoSMetricUnit;
-	private final QoSMetricTypeElements eQoSMetricType;
 	private final OperatorElements eOperator;
 	private final JsonTypeElements eJsonType;
 	private final BooleanElements eBoolean;
@@ -5069,7 +5033,6 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 		this.eAggregationFunction = new AggregationFunctionElements();
 		this.eQoSMetricName = new QoSMetricNameElements();
 		this.eQoSMetricUnit = new QoSMetricUnitElements();
-		this.eQoSMetricType = new QoSMetricTypeElements();
 		this.eOperator = new OperatorElements();
 		this.eJsonType = new JsonTypeElements();
 		this.eBoolean = new BooleanElements();
@@ -5522,7 +5485,8 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	//QoSMetric:
 	//	'{' ('"name"' ':' name=AnyString ','? & '"metricType"' ':' metricType=QoSMetricName ','? & ('"description"' ':'
 	//	description=AnyString ','?)?
-	//	& '"unit"' ':' unit=QoSMetricUnit ','? & '"dataType"' ':' dataType=QoSMetricType ','?) DerivedQoSMetric? // Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
+	//	& '"unit"' ':' unit=QoSMetricUnit ','? & '"groupedByMessage"' ':' groupedByMessage=AggregationFunction ','?)
+	//	DerivedQoSMetric? // Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
 	//	'}';
 	public QoSMetricElements getQoSMetricAccess() {
 		return pQoSMetric;
@@ -5648,18 +5612,6 @@ public class AsyncApiGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getQoSMetricUnitRule() {
 		return getQoSMetricUnitAccess().getRule();
-	}
-	
-	//enum QoSMetricType:
-	//	real='"real"'
-	//	| integer='"integer"'
-	//	| boolean='"boolean"';
-	public QoSMetricTypeElements getQoSMetricTypeAccess() {
-		return eQoSMetricType;
-	}
-	
-	public EnumRule getQoSMetricTypeRule() {
-		return getQoSMetricTypeAccess().getRule();
 	}
 	
 	//enum Operator:

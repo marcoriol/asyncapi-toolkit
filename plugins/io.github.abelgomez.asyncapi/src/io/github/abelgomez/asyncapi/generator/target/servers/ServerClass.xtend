@@ -297,11 +297,8 @@ class MqttServerClass extends ServerClass implements IClass {
 				}
 			}
 			
-			@Override
-			public String getID(){
-				return this.client.getClientId();
-			}
-
+			
+			
 			private MqttClient getClientFor(Class <? extends «operationInterface.name»> operation) throws «serverExceptionClass.name» {
 				MqttClient client = clients.get(operation);
 				if (client == null) {

@@ -3,10 +3,10 @@
  */
 package io.github.abelgomez.asyncapi.asyncApi.impl;
 
+import io.github.abelgomez.asyncapi.asyncApi.AggregationFunction;
 import io.github.abelgomez.asyncapi.asyncApi.AsyncApiPackage;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetric;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricName;
-import io.github.abelgomez.asyncapi.asyncApi.QoSMetricType;
 import io.github.abelgomez.asyncapi.asyncApi.QoSMetricUnit;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getMetricType <em>Metric Type</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getUnit <em>Unit</em>}</li>
- *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link io.github.abelgomez.asyncapi.asyncApi.impl.QoSMetricImpl#getGroupedByMessage <em>Grouped By Message</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,24 +115,24 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
   protected QoSMetricUnit unit = UNIT_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
+   * The default value of the '{@link #getGroupedByMessage() <em>Grouped By Message</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDataType()
+   * @see #getGroupedByMessage()
    * @generated
    * @ordered
    */
-  protected static final QoSMetricType DATA_TYPE_EDEFAULT = QoSMetricType.REAL;
+  protected static final AggregationFunction GROUPED_BY_MESSAGE_EDEFAULT = AggregationFunction.AVG;
 
   /**
-   * The cached value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
+   * The cached value of the '{@link #getGroupedByMessage() <em>Grouped By Message</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDataType()
+   * @see #getGroupedByMessage()
    * @generated
    * @ordered
    */
-  protected QoSMetricType dataType = DATA_TYPE_EDEFAULT;
+  protected AggregationFunction groupedByMessage = GROUPED_BY_MESSAGE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -261,9 +261,9 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
    * @generated
    */
   @Override
-  public QoSMetricType getDataType()
+  public AggregationFunction getGroupedByMessage()
   {
-    return dataType;
+    return groupedByMessage;
   }
 
   /**
@@ -272,12 +272,12 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
    * @generated
    */
   @Override
-  public void setDataType(QoSMetricType newDataType)
+  public void setGroupedByMessage(AggregationFunction newGroupedByMessage)
   {
-    QoSMetricType oldDataType = dataType;
-    dataType = newDataType == null ? DATA_TYPE_EDEFAULT : newDataType;
+    AggregationFunction oldGroupedByMessage = groupedByMessage;
+    groupedByMessage = newGroupedByMessage == null ? GROUPED_BY_MESSAGE_EDEFAULT : newGroupedByMessage;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AsyncApiPackage.QO_SMETRIC__DATA_TYPE, oldDataType, dataType));
+      eNotify(new ENotificationImpl(this, Notification.SET, AsyncApiPackage.QO_SMETRIC__GROUPED_BY_MESSAGE, oldGroupedByMessage, groupedByMessage));
   }
 
   /**
@@ -298,8 +298,8 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
         return getDescription();
       case AsyncApiPackage.QO_SMETRIC__UNIT:
         return getUnit();
-      case AsyncApiPackage.QO_SMETRIC__DATA_TYPE:
-        return getDataType();
+      case AsyncApiPackage.QO_SMETRIC__GROUPED_BY_MESSAGE:
+        return getGroupedByMessage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -326,8 +326,8 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
       case AsyncApiPackage.QO_SMETRIC__UNIT:
         setUnit((QoSMetricUnit)newValue);
         return;
-      case AsyncApiPackage.QO_SMETRIC__DATA_TYPE:
-        setDataType((QoSMetricType)newValue);
+      case AsyncApiPackage.QO_SMETRIC__GROUPED_BY_MESSAGE:
+        setGroupedByMessage((AggregationFunction)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -355,8 +355,8 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
       case AsyncApiPackage.QO_SMETRIC__UNIT:
         setUnit(UNIT_EDEFAULT);
         return;
-      case AsyncApiPackage.QO_SMETRIC__DATA_TYPE:
-        setDataType(DATA_TYPE_EDEFAULT);
+      case AsyncApiPackage.QO_SMETRIC__GROUPED_BY_MESSAGE:
+        setGroupedByMessage(GROUPED_BY_MESSAGE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -380,8 +380,8 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case AsyncApiPackage.QO_SMETRIC__UNIT:
         return unit != UNIT_EDEFAULT;
-      case AsyncApiPackage.QO_SMETRIC__DATA_TYPE:
-        return dataType != DATA_TYPE_EDEFAULT;
+      case AsyncApiPackage.QO_SMETRIC__GROUPED_BY_MESSAGE:
+        return groupedByMessage != GROUPED_BY_MESSAGE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -405,8 +405,8 @@ public class QoSMetricImpl extends AbstractQoSMetricImpl implements QoSMetric
     result.append(description);
     result.append(", unit: ");
     result.append(unit);
-    result.append(", dataType: ");
-    result.append(dataType);
+    result.append(", groupedByMessage: ");
+    result.append(groupedByMessage);
     result.append(')');
     return result.toString();
   }

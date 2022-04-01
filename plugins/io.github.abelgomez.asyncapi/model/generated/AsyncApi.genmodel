@@ -30,11 +30,6 @@
       <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//QoSMetricUnit/hours"/>
       <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//QoSMetricUnit/null"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AsyncApi.ecore#//QoSMetricType">
-      <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//QoSMetricType/real"/>
-      <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//QoSMetricType/integer"/>
-      <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//QoSMetricType/boolean"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="AsyncApi.ecore#//Operator">
       <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//Operator/greater"/>
       <genEnumLiterals ecoreEnumLiteral="AsyncApi.ecore#//Operator/greater_equal"/>
@@ -232,7 +227,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/metricType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/unit"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//QoSMetric/groupedByMessage"/>
     </genClasses>
     <genClasses ecoreClass="AsyncApi.ecore#//DerivedQoSMetric">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AsyncApi.ecore#//DerivedQoSMetric/window"/>
