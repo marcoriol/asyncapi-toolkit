@@ -293,7 +293,10 @@ class ServerInterface extends AbstractType implements IClass {
 			 */
 			void unsubscribe(«channelSubscribeConfigurationInterface.name» config) throws «serverExceptionClass.name»;
 			
-			
+			/** 
+			* Returns the identifier of the client for the given operation
+			*/
+			String getClientIdFor(Class <? extends IOperation> operation);				
 			
 			«receivedClass.serialize»
 			

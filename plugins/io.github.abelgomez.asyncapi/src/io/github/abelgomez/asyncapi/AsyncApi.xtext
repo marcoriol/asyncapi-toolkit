@@ -227,7 +227,7 @@ QoSMetric:
 		& ( '"metricType"' ':' metricType=QoSMetricName ','? )			
 		& ( '"description"' ':' description=AnyString ','? )?
 		& ( '"unit"' ':' unit=QoSMetricUnit ','? )
-		& ( '"groupedByMessage"' ':' groupedByMessage=AggregationFunction ','? )		
+		& ( '"groupedByEvent"' ':' groupedByEvent=Boolean ','? )		
 		) (DerivedQoSMetric)?	// Això està al final de tot, pq Xtext es queixa que no pot haver-hi una unasssigned rule dins d'una unordered list.		
 	'}');
 
@@ -247,7 +247,7 @@ ANDCondition:
   {ANDCondition} '{' '"AND"' ':'  '['  conditions+=BooleanCondition (',' conditions+=BooleanCondition)* ']' '}' ;
   	
 ORCondition:
-  {ANDCondition} '{' '"OR"' ':' '['  conditions+=BooleanCondition (',' conditions+=BooleanCondition)* ']' '}';
+  {ORCondition} '{' '"OR"' ':' '['  conditions+=BooleanCondition (',' conditions+=BooleanCondition)* ']' '}';
 
 AtomicBooleanCondition:
 	{AtomicBooleanCondition}

@@ -14,6 +14,8 @@ import static extension io.github.abelgomez.asyncapi.generator.TransformationCon
 import static extension io.github.abelgomez.asyncapi.generator.utils.StringUtils.*
 import static extension java.text.MessageFormat.*
 
+
+
 abstract class ServerClass extends AbstractType implements IClass {
 
 	protected Server server
@@ -297,7 +299,16 @@ class MqttServerClass extends ServerClass implements IClass {
 				}
 			}
 			
-			
+			@Override
+			public String getClientIdFor(Class<? extends IOperation> operation) {
+				try {
+					return getClientFor(operation).getClientId();
+				} catch (ServerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return null;
+				}
+			}			
 			
 			private MqttClient getClientFor(Class <? extends «operationInterface.name»> operation) throws «serverExceptionClass.name» {
 				MqttClient client = clients.get(operation);

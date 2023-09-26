@@ -260,7 +260,7 @@ class PublishOperationClass extends OperationClass {
 				MetricsDescriptor metricsDescriptor = new MetricsDescriptor(metricNames);
 				try {
 					monitor = new Monitor(metricsDescriptor.getMeasureIntruments());
-					monitor.notifyMessageSent(server.getID(), config.getChannelName(),((«message.transform.name») message).getPayload().getMessageId(), System.currentTimeMillis());	
+					monitor.notifyMessageSent(server.getClientIdFor(config.getOperation()), config.getChannel().getName(),((«message.transform.name») message).getPayload().getMessageId(), System.currentTimeMillis());	
 				} catch (Exception e) {
 					e.printStackTrace(); //TODO: Arreglar gestió d'excepcions.
 				}
@@ -402,7 +402,7 @@ class SubscribeOperationClass extends OperationClass {
 		    	«messageClass.name» message = «messageClass.name».fromJson(new String(received.getData())); 
 
    			    «IF (requiresMonitoring)»
-	    	    monitor.notifyMessageReceived(server.getID(), config.getChannelName(), message.getPayload().getMessageId(), System.currentTimeMillis());
+	    	    monitor.notifyMessageReceived(server.getClientIdFor(config.getOperation()), config.getChannel().getName(), message.getPayload().getMessageId(), System.currentTimeMillis());
 		    	«ENDIF»		    	
 		    	
 		    	«IF parametersClass === null»
