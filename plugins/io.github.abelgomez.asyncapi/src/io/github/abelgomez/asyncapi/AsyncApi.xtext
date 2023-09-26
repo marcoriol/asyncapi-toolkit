@@ -206,11 +206,11 @@ Scope:
 	);
  
 QualifyingCondition:
-	{QualifyingCondition} name=AnyString ':' condition=BooleanCondition  
+	{QualifyingCondition} name=AnyString ':' condition=BooleanExpression  
 ;
 	
 Slo:
-	{Slo} name=AnyString ':' condition=BooleanCondition 
+	{Slo} name=AnyString ':' condition=BooleanExpression 
 ;		
 	
 AbstractQoSMetric:
@@ -240,17 +240,17 @@ QoSMetric:
 	) '}' )
 ;
 
-BooleanCondition:
-	ANDCondition | ORCondition | AtomicBooleanCondition;
+BooleanExpression:
+	AndExpression | OrExpression | ComparisonExpression;
 
-ANDCondition:
-  {ANDCondition} '{' '"AND"' ':'  '['  conditions+=BooleanCondition (',' conditions+=BooleanCondition)* ']' '}' ;
+AndExpression:
+  {AndExpression} '{' '"AND"' ':'  '['  conditions+=BooleanExpression (',' conditions+=BooleanExpression)* ']' '}' ;
   	
-ORCondition:
-  {ORCondition} '{' '"OR"' ':' '['  conditions+=BooleanCondition (',' conditions+=BooleanCondition)* ']' '}';
+OrExpression:
+  {OrExpression} '{' '"OR"' ':' '['  conditions+=BooleanExpression (',' conditions+=BooleanExpression)* ']' '}';
 
-AtomicBooleanCondition:
-	{AtomicBooleanCondition}
+ComparisonExpression:
+	{ComparisonExpression}
 		'{'
 	    '"qosMetric"' ':'  qosMetric = AbstractQoSMetric   ','
 	    '"operator"' ':' operator = Operator ','
